@@ -15,19 +15,19 @@
     "supplier": "Hudson Lofts",
     "venue": "Hudson Lofts",
     "campaign": "Kraft Macaroni & Cheese",
-    "platform": "facebook",
-    "url": "https://www.facebook.com/share/p/1CyVsMz4pF/?mibextid=wwXIfr",
+    "platform": "instagram",
+    "url": "https://www.instagram.com/p/DQcTOGuERGG/?img_index=1",
     "recap_id": "68e7ff6d9e777c60ef57b0c5"
   },
   {
     "brand_api": "Kraft Macaroni & Cheese",
     "brand_display": "Kraft Heinz",
-    "supplier": "Hudson Lofts",
-    "venue": "Hudson Lofts",
+    "supplier": "Campus Apartments",
+    "venue": "Campus Crossings at College Row",
     "campaign": "Kraft Macaroni & Cheese",
     "platform": "instagram",
-    "url": "https://www.instagram.com/p/DQcTOGuERGG/?img_index=1",
-    "recap_id": "68e7ff6d9e777c60ef57b0c5"
+    "url": "https://www.instagram.com/p/DQfGcJNkn17/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+    "recap_id": "68dfecc35600b8da9178fd9a"
   },
   {
     "brand_api": "mio",
@@ -42,22 +42,22 @@
   {
     "brand_api": "mio",
     "brand_display": "Mio",
-    "supplier": "Cardinal Group Management & Advisory LLC-1",
-    "venue": "C2 Collegiate Communities",
-    "campaign": "mio",
-    "platform": "facebook",
-    "url": "https://www.facebook.com/photo/?fbid=1388972263028916&set=a.446366453956173",
-    "recap_id": "689543098159b376fbfb75f0"
-  },
-  {
-    "brand_api": "mio",
-    "brand_display": "Mio",
     "supplier": "F45",
     "venue": "Stretchology",
     "campaign": "mio",
     "platform": "instagram",
     "url": "https://www.instagram.com/reel/DOvvPt1jn4W/?igsh=MXluaHlsazRrbTM4",
     "recap_id": "68af2d769de8568d1591730a"
+  },
+  {
+    "brand_api": "mio",
+    "brand_display": "Mio",
+    "supplier": "Greystar",
+    "venue": "South Duff Apartments",
+    "campaign": "mio",
+    "platform": "facebook",
+    "url": "https://www.facebook.com/photo/?fbid=1377280857739897&set=pcb.1377280904406559",
+    "recap_id": "68951bce557608763066bec0"
   },
   {
     "brand_api": "Peace Tea",
@@ -72,22 +72,22 @@
   {
     "brand_api": "Peace Tea",
     "brand_display": "Peace Tea",
-    "supplier": "Campus Apartments",
-    "venue": "The Apartments at President Park",
-    "campaign": "Peace Tea",
-    "platform": "facebook",
-    "url": "https://www.facebook.com/share/p/17JWjsEf6d/?mibextid=wwXIfr",
-    "recap_id": "68c83df3b919d7db900b402e"
-  },
-  {
-    "brand_api": "Peace Tea",
-    "brand_display": "Peace Tea",
     "supplier": "Tailwind Management, Inc.",
     "venue": "Altitude Baton Rouge",
     "campaign": "Peace Tea",
     "platform": "facebook",
     "url": "https://www.facebook.com/photo?fbid=754240521005640&set=a.159944020435296",
     "recap_id": "68c474c23b51d67b9c7e563b"
+  },
+  {
+    "brand_api": "Peace Tea",
+    "brand_display": "Peace Tea",
+    "supplier": "Asset Living",
+    "venue": "Replay",
+    "campaign": "Peace Tea",
+    "platform": "instagram",
+    "url": "https://www.instagram.com/p/DQCbcyBjhxe/?hl=en",
+    "recap_id": "68d46faed3e1699214802c0f"
   },
   {
     "brand_api": "STARBURST",
@@ -135,19 +135,19 @@
     "supplier": "X3 Sports",
     "venue": "X3 Sports Omnichannel",
     "campaign": "Hero Cosmetics",
-    "platform": "facebook",
-    "url": "https://www.facebook.com/share/p/187qGkBtvK/?mibextid=WC7FNe",
-    "recap_id": "698f755fb3e7d0ef0ea0d0b2"
+    "platform": "instagram",
+    "url": "https://www.instagram.com/p/DXFwTbZH4dx/?img_index=5&igsh=MzRlODBiNWFlZA==",
+    "recap_id": "698f7561b3e7d0ef0ea0d0b3"
   },
   {
     "brand_api": "Hero Cosmetics",
     "brand_display": "Hero",
-    "supplier": "X3 Sports",
-    "venue": "X3 Sports Omnichannel",
+    "supplier": "Tailwind Management, Inc.",
+    "venue": "Tailwind Group Omnichannel",
     "campaign": "Hero Cosmetics",
-    "platform": "instagram",
-    "url": "https://www.instagram.com/p/DXFwTbZH4dx/?img_index=5&igsh=MzRlODBiNWFlZA==",
-    "recap_id": "698f7561b3e7d0ef0ea0d0b3"
+    "platform": "facebook",
+    "url": "https://www.facebook.com/photo?fbid=1369449145204644&set=pcb.1369449188537973",
+    "recap_id": "698e48fdb3e7d0ef0ea0cd3d"
   },
   {
     "brand_api": "Midol",
@@ -282,12 +282,12 @@
   {
     "brand_api": "Dove",
     "brand_display": "Dove",
-    "supplier": "F45",
-    "venue": "Memphis Fitness Co. -- Wolfchase",
+    "supplier": "Cardinal Group Management & Advisory LLC-1",
+    "venue": "The Marshall on 3rd",
     "campaign": "Dove",
-    "platform": "facebook",
-    "url": "https://www.facebook.com/share/p/1H47U3nGC8/",
-    "recap_id": "68d7ada45e30e42cf821d614"
+    "platform": "instagram",
+    "url": "https://www.instagram.com/p/DRTBOcPklud/?igsh=MWFudDFqdXFzYnRzbg==",
+    "recap_id": "68e5ccea8f080346a312f1e5"
   },
   {
     "brand_api": "Alka-Seltzer",
@@ -357,16 +357,6 @@
     "campaign": "GHOST Energy",
     "platform": "instagram",
     "url": "https://www.instagram.com/p/DXhwyLRkhRN/",
-    "recap_id": "69c3fc7b53d069329d2a47b0"
-  },
-  {
-    "brand_api": "GHOST Energy",
-    "brand_display": "Ghost",
-    "supplier": "Cardinal Group Management & Advisory LLC-1",
-    "venue": "Cardinal Group Management & Advisory LLC Omnichannel",
-    "campaign": "GHOST Energy",
-    "platform": "facebook",
-    "url": "https://www.facebook.com/share/p/18USvJE8aq/",
     "recap_id": "69c3fc7b53d069329d2a47b0"
   },
   {
