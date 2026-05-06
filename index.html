@@ -261,11 +261,48 @@
     }
 
     /* Spotlight — campaign info on left, single post card on right */
+    .spotlight-section {
+      padding-top: 32px;
+      padding-bottom: 32px;
+    }
+    .spotlight-block {
+      position: relative;
+      padding: 48px;
+      border-radius: 24px;
+      background:
+        radial-gradient(ellipse at top right, rgba(20,185,214,0.18), transparent 55%),
+        linear-gradient(135deg, rgba(20,185,214,0.06), rgba(20,185,214,0.02));
+      border: 1px solid rgba(20,185,214,0.25);
+      box-shadow: 0 0 40px rgba(20,185,214,0.06);
+    }
     .spotlight-grid {
       display: grid;
       grid-template-columns: 1fr minmax(360px, 400px);
-      gap: 40px;
+      gap: 48px;
       align-items: center;
+    }
+    .spotlight-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      max-width: 480px;
+      margin: 8px 0 28px;
+    }
+    .spotlight-stat {
+      padding: 14px 16px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(20,185,214,0.18);
+      border-radius: 12px;
+    }
+    .spotlight-stat__value {
+      font-size: clamp(1.25rem, 1.5vw + 0.5rem, 1.75rem);
+      font-weight: 900; line-height: 1.05;
+      color: var(--aqua);
+    }
+    .spotlight-stat__label {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--white-60); margin-top: 4px;
     }
     .spotlight-info {
       display: flex; flex-direction: column;
@@ -309,11 +346,14 @@
     }
     .spotlight-post { width: 100%; max-width: 400px; }
     @media (max-width: 800px) {
+      .spotlight-block { padding: 24px; border-radius: 16px; }
       .spotlight-grid {
         grid-template-columns: 1fr;
         gap: 24px;
       }
       .spotlight-post { justify-self: stretch; max-width: none; }
+      .spotlight-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+      .spotlight-stat { padding: 10px 12px; }
     }
     .post-card__embed {
       background: #fff; border-radius: 8px; overflow: hidden;
@@ -427,6 +467,7 @@
           <div class="section__label">Spotlight</div>
           <h2 class="spotlight-info__title">Back to College</h2>
           <p class="spotlight__blurb">Multi-brand sample drop reaching students during move-in.</p>
+          <div class="spotlight-stats"><div class="spotlight-stat"><div class="spotlight-stat__value">5</div><div class="spotlight-stat__label">Brands activated</div></div><div class="spotlight-stat"><div class="spotlight-stat__value">Move-in</div><div class="spotlight-stat__label">Timing</div></div><div class="spotlight-stat"><div class="spotlight-stat__value">Multi-brand</div><div class="spotlight-stat__label">Sample drop</div></div></div>
           <div class="spotlight-info__partner">
             <span class="spotlight-info__partner-label">Partner</span>
             <span class="spotlight-info__partner-name">Rockland Apartments</span>
