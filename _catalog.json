@@ -72,22 +72,22 @@
   {
     "brand_api": "Peace Tea",
     "brand_display": "Peace Tea",
-    "supplier": "Haverkamp Properties",
-    "venue": "The Banks Student Living",
-    "campaign": "Peace Tea",
-    "platform": "instagram",
-    "url": "https://www.instagram.com/p/DPwPHqqCUt1/",
-    "recap_id": "68dd70b06cbfac6a726dbcef"
-  },
-  {
-    "brand_api": "Peace Tea",
-    "brand_display": "Peace Tea",
     "supplier": "Asset Living",
     "venue": "Replay",
     "campaign": "Peace Tea",
     "platform": "instagram",
     "url": "https://www.instagram.com/p/DQCbcyBjhxe/?hl=en",
     "recap_id": "68d46faed3e1699214802c0f"
+  },
+  {
+    "brand_api": "Peace Tea",
+    "brand_display": "Peace Tea",
+    "supplier": "Campus Apartments",
+    "venue": "Campus Crossings on 8th Street",
+    "campaign": "Peace Tea",
+    "platform": "instagram",
+    "url": "https://www.instagram.com/p/DQDDNJkAWuV/?igsh=NG1jZjZiMG9kdHJz",
+    "recap_id": "68c83defb919d7db900b402c"
   },
   {
     "brand_api": "STARBURST",
@@ -242,16 +242,6 @@
   {
     "brand_api": "Amazing Grass",
     "brand_display": "Amazing Grass",
-    "supplier": "Asset Living",
-    "venue": "The Wyatt ",
-    "campaign": "Amazing Grass",
-    "platform": "instagram",
-    "url": "https://www.instagram.com/p/DQVDnn1CW28/",
-    "recap_id": "68e91d1d63153b0a726218de"
-  },
-  {
-    "brand_api": "Amazing Grass",
-    "brand_display": "Amazing Grass",
     "supplier": "Office Evolution",
     "venue": "Office Evolution - Boulder, CO",
     "campaign": "Amazing Grass",
@@ -260,14 +250,14 @@
     "recap_id": "68e8057b9e777c60ef57b0d4"
   },
   {
-    "brand_api": "Dove",
-    "brand_display": "Dove",
-    "supplier": "Zoo Gym",
-    "venue": "Zoo Gym Omnichannel",
-    "campaign": "Dove",
+    "brand_api": "Amazing Grass",
+    "brand_display": "Amazing Grass",
+    "supplier": "Redstone",
+    "venue": "The Hamptons",
+    "campaign": "Amazing Grass",
     "platform": "instagram",
-    "url": "https://www.instagram.com/p/DQ5TD-WDSqU/?fbclid=IwY2xjawORbQFleHRuA2FlbQIxMABicmlkETFBeHptTHF4SW1hMk1DUG9lc3J0YwZhcHBfaWQPNTE0NzcxNTY5MjI4MDYxAAEeL_yhmO42sHrVKb4t5KUhHXWUKUDbScMQhqc992KZoiTDJovmyNwyK1CYISQ_aem_9Z0bkyuWONjj5TaC4OGRuA",
-    "recap_id": "68fb78b886f73f48475b9191"
+    "url": "https://www.instagram.com/p/DPB9K1djyjH/",
+    "recap_id": "68b1e68de2aafa2533cac8cf"
   },
   {
     "brand_api": "Dove",
@@ -288,6 +278,16 @@
     "platform": "instagram",
     "url": "https://www.instagram.com/p/DRTBOcPklud/?igsh=MWFudDFqdXFzYnRzbg==",
     "recap_id": "68e5ccea8f080346a312f1e5"
+  },
+  {
+    "brand_api": "Dove",
+    "brand_display": "Dove",
+    "supplier": "F45",
+    "venue": "Memphis Fitness Co. -- Wolfchase",
+    "campaign": "Dove",
+    "platform": "instagram",
+    "url": "https://www.instagram.com/p/DQhvAVEEdD4/?igsh=dW1mc2twN2o0Zm1m",
+    "recap_id": "68d7ada45e30e42cf821d614"
   },
   {
     "brand_api": "Alka-Seltzer",
@@ -312,12 +312,12 @@
   {
     "brand_api": "Alka-Seltzer",
     "brand_display": "Alka-Seltzer",
-    "supplier": "Preiss",
-    "venue": "The Mill at Auburn",
+    "supplier": "Asset Living",
+    "venue": "Orchard Carrollton",
     "campaign": "Alka-Seltzer",
     "platform": "instagram",
-    "url": "https://www.instagram.com/p/DPhctPJkr0Z/",
-    "recap_id": "688152a63ca8851479c70372"
+    "url": "https://www.instagram.com/p/DPWX6JPjZ3A/?igsh=dWZvOGpjZG9xeDBx",
+    "recap_id": "68813d973ca8851479c702a9"
   },
   {
     "brand_api": "Heineken",
@@ -358,26 +358,6 @@
     "platform": "instagram",
     "url": "https://www.instagram.com/p/DXhwyLRkhRN/",
     "recap_id": "69c3fc7b53d069329d2a47b0"
-  },
-  {
-    "brand_api": "GHOST Energy",
-    "brand_display": "Ghost",
-    "supplier": "Cardinal Group Management & Advisory LLC-1",
-    "venue": "Cardinal Group Management & Advisory LLC-1 Omnichannel",
-    "campaign": "GHOST Energy",
-    "platform": "instagram",
-    "url": "https://www.instagram.com/p/DXpGfBhgBt7/",
-    "recap_id": "69c3fc1153d069329d2a478b"
-  },
-  {
-    "brand_api": "GHOST Energy",
-    "brand_display": "Ghost",
-    "supplier": "Cardinal Group Management & Advisory LLC-1",
-    "venue": "Cardinal Group Omnichannel",
-    "campaign": "GHOST Energy",
-    "platform": "instagram",
-    "url": "https://www.instagram.com/p/DX7DPwCAWbE/",
-    "recap_id": "69c3fbc053d069329d2a4765"
   },
   {
     "brand_api": "Goodles",
