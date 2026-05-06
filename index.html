@@ -106,31 +106,70 @@
       text-shadow: 0 2px 16px rgba(0,0,0,0.5);
     }
 
-    /* Brand strip — jump links between hero and first section */
-    .brand-strip {
+    /* Filter bar */
+    .filters {
       position: relative;
+      padding: 28px 48px 4px;
+    }
+    .filters__inner {
       max-width: 1280px; margin: 0 auto;
-      padding: 28px 48px 8px;
-      display: flex; flex-direction: column; gap: 10px;
+      display: flex; flex-direction: column; gap: 12px;
     }
-    .brand-strip__row {
-      display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;
+    .filter-row {
+      display: flex; align-items: center; gap: 14px;
+      flex-wrap: wrap;
     }
-    .brand-strip__link {
+    .filter-row__label {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--white-60);
+      min-width: 90px;
+    }
+    .filter-row__chips {
+      display: flex; flex-wrap: wrap; gap: 8px;
+    }
+    .filter-chip {
       display: inline-flex; align-items: center;
-      padding: 8px 16px;
-      font-size: 13px; font-weight: 600;
+      padding: 7px 14px;
+      font-family: inherit;
+      font-size: 12px; font-weight: 600;
       color: var(--white-85);
       background: var(--white-08);
       border: 1px solid var(--white-15);
       border-radius: 100px;
-      text-decoration: none; white-space: nowrap;
-      transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+      cursor: pointer; white-space: nowrap;
+      transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
     }
-    .brand-strip__link:hover {
-      background: rgba(20,185,214,0.18);
-      border-color: rgba(20,185,214,0.50);
+    .filter-chip:hover {
+      background: rgba(20,185,214,0.14);
+      border-color: rgba(20,185,214,0.40);
       color: var(--white);
+    }
+    .filter-chip--active {
+      background: rgba(20,185,214,0.22);
+      border-color: rgba(20,185,214,0.65);
+      color: var(--white);
+    }
+    .empty-state {
+      max-width: 1280px; margin: 24px auto;
+      padding: 24px 48px;
+      text-align: center;
+      color: var(--white-60);
+      font-size: 14px;
+    }
+    .empty-state__reset {
+      margin-left: 8px;
+      padding: 6px 14px;
+      font-family: inherit; font-size: 12px; font-weight: 600;
+      color: var(--white);
+      background: rgba(20,185,214,0.22);
+      border: 1px solid rgba(20,185,214,0.55);
+      border-radius: 100px;
+      cursor: pointer;
+    }
+    @media (max-width: 700px) {
+      .filters { padding: 20px 20px 0; }
+      .filter-row { gap: 8px; }
+      .filter-row__label { min-width: 0; flex-basis: 100%; }
     }
 
     /* Brand section */
@@ -285,20 +324,41 @@
     </div>
   </section>
 
-  <nav class="brand-strip" aria-label="Jump to brand">
-    <div class="brand-strip__row"><a class="brand-strip__link" href="#kraft-heinz">Kraft Heinz</a><a class="brand-strip__link" href="#mio">Mio</a><a class="brand-strip__link" href="#ghost">Ghost</a><a class="brand-strip__link" href="#e-l-f">e.l.f.</a><a class="brand-strip__link" href="#peace-tea">Peace Tea</a><a class="brand-strip__link" href="#starburst">Starburst</a><a class="brand-strip__link" href="#hero">Hero</a><a class="brand-strip__link" href="#midol">Midol</a></div>
-    <div class="brand-strip__row"><a class="brand-strip__link" href="#velveeta">Velveeta</a><a class="brand-strip__link" href="#st-k-cold-brew">Stōk Cold Brew</a><a class="brand-strip__link" href="#amazing-grass">Amazing Grass</a><a class="brand-strip__link" href="#dove">Dove</a><a class="brand-strip__link" href="#alka-seltzer">Alka-Seltzer</a><a class="brand-strip__link" href="#heineken">Heineken</a><a class="brand-strip__link" href="#goodles">Goodles</a></div>
-  </nav>
+  <section class="filters" aria-label="Filter posts">
+    <div class="filters__inner">
+
+    <div class="filter-row">
+      <span class="filter-row__label">Brand</span>
+      <div class="filter-row__chips"><button class="filter-chip filter-chip--active" data-group="brand" data-value="all">All</button><button class="filter-chip" data-group="brand" data-value="Kraft Heinz">Kraft Heinz</button><button class="filter-chip" data-group="brand" data-value="Mio">Mio</button><button class="filter-chip" data-group="brand" data-value="Ghost">Ghost</button><button class="filter-chip" data-group="brand" data-value="e.l.f.">e.l.f.</button><button class="filter-chip" data-group="brand" data-value="Peace Tea">Peace Tea</button><button class="filter-chip" data-group="brand" data-value="Starburst">Starburst</button><button class="filter-chip" data-group="brand" data-value="Hero">Hero</button><button class="filter-chip" data-group="brand" data-value="Midol">Midol</button><button class="filter-chip" data-group="brand" data-value="Velveeta">Velveeta</button><button class="filter-chip" data-group="brand" data-value="Stōk Cold Brew">Stōk Cold Brew</button><button class="filter-chip" data-group="brand" data-value="Amazing Grass">Amazing Grass</button><button class="filter-chip" data-group="brand" data-value="Dove">Dove</button><button class="filter-chip" data-group="brand" data-value="Alka-Seltzer">Alka-Seltzer</button><button class="filter-chip" data-group="brand" data-value="Heineken">Heineken</button><button class="filter-chip" data-group="brand" data-value="Goodles">Goodles</button></div>
+    </div>
+    <div class="filter-row">
+      <span class="filter-row__label">Category</span>
+      <div class="filter-row__chips"><button class="filter-chip filter-chip--active" data-group="category" data-value="all">All</button><button class="filter-chip" data-group="category" data-value="Food">Food</button><button class="filter-chip" data-group="category" data-value="Beverages">Beverages</button><button class="filter-chip" data-group="category" data-value="Beauty">Beauty</button><button class="filter-chip" data-group="category" data-value="Wellness">Wellness</button></div>
+    </div>
+    <div class="filter-row">
+      <span class="filter-row__label">Event type</span>
+      <div class="filter-row__chips"><button class="filter-chip filter-chip--active" data-group="event-type" data-value="all">All</button><button class="filter-chip" data-group="event-type" data-value="Fitness Studios">Fitness Studios</button><button class="filter-chip" data-group="event-type" data-value="Student Housing">Student Housing</button><button class="filter-chip" data-group="event-type" data-value="Festivals">Festivals</button><button class="filter-chip" data-group="event-type" data-value="Other">Other</button></div>
+    </div>
+    </div>
+  </section>
+
+  <div id="empty-state" class="empty-state" hidden>
+    No posts match the selected filters. <button class="empty-state__reset">Reset</button>
+  </div>
 
   
   <section class="section brand-section">
     
-    <div class="brand-block" id="kraft-heinz">
+    <div class="brand-block"
+         id="kraft-heinz"
+         data-brand="Kraft Heinz"
+         data-category="Food">
       <div class="section__label">Brand</div>
       <h2 class="section__title">Kraft Heinz</h2>
       <div class="post-grid">
         
-        <article class="post-card">
+        <article class="post-card"
+                 data-event-type="Student Housing">
           <header class="post-card__head">
             <span class="post-card__supplier">Asset Living</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
@@ -313,7 +373,8 @@
                     title="Instagram post by Asset Living"></iframe>
           </div>
         </article>
-        <article class="post-card">
+        <article class="post-card"
+                 data-event-type="Student Housing">
           <header class="post-card__head">
             <span class="post-card__supplier">Hudson Lofts</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
@@ -328,7 +389,8 @@
                     title="Instagram post by Hudson Lofts"></iframe>
           </div>
         </article>
-        <article class="post-card">
+        <article class="post-card"
+                 data-event-type="Student Housing">
           <header class="post-card__head">
             <span class="post-card__supplier">Campus Apartments</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
@@ -348,12 +410,16 @@
   </section>
   <section class="section brand-section">
     
-    <div class="brand-block" id="mio">
+    <div class="brand-block"
+         id="mio"
+         data-brand="Mio"
+         data-category="Beverages">
       <div class="section__label">Brand</div>
       <h2 class="section__title">Mio</h2>
       <div class="post-grid">
         
-        <article class="post-card">
+        <article class="post-card"
+                 data-event-type="Student Housing">
           <header class="post-card__head">
             <span class="post-card__supplier">GMH Communities</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
@@ -368,7 +434,8 @@
                     title="Instagram post by GMH Communities"></iframe>
           </div>
         </article>
-        <article class="post-card">
+        <article class="post-card"
+                 data-event-type="Fitness Studios">
           <header class="post-card__head">
             <span class="post-card__supplier">F45</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
@@ -383,7 +450,8 @@
                     title="Instagram post by F45"></iframe>
           </div>
         </article>
-        <article class="post-card">
+        <article class="post-card"
+                 data-event-type="Student Housing">
           <header class="post-card__head">
             <span class="post-card__supplier">Greystar</span>
             <span class="post-card__platform post-card__platform--fb">Facebook</span>
@@ -403,12 +471,16 @@
   </section>
   <section class="section brand-pair">
     
-    <div class="brand-block" id="ghost">
+    <div class="brand-block"
+         id="ghost"
+         data-brand="Ghost"
+         data-category="Beverages">
       <div class="section__label">Brand</div>
       <h2 class="section__title">Ghost</h2>
       <div class="post-grid">
         
-        <article class="post-card">
+        <article class="post-card"
+                 data-event-type="Student Housing">
           <header class="post-card__head">
             <span class="post-card__supplier">Cardinal Group Management &amp; Advisory LLC-1</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
@@ -426,12 +498,16 @@
       </div>
     </div>
     
-    <div class="brand-block" id="e-l-f">
+    <div class="brand-block"
+         id="e-l-f"
+         data-brand="e.l.f."
+         data-category="Beauty">
       <div class="section__label">Brand</div>
       <h2 class="section__title">e.l.f.</h2>
       <div class="post-grid">
         
-        <article class="post-card">
+        <article class="post-card"
+                 data-event-type="Student Housing">
           <header class="post-card__head">
             <span class="post-card__supplier">Academy Lincoln</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
@@ -451,12 +527,16 @@
   </section>
   <section class="section brand-section">
     
-    <div class="brand-block" id="peace-tea">
+    <div class="brand-block"
+         id="peace-tea"
+         data-brand="Peace Tea"
+         data-category="Beverages">
       <div class="section__label">Brand</div>
       <h2 class="section__title">Peace Tea</h2>
       <div class="post-grid">
         
-        <article class="post-card">
+        <article class="post-card"
+                 data-event-type="Other">
           <header class="post-card__head">
             <span class="post-card__supplier">The Black Sheep</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
@@ -471,7 +551,8 @@
                     title="Instagram post by The Black Sheep"></iframe>
           </div>
         </article>
-        <article class="post-card">
+        <article class="post-card"
+                 data-event-type="Student Housing">
           <header class="post-card__head">
             <span class="post-card__supplier">Tailwind Management, Inc.</span>
             <span class="post-card__platform post-card__platform--fb">Facebook</span>
@@ -486,7 +567,8 @@
                     title="Facebook post by Tailwind Management, Inc."></iframe>
           </div>
         </article>
-        <article class="post-card">
+        <article class="post-card"
+                 data-event-type="Student Housing">
           <header class="post-card__head">
             <span class="post-card__supplier">Asset Living</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
@@ -506,12 +588,16 @@
   </section>
   <section class="section brand-section">
     
-    <div class="brand-block" id="starburst">
+    <div class="brand-block"
+         id="starburst"
+         data-brand="Starburst"
+         data-category="Food">
       <div class="section__label">Brand</div>
       <h2 class="section__title">Starburst</h2>
       <div class="post-grid">
         
-        <article class="post-card">
+        <article class="post-card"
+                 data-event-type="Student Housing">
           <header class="post-card__head">
             <span class="post-card__supplier">Asset Living</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
@@ -526,7 +612,8 @@
                     title="Instagram post by Asset Living"></iframe>
           </div>
         </article>
-        <article class="post-card">
+        <article class="post-card"
+                 data-event-type="Student Housing">
           <header class="post-card__head">
             <span class="post-card__supplier">Cardinal Group Management &amp; Advisory LLC-1</span>
             <span class="post-card__platform post-card__platform--fb">Facebook</span>
@@ -541,7 +628,8 @@
                     title="Facebook post by Cardinal Group Management &amp; Advisory LLC-1"></iframe>
           </div>
         </article>
-        <article class="post-card">
+        <article class="post-card"
+                 data-event-type="Student Housing">
           <header class="post-card__head">
             <span class="post-card__supplier">Campus Apartments</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
@@ -561,12 +649,16 @@
   </section>
   <section class="section brand-section">
     
-    <div class="brand-block" id="hero">
+    <div class="brand-block"
+         id="hero"
+         data-brand="Hero"
+         data-category="Beauty">
       <div class="section__label">Brand</div>
       <h2 class="section__title">Hero</h2>
       <div class="post-grid">
         
-        <article class="post-card">
+        <article class="post-card"
+                 data-event-type="Student Housing">
           <header class="post-card__head">
             <span class="post-card__supplier">Student Quarters</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
@@ -581,7 +673,8 @@
                     title="Instagram post by Student Quarters"></iframe>
           </div>
         </article>
-        <article class="post-card">
+        <article class="post-card"
+                 data-event-type="Fitness Studios">
           <header class="post-card__head">
             <span class="post-card__supplier">X3 Sports</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
@@ -596,7 +689,8 @@
                     title="Instagram post by X3 Sports"></iframe>
           </div>
         </article>
-        <article class="post-card">
+        <article class="post-card"
+                 data-event-type="Student Housing">
           <header class="post-card__head">
             <span class="post-card__supplier">Tailwind Management, Inc.</span>
             <span class="post-card__platform post-card__platform--fb">Facebook</span>
@@ -616,12 +710,16 @@
   </section>
   <section class="section brand-section">
     
-    <div class="brand-block" id="midol">
+    <div class="brand-block"
+         id="midol"
+         data-brand="Midol"
+         data-category="Wellness">
       <div class="section__label">Brand</div>
       <h2 class="section__title">Midol</h2>
       <div class="post-grid">
         
-        <article class="post-card">
+        <article class="post-card"
+                 data-event-type="Fitness Studios">
           <header class="post-card__head">
             <span class="post-card__supplier">Crunch Fitness</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
@@ -636,7 +734,8 @@
                     title="Instagram post by Crunch Fitness"></iframe>
           </div>
         </article>
-        <article class="post-card">
+        <article class="post-card"
+                 data-event-type="Fitness Studios">
           <header class="post-card__head">
             <span class="post-card__supplier">F45</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
@@ -656,12 +755,16 @@
   </section>
   <section class="section brand-section">
     
-    <div class="brand-block" id="velveeta">
+    <div class="brand-block"
+         id="velveeta"
+         data-brand="Velveeta"
+         data-category="Food">
       <div class="section__label">Brand</div>
       <h2 class="section__title">Velveeta</h2>
       <div class="post-grid">
         
-        <article class="post-card">
+        <article class="post-card"
+                 data-event-type="Student Housing">
           <header class="post-card__head">
             <span class="post-card__supplier">Cardinal Group Management &amp; Advisory LLC-1</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
@@ -676,7 +779,8 @@
                     title="Instagram post by Cardinal Group Management &amp; Advisory LLC-1"></iframe>
           </div>
         </article>
-        <article class="post-card">
+        <article class="post-card"
+                 data-event-type="Student Housing">
           <header class="post-card__head">
             <span class="post-card__supplier">Tailwind Management, Inc.</span>
             <span class="post-card__platform post-card__platform--fb">Facebook</span>
@@ -691,7 +795,8 @@
                     title="Facebook post by Tailwind Management, Inc."></iframe>
           </div>
         </article>
-        <article class="post-card">
+        <article class="post-card"
+                 data-event-type="Student Housing">
           <header class="post-card__head">
             <span class="post-card__supplier">Tailwind Management, Inc.</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
@@ -711,12 +816,16 @@
   </section>
   <section class="section brand-section">
     
-    <div class="brand-block" id="st-k-cold-brew">
+    <div class="brand-block"
+         id="st-k-cold-brew"
+         data-brand="Stōk Cold Brew"
+         data-category="Beverages">
       <div class="section__label">Brand</div>
       <h2 class="section__title">Stōk Cold Brew</h2>
       <div class="post-grid">
         
-        <article class="post-card">
+        <article class="post-card"
+                 data-event-type="Student Housing">
           <header class="post-card__head">
             <span class="post-card__supplier">Tailwind Management, Inc.</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
@@ -731,7 +840,8 @@
                     title="Instagram post by Tailwind Management, Inc."></iframe>
           </div>
         </article>
-        <article class="post-card">
+        <article class="post-card"
+                 data-event-type="Student Housing">
           <header class="post-card__head">
             <span class="post-card__supplier">Cardinal Group Management &amp; Advisory LLC-1</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
@@ -746,7 +856,8 @@
                     title="Instagram post by Cardinal Group Management &amp; Advisory LLC-1"></iframe>
           </div>
         </article>
-        <article class="post-card">
+        <article class="post-card"
+                 data-event-type="Other">
           <header class="post-card__head">
             <span class="post-card__supplier">Tailgreeter</span>
             <span class="post-card__platform post-card__platform--fb">Facebook</span>
@@ -766,12 +877,16 @@
   </section>
   <section class="section brand-section">
     
-    <div class="brand-block" id="amazing-grass">
+    <div class="brand-block"
+         id="amazing-grass"
+         data-brand="Amazing Grass"
+         data-category="Wellness">
       <div class="section__label">Brand</div>
       <h2 class="section__title">Amazing Grass</h2>
       <div class="post-grid">
         
-        <article class="post-card">
+        <article class="post-card"
+                 data-event-type="Student Housing">
           <header class="post-card__head">
             <span class="post-card__supplier">Campus Apartments</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
@@ -786,7 +901,8 @@
                     title="Instagram post by Campus Apartments"></iframe>
           </div>
         </article>
-        <article class="post-card">
+        <article class="post-card"
+                 data-event-type="Student Housing">
           <header class="post-card__head">
             <span class="post-card__supplier">Campus Apartments</span>
             <span class="post-card__platform post-card__platform--fb">Facebook</span>
@@ -801,7 +917,8 @@
                     title="Facebook post by Campus Apartments"></iframe>
           </div>
         </article>
-        <article class="post-card">
+        <article class="post-card"
+                 data-event-type="Other">
           <header class="post-card__head">
             <span class="post-card__supplier">Easy Day Sports</span>
             <span class="post-card__platform post-card__platform--fb">Facebook</span>
@@ -821,12 +938,16 @@
   </section>
   <section class="section brand-section">
     
-    <div class="brand-block" id="dove">
+    <div class="brand-block"
+         id="dove"
+         data-brand="Dove"
+         data-category="Beauty">
       <div class="section__label">Brand</div>
       <h2 class="section__title">Dove</h2>
       <div class="post-grid">
         
-        <article class="post-card">
+        <article class="post-card"
+                 data-event-type="Fitness Studios">
           <header class="post-card__head">
             <span class="post-card__supplier">Zoo Gym</span>
             <span class="post-card__platform post-card__platform--fb">Facebook</span>
@@ -841,7 +962,8 @@
                     title="Facebook post by Zoo Gym"></iframe>
           </div>
         </article>
-        <article class="post-card">
+        <article class="post-card"
+                 data-event-type="Student Housing">
           <header class="post-card__head">
             <span class="post-card__supplier">Perimeter Property Management</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
@@ -856,7 +978,8 @@
                     title="Instagram post by Perimeter Property Management"></iframe>
           </div>
         </article>
-        <article class="post-card">
+        <article class="post-card"
+                 data-event-type="Student Housing">
           <header class="post-card__head">
             <span class="post-card__supplier">Cardinal Group Management &amp; Advisory LLC-1</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
@@ -876,12 +999,16 @@
   </section>
   <section class="section brand-section">
     
-    <div class="brand-block" id="alka-seltzer">
+    <div class="brand-block"
+         id="alka-seltzer"
+         data-brand="Alka-Seltzer"
+         data-category="Wellness">
       <div class="section__label">Brand</div>
       <h2 class="section__title">Alka-Seltzer</h2>
       <div class="post-grid">
         
-        <article class="post-card">
+        <article class="post-card"
+                 data-event-type="Student Housing">
           <header class="post-card__head">
             <span class="post-card__supplier">Cardinal Group Management &amp; Advisory LLC-1</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
@@ -896,7 +1023,8 @@
                     title="Instagram post by Cardinal Group Management &amp; Advisory LLC-1"></iframe>
           </div>
         </article>
-        <article class="post-card">
+        <article class="post-card"
+                 data-event-type="Student Housing">
           <header class="post-card__head">
             <span class="post-card__supplier">Tailwind Management, Inc.</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
@@ -911,7 +1039,8 @@
                     title="Instagram post by Tailwind Management, Inc."></iframe>
           </div>
         </article>
-        <article class="post-card">
+        <article class="post-card"
+                 data-event-type="Student Housing">
           <header class="post-card__head">
             <span class="post-card__supplier">Asset Living</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
@@ -931,12 +1060,16 @@
   </section>
   <section class="section brand-section">
     
-    <div class="brand-block" id="heineken">
+    <div class="brand-block"
+         id="heineken"
+         data-brand="Heineken"
+         data-category="Beverages">
       <div class="section__label">Brand</div>
       <h2 class="section__title">Heineken</h2>
       <div class="post-grid">
         
-        <article class="post-card">
+        <article class="post-card"
+                 data-event-type="Festivals">
           <header class="post-card__head">
             <span class="post-card__supplier">Chicago International Film Festival</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
@@ -951,7 +1084,8 @@
                     title="Instagram post by Chicago International Film Festival"></iframe>
           </div>
         </article>
-        <article class="post-card">
+        <article class="post-card"
+                 data-event-type="Festivals">
           <header class="post-card__head">
             <span class="post-card__supplier">Tucson Film Festival</span>
             <span class="post-card__platform post-card__platform--fb">Facebook</span>
@@ -966,7 +1100,8 @@
                     title="Facebook post by Tucson Film Festival"></iframe>
           </div>
         </article>
-        <article class="post-card">
+        <article class="post-card"
+                 data-event-type="Festivals">
           <header class="post-card__head">
             <span class="post-card__supplier">Tucson Film Festival</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
@@ -986,12 +1121,16 @@
   </section>
   <section class="section brand-section">
     
-    <div class="brand-block" id="goodles">
+    <div class="brand-block"
+         id="goodles"
+         data-brand="Goodles"
+         data-category="Food">
       <div class="section__label">Brand</div>
       <h2 class="section__title">Goodles</h2>
       <div class="post-grid">
         
-        <article class="post-card">
+        <article class="post-card"
+                 data-event-type="Fitness Studios">
           <header class="post-card__head">
             <span class="post-card__supplier">Zoo Gym</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
@@ -1006,7 +1145,8 @@
                     title="Instagram post by Zoo Gym"></iframe>
           </div>
         </article>
-        <article class="post-card">
+        <article class="post-card"
+                 data-event-type="Fitness Studios">
           <header class="post-card__head">
             <span class="post-card__supplier">Zoo Gym</span>
             <span class="post-card__platform post-card__platform--fb">Facebook</span>
@@ -1021,7 +1161,8 @@
                     title="Facebook post by Zoo Gym"></iframe>
           </div>
         </article>
-        <article class="post-card">
+        <article class="post-card"
+                 data-event-type="Fitness Studios">
           <header class="post-card__head">
             <span class="post-card__supplier">Brick City Run Club</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
@@ -1046,6 +1187,61 @@
     </div>
     <p class="footer__text">&copy; 2026 Recess. Posts shown are organic social content from partner venues.</p>
   </footer>
+
+  <script>
+    (function () {
+      var state = { brand: null, category: null, "event-type": null };
+      var chips = document.querySelectorAll(".filter-chip");
+      var blocks = document.querySelectorAll(".brand-block");
+      var sections = document.querySelectorAll(".brand-section, .brand-pair");
+      var emptyState = document.getElementById("empty-state");
+
+      chips.forEach(function (chip) {
+        chip.addEventListener("click", function () {
+          var group = chip.dataset.group;
+          var value = chip.dataset.value;
+          state[group] = value === "all" ? null : value;
+          document.querySelectorAll('.filter-chip[data-group="' + group + '"]').forEach(function (c) {
+            var isActive = c.dataset.value === (state[group] === null ? "all" : state[group]);
+            c.classList.toggle("filter-chip--active", isActive);
+          });
+          applyFilters();
+        });
+      });
+
+      function applyFilters() {
+        var anyVisible = false;
+        sections.forEach(function (sec) {
+          var sectionHasVisible = false;
+          sec.querySelectorAll(".brand-block").forEach(function (block) {
+            var brandOk = !state.brand || state.brand === block.dataset.brand;
+            var catOk = !state.category || state.category === block.dataset.category;
+            var blockBaseOk = brandOk && catOk;
+            var anyCardVisible = false;
+            block.querySelectorAll(".post-card").forEach(function (card) {
+              var etOk = !state["event-type"] || state["event-type"] === card.dataset.eventType;
+              var visible = blockBaseOk && etOk;
+              card.style.display = visible ? "" : "none";
+              if (visible) anyCardVisible = true;
+            });
+            block.style.display = blockBaseOk && anyCardVisible ? "" : "none";
+            if (blockBaseOk && anyCardVisible) sectionHasVisible = true;
+          });
+          sec.style.display = sectionHasVisible ? "" : "none";
+          if (sectionHasVisible) anyVisible = true;
+        });
+        emptyState.hidden = anyVisible;
+      }
+
+      document.querySelector(".empty-state__reset").addEventListener("click", function () {
+        state = { brand: null, category: null, "event-type": null };
+        chips.forEach(function (c) {
+          c.classList.toggle("filter-chip--active", c.dataset.value === "all");
+        });
+        applyFilters();
+      });
+    })();
+  </script>
 
 </body>
 </html>
