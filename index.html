@@ -106,47 +106,56 @@
       text-shadow: 0 2px 16px rgba(0,0,0,0.5);
     }
 
-    /* Filter bar */
+    /* Filter bar — three dropdowns in one row */
     .filters {
       position: relative;
       padding: 28px 48px 4px;
     }
     .filters__inner {
       max-width: 1280px; margin: 0 auto;
-      display: flex; flex-direction: column; gap: 12px;
-    }
-    .filter-row {
       display: flex; align-items: center; gap: 14px;
       flex-wrap: wrap;
     }
-    .filter-row__label {
-      font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+    .filter-select-wrap {
+      display: inline-flex; flex-direction: column; gap: 6px;
+      flex: 1 1 200px;
+      min-width: 180px; max-width: 320px;
+    }
+    .filter-select-wrap__label {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
       text-transform: uppercase; color: var(--white-60);
-      min-width: 90px;
     }
-    .filter-row__chips {
-      display: flex; flex-wrap: wrap; gap: 8px;
-    }
-    .filter-chip {
-      display: inline-flex; align-items: center;
-      padding: 7px 14px;
+    .filter-select {
+      appearance: none; -webkit-appearance: none; -moz-appearance: none;
+      width: 100%;
+      padding: 11px 38px 11px 16px;
       font-family: inherit;
-      font-size: 12px; font-weight: 600;
-      color: var(--white-85);
-      background: var(--white-08);
-      border: 1px solid var(--white-15);
-      border-radius: 100px;
-      cursor: pointer; white-space: nowrap;
-      transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
-    }
-    .filter-chip:hover {
-      background: rgba(20,185,214,0.14);
-      border-color: rgba(20,185,214,0.40);
+      font-size: 14px; font-weight: 600;
       color: var(--white);
+      background-color: var(--white-08);
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path fill='none' stroke='%2314B9D6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' d='M1 1l5 5 5-5'/></svg>");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      border: 1px solid var(--white-15);
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
     }
-    .filter-chip--active {
-      background: rgba(20,185,214,0.22);
+    .filter-select:hover {
+      background-color: rgba(20,185,214,0.10);
+      border-color: rgba(20,185,214,0.45);
+    }
+    .filter-select:focus {
+      outline: none;
+      border-color: rgba(20,185,214,0.70);
+      background-color: rgba(20,185,214,0.14);
+    }
+    .filter-select--active {
       border-color: rgba(20,185,214,0.65);
+      background-color: rgba(20,185,214,0.18);
+    }
+    .filter-select option {
+      background: var(--navy-light);
       color: var(--white);
     }
     .empty-state {
@@ -168,8 +177,7 @@
     }
     @media (max-width: 700px) {
       .filters { padding: 20px 20px 0; }
-      .filter-row { gap: 8px; }
-      .filter-row__label { min-width: 0; flex-basis: 100%; }
+      .filter-select-wrap { flex: 1 1 100%; max-width: none; }
     }
 
     /* Brand section */
@@ -327,18 +335,18 @@
   <section class="filters" aria-label="Filter posts">
     <div class="filters__inner">
 
-    <div class="filter-row">
-      <span class="filter-row__label">Brand</span>
-      <div class="filter-row__chips"><button class="filter-chip filter-chip--active" data-group="brand" data-value="all">All</button><button class="filter-chip" data-group="brand" data-value="Kraft Heinz">Kraft Heinz</button><button class="filter-chip" data-group="brand" data-value="Mio">Mio</button><button class="filter-chip" data-group="brand" data-value="Ghost">Ghost</button><button class="filter-chip" data-group="brand" data-value="e.l.f.">e.l.f.</button><button class="filter-chip" data-group="brand" data-value="Peace Tea">Peace Tea</button><button class="filter-chip" data-group="brand" data-value="Starburst">Starburst</button><button class="filter-chip" data-group="brand" data-value="Hero">Hero</button><button class="filter-chip" data-group="brand" data-value="Midol">Midol</button><button class="filter-chip" data-group="brand" data-value="Velveeta">Velveeta</button><button class="filter-chip" data-group="brand" data-value="Stōk Cold Brew">Stōk Cold Brew</button><button class="filter-chip" data-group="brand" data-value="La Colombe">La Colombe</button><button class="filter-chip" data-group="brand" data-value="Amazing Grass">Amazing Grass</button><button class="filter-chip" data-group="brand" data-value="Dove">Dove</button><button class="filter-chip" data-group="brand" data-value="Hawaiian Tropic">Hawaiian Tropic</button><button class="filter-chip" data-group="brand" data-value="Alka-Seltzer">Alka-Seltzer</button><button class="filter-chip" data-group="brand" data-value="Heineken">Heineken</button><button class="filter-chip" data-group="brand" data-value="Mountain Dew">Mountain Dew</button><button class="filter-chip" data-group="brand" data-value="Arm &amp; Hammer">Arm &amp; Hammer</button><button class="filter-chip" data-group="brand" data-value="Goodles">Goodles</button></div>
-    </div>
-    <div class="filter-row">
-      <span class="filter-row__label">Category</span>
-      <div class="filter-row__chips"><button class="filter-chip filter-chip--active" data-group="category" data-value="all">All</button><button class="filter-chip" data-group="category" data-value="Food">Food</button><button class="filter-chip" data-group="category" data-value="Beverages">Beverages</button><button class="filter-chip" data-group="category" data-value="Beauty">Beauty</button><button class="filter-chip" data-group="category" data-value="Wellness">Wellness</button><button class="filter-chip" data-group="category" data-value="Household">Household</button></div>
-    </div>
-    <div class="filter-row">
-      <span class="filter-row__label">Event type</span>
-      <div class="filter-row__chips"><button class="filter-chip filter-chip--active" data-group="event-type" data-value="all">All</button><button class="filter-chip" data-group="event-type" data-value="Fitness Studios">Fitness Studios</button><button class="filter-chip" data-group="event-type" data-value="Student Housing">Student Housing</button><button class="filter-chip" data-group="event-type" data-value="Coworking">Coworking</button><button class="filter-chip" data-group="event-type" data-value="Festivals">Festivals</button><button class="filter-chip" data-group="event-type" data-value="Other">Other</button></div>
-    </div>
+      <label class="filter-select-wrap">
+        <span class="filter-select-wrap__label">Brand</span>
+        <select class="filter-select" data-group="brand"><option value="all">All</option><option value="Kraft Heinz">Kraft Heinz</option><option value="Mio">Mio</option><option value="Ghost">Ghost</option><option value="e.l.f.">e.l.f.</option><option value="Peace Tea">Peace Tea</option><option value="Starburst">Starburst</option><option value="Hero">Hero</option><option value="Midol">Midol</option><option value="Velveeta">Velveeta</option><option value="Stōk Cold Brew">Stōk Cold Brew</option><option value="La Colombe">La Colombe</option><option value="Amazing Grass">Amazing Grass</option><option value="Dove">Dove</option><option value="Hawaiian Tropic">Hawaiian Tropic</option><option value="Alka-Seltzer">Alka-Seltzer</option><option value="Heineken">Heineken</option><option value="Mountain Dew">Mountain Dew</option><option value="Arm &amp; Hammer">Arm &amp; Hammer</option><option value="Goodles">Goodles</option></select>
+      </label>
+      <label class="filter-select-wrap">
+        <span class="filter-select-wrap__label">Category</span>
+        <select class="filter-select" data-group="category"><option value="all">All</option><option value="Food">Food</option><option value="Beverages">Beverages</option><option value="Beauty">Beauty</option><option value="Wellness">Wellness</option><option value="Household">Household</option></select>
+      </label>
+      <label class="filter-select-wrap">
+        <span class="filter-select-wrap__label">Event type</span>
+        <select class="filter-select" data-group="event-type"><option value="all">All</option><option value="Fitness Studios">Fitness Studios</option><option value="Student Housing">Student Housing</option><option value="Coworking">Coworking</option><option value="Festivals">Festivals</option><option value="Other">Other</option></select>
+      </label>
     </div>
   </section>
 
@@ -1705,20 +1713,16 @@
   <script>
     (function () {
       var state = { brand: null, category: null, "event-type": null };
-      var chips = document.querySelectorAll(".filter-chip");
-      var blocks = document.querySelectorAll(".brand-block");
+      var selects = document.querySelectorAll(".filter-select");
       var sections = document.querySelectorAll(".brand-section, .brand-pair");
       var emptyState = document.getElementById("empty-state");
 
-      chips.forEach(function (chip) {
-        chip.addEventListener("click", function () {
-          var group = chip.dataset.group;
-          var value = chip.dataset.value;
+      selects.forEach(function (sel) {
+        sel.addEventListener("change", function () {
+          var group = sel.dataset.group;
+          var value = sel.value;
           state[group] = value === "all" ? null : value;
-          document.querySelectorAll('.filter-chip[data-group="' + group + '"]').forEach(function (c) {
-            var isActive = c.dataset.value === (state[group] === null ? "all" : state[group]);
-            c.classList.toggle("filter-chip--active", isActive);
-          });
+          sel.classList.toggle("filter-select--active", state[group] !== null);
           applyFilters();
         });
       });
@@ -1749,8 +1753,9 @@
 
       document.querySelector(".empty-state__reset").addEventListener("click", function () {
         state = { brand: null, category: null, "event-type": null };
-        chips.forEach(function (c) {
-          c.classList.toggle("filter-chip--active", c.dataset.value === "all");
+        selects.forEach(function (s) {
+          s.value = "all";
+          s.classList.remove("filter-select--active");
         });
         applyFilters();
       });
