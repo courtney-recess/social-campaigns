@@ -324,10 +324,13 @@
       display: block;
       width: 100%;
       max-width: 350px;
-      height: 720px;
+      height: 880px;
       border: 0;
       background: #fff;
-      transition: height 0.2s ease;
+    }
+    /* Spotlight post can run a bit taller than the rest */
+    .spotlight-post .post-card__embed iframe {
+      height: 1080px;
     }
 
     /* Footer */
@@ -2395,36 +2398,6 @@
           s.classList.remove("filter-select--active");
         });
         applyFilters();
-      });
-
-      // Auto-resize embed iframes to their actual content height.
-      // Instagram's /embed/ page posts a MEASURE message with the rendered
-      // height; Facebook's plugin posts a height too. Each iframe sets its
-      // own height based on its contentWindow's message.
-      window.addEventListener("message", function (e) {
-        var data = e.data;
-        if (typeof data === "string") {
-          try { data = JSON.parse(data); } catch (err) { return; }
-        }
-        if (!data || typeof data !== "object") return;
-
-        var h = null;
-        if (data.type === "MEASURE" && data.details && data.details.height) {
-          h = data.details.height;
-        } else if (data.type === "resize" && data.height) {
-          h = data.height;
-        } else if (typeof data.height === "number") {
-          h = data.height;
-        }
-        if (!h || h < 200) return;
-
-        var iframes = document.querySelectorAll(".post-card__embed iframe");
-        for (var i = 0; i < iframes.length; i++) {
-          if (iframes[i].contentWindow === e.source) {
-            iframes[i].style.height = (h + 8) + "px";
-            break;
-          }
-        }
       });
     })();
   </script>
