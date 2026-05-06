@@ -16,6 +16,18 @@
     "brand_display": "Kraft Heinz",
     "category": "Food",
     "event_type": "Student Housing",
+    "supplier": "Tailwind Management, Inc.",
+    "venue": "The Landing Ames",
+    "campaign": "Kraft Macaroni & Cheese",
+    "platform": "facebook",
+    "url": "https://www.facebook.com/photo/?fbid=1379142364220413&set=a.617991793668811",
+    "recap_id": "6883a96318c956639687d3d2"
+  },
+  {
+    "brand_api": "Kraft Macaroni & Cheese",
+    "brand_display": "Kraft Heinz",
+    "category": "Food",
+    "event_type": "Student Housing",
     "supplier": "Hudson Lofts",
     "venue": "Hudson Lofts",
     "campaign": "Kraft Macaroni & Cheese",
@@ -29,11 +41,11 @@
     "category": "Food",
     "event_type": "Student Housing",
     "supplier": "Campus Apartments",
-    "venue": "Campus Crossings at College Row",
+    "venue": "Campus Crossings on Alafaya",
     "campaign": "Kraft Macaroni & Cheese",
-    "platform": "instagram",
-    "url": "https://www.instagram.com/p/DQfGcJNkn17/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-    "recap_id": "68dfecc35600b8da9178fd9a"
+    "platform": "facebook",
+    "url": "https://www.facebook.com/LiveAlafaya/posts/pfbid031MHiMNLsVqybeTWasroHU2kr8ri3EVC5ji5PYpfw5mGgXc69MmASPcbNWwVL2mvpl",
+    "recap_id": "687e4496a179621f932b3688"
   },
   {
     "brand_api": "Kraft Macaroni & Cheese",
@@ -60,18 +72,6 @@
     "recap_id": "68beed483052c26ef675f9b2"
   },
   {
-    "brand_api": "Kraft Macaroni & Cheese",
-    "brand_display": "Kraft Heinz",
-    "category": "Food",
-    "event_type": "Student Housing",
-    "supplier": "Redstone",
-    "venue": "Stadium Crossing",
-    "campaign": "Kraft Macaroni & Cheese",
-    "platform": "instagram",
-    "url": "https://www.instagram.com/p/DR46430Dxlg/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-    "recap_id": "68acf0da930b99aa944742ac"
-  },
-  {
     "brand_api": "mio",
     "brand_display": "Mio",
     "category": "Beverages",
@@ -82,6 +82,18 @@
     "platform": "instagram",
     "url": "https://www.instagram.com/p/DQIRQoLDzve/?img_index=1",
     "recap_id": "68e3cbc7cc0f4551674b53d9"
+  },
+  {
+    "brand_api": "mio",
+    "brand_display": "Mio",
+    "category": "Beverages",
+    "event_type": "Student Housing",
+    "supplier": "Greystar",
+    "venue": "South Duff Apartments",
+    "campaign": "mio",
+    "platform": "facebook",
+    "url": "https://www.facebook.com/photo/?fbid=1377280857739897&set=pcb.1377280904406559",
+    "recap_id": "68951bce557608763066bec0"
   },
   {
     "brand_api": "mio",
@@ -100,12 +112,12 @@
     "brand_display": "Mio",
     "category": "Beverages",
     "event_type": "Student Housing",
-    "supplier": "Greystar",
-    "venue": "South Duff Apartments",
+    "supplier": "Campus Apartments",
+    "venue": "Six11",
     "campaign": "mio",
     "platform": "facebook",
-    "url": "https://www.facebook.com/photo/?fbid=1377280857739897&set=pcb.1377280904406559",
-    "recap_id": "68951bce557608763066bec0"
+    "url": "https://www.facebook.com/photo/?fbid=1385949793533498&set=pb.100063554712780.-2207520000",
+    "recap_id": "688cd6908561f2b0e5d5ec86"
   },
   {
     "brand_api": "mio",
@@ -124,60 +136,12 @@
     "brand_display": "Mio",
     "category": "Beverages",
     "event_type": "Student Housing",
-    "supplier": "Perimeter Property Management",
-    "venue": "LL Sams",
+    "supplier": "Redstone",
+    "venue": "The Haven",
     "campaign": "mio",
-    "platform": "instagram",
-    "url": "https://www.instagram.com/reel/DOi_KQJjksP/?igsh=MTM3cnQwaTVrMTVsbg==",
-    "recap_id": "689b5b7154fea028034fd32a"
-  },
-  {
-    "brand_api": "mio",
-    "brand_display": "Mio",
-    "category": "Beverages",
-    "event_type": "Student Housing",
-    "supplier": "Asset Living",
-    "venue": "The Stack",
-    "campaign": "mio",
-    "platform": "instagram",
-    "url": "https://www.instagram.com/p/DOb0uRlivLp/ ; https://www.instagram.com/p/DOd-1Lsir0f/ ; https://www.instagram.com/p/DOemwzSik5R/",
-    "recap_id": "689a602a9cbed5f90818eee9"
-  },
-  {
-    "brand_api": "Mountain Dew",
-    "brand_display": "Mountain Dew",
-    "category": "Beverages",
-    "event_type": "Student Housing",
-    "supplier": "Tailwind Management, Inc.",
-    "venue": "Tailwind Group Omnichannel",
-    "campaign": "Mountain Dew",
-    "platform": "instagram",
-    "url": "https://www.instagram.com/p/DRSMpnJDSGD/",
-    "recap_id": "69013cc12a5cbe7225b7adac"
-  },
-  {
-    "brand_api": "Mountain Dew",
-    "brand_display": "Mountain Dew",
-    "category": "Beverages",
-    "event_type": "Student Housing",
-    "supplier": "Tailwind Management, Inc.",
-    "venue": "Tailwind Group Omnichannel",
-    "campaign": "Mountain Dew",
-    "platform": "instagram",
-    "url": "https://www.instagram.com/p/DRS9SLnjaV5/?utm_source=ig_web_copy_link&igsh=MWxsOGV1YXhzbnpmag==",
-    "recap_id": "6900d2dd0539961837dcc63c"
-  },
-  {
-    "brand_api": "Mountain Dew",
-    "brand_display": "Mountain Dew",
-    "category": "Beverages",
-    "event_type": "Student Housing",
-    "supplier": "Tailwind Management, Inc.",
-    "venue": "Tailwind Group Omnichannel",
-    "campaign": "Mountain Dew",
-    "platform": "instagram",
-    "url": "https://www.instagram.com/reel/DRDWSQeEtFH/?igsh=MW52OHE1em4yc2Vk",
-    "recap_id": "6900d2b30539961837dcc63b"
+    "platform": "facebook",
+    "url": "https://www.facebook.com/photo?fbid=1330174755784017&set=a.691637662971066",
+    "recap_id": "688cd6668561f2b0e5d5ec6a"
   },
   {
     "brand_api": "GHOST Energy",
@@ -244,24 +208,24 @@
     "brand_display": "Peace Tea",
     "category": "Beverages",
     "event_type": "Student Housing",
-    "supplier": "Campus Apartments",
-    "venue": "TENN Student Living",
+    "supplier": "Cardinal Group Management & Advisory LLC-1",
+    "venue": "The Grove at Auburn",
     "campaign": "Peace Tea",
-    "platform": "instagram",
-    "url": "https://www.instagram.com/tennstudentliving/p/DPMk-XHEVrf/",
-    "recap_id": "68c83df8b919d7db900b4031"
+    "platform": "facebook",
+    "url": "https://www.facebook.com/groveauburn/posts/pfbid02zAPGCUyny7R6WnVn3XrgLMgtCEpmTsDgqL2sZtbvZGcW4njJUk6uuVx1KKBSvXbdl",
+    "recap_id": "68a85afbe828a7a8d601c5f2"
   },
   {
     "brand_api": "Peace Tea",
     "brand_display": "Peace Tea",
     "category": "Beverages",
     "event_type": "Student Housing",
-    "supplier": "Tailwind Management, Inc.",
-    "venue": "Altitude Baton Rouge",
+    "supplier": "Campus Apartments",
+    "venue": "TENN Student Living",
     "campaign": "Peace Tea",
     "platform": "instagram",
-    "url": "https://www.instagram.com/p/DQVD1s8DtHs/",
-    "recap_id": "68c474c23b51d67b9c7e563b"
+    "url": "https://www.instagram.com/tennstudentliving/p/DPMk-XHEVrf/",
+    "recap_id": "68c83df8b919d7db900b4031"
   },
   {
     "brand_api": "Peace Tea",
@@ -316,36 +280,12 @@
     "brand_display": "Starburst",
     "category": "Food",
     "event_type": "Student Housing",
-    "supplier": "Cardinal Group Management & Advisory LLC-1",
-    "venue": "Cardinal Group Omnichannel",
-    "campaign": "STARBURST",
-    "platform": "facebook",
-    "url": "https://www.facebook.com/photo/?fbid=1591417642989506&set=pcb.1591417732989497",
-    "recap_id": "699700b304e4480e0612f9d2"
-  },
-  {
-    "brand_api": "STARBURST",
-    "brand_display": "Starburst",
-    "category": "Food",
-    "event_type": "Student Housing",
-    "supplier": "Asset Living",
-    "venue": "Asset Living Omnichannel",
+    "supplier": "Greystar",
+    "venue": "Greystar Omnichannel",
     "campaign": "STARBURST",
     "platform": "instagram",
-    "url": "https://www.instagram.com/p/DWPfH_hj3lm/?igsh=MTQxenJpem0yejhkNQ==",
-    "recap_id": "69a0b30c9bfdbf968f4ca585"
-  },
-  {
-    "brand_api": "STARBURST",
-    "brand_display": "Starburst",
-    "category": "Food",
-    "event_type": "Student Housing",
-    "supplier": "Cardinal Group Management & Advisory LLC-1",
-    "venue": "Cardinal Group Omnichannel",
-    "campaign": "STARBURST",
-    "platform": "facebook",
-    "url": "https://www.facebook.com/photo?fbid=1548570677273545&set=pcb.1548570703940209",
-    "recap_id": "6997008d04e4480e0612f9c2"
+    "url": "https://www.instagram.com/p/DWCM6uzkVj5/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+    "recap_id": "698e06f6e39299fd7ac65700"
   },
   {
     "brand_api": "Hero Cosmetics",
@@ -363,18 +303,6 @@
     "brand_api": "Hero Cosmetics",
     "brand_display": "Hero",
     "category": "Beauty",
-    "event_type": "Fitness Studios",
-    "supplier": "X3 Sports",
-    "venue": "X3 Sports Omnichannel",
-    "campaign": "Hero Cosmetics",
-    "platform": "instagram",
-    "url": "https://www.instagram.com/p/DXFwTbZH4dx/?img_index=5&igsh=MzRlODBiNWFlZA==",
-    "recap_id": "698f7561b3e7d0ef0ea0d0b3"
-  },
-  {
-    "brand_api": "Hero Cosmetics",
-    "brand_display": "Hero",
-    "category": "Beauty",
     "event_type": "Student Housing",
     "supplier": "Tailwind Management, Inc.",
     "venue": "Tailwind Group Omnichannel",
@@ -387,13 +315,13 @@
     "brand_api": "Hero Cosmetics",
     "brand_display": "Hero",
     "category": "Beauty",
-    "event_type": "Student Housing",
-    "supplier": "Tailwind Management, Inc.",
-    "venue": "Tailwind Group Omnichannel",
+    "event_type": "Fitness Studios",
+    "supplier": "X3 Sports",
+    "venue": "X3 Sports Omnichannel",
     "campaign": "Hero Cosmetics",
     "platform": "instagram",
-    "url": "https://www.instagram.com/p/DXFlxn3lc8p/?utm_source=ig_web_button_share_sheet&igsh=MzRlODBiNWFlZA==",
-    "recap_id": "698e48fdb3e7d0ef0ea0cd3d"
+    "url": "https://www.instagram.com/p/DXFwTbZH4dx/?img_index=5&igsh=MzRlODBiNWFlZA==",
+    "recap_id": "698f7561b3e7d0ef0ea0d0b3"
   },
   {
     "brand_api": "Hero Cosmetics",
@@ -448,30 +376,6 @@
     "brand_display": "Midol",
     "category": "Wellness",
     "event_type": "Fitness Studios",
-    "supplier": "Crunch Fitness",
-    "venue": "Crunch Fitness Omnichannel",
-    "campaign": "Midol",
-    "platform": "facebook",
-    "url": "https://www.facebook.com/photo/?fbid=1319592343534318&set=pb.100064506947494.-2207520000",
-    "recap_id": "69bd470fc815a9a96a4362cc"
-  },
-  {
-    "brand_api": "Midol",
-    "brand_display": "Midol",
-    "category": "Wellness",
-    "event_type": "Fitness Studios",
-    "supplier": "Zoo Gym",
-    "venue": "Zoo Gym Omnichannel",
-    "campaign": "Midol",
-    "platform": "instagram",
-    "url": "https://www.instagram.com/p/DWOlPHsj-o8/?fbclid=IwY2xjawQ4-g9leHRuA2FlbQIxMABicmlkETFUVHI2VlBkVzJxUEdJWW5Fc3J0YwZhcHBfaWQPNTE0NzcxNTY5MjI4MDYxAAEeHVSOWF1701rZRMW4Dvy7-IU_ildLpZKcl9viQNEoIztjlXwytsve5xb7uzE_aem_n18EJcjIBVk-hGOrbQvV2Q",
-    "recap_id": "69a1face5123dcf18f8bbd9e"
-  },
-  {
-    "brand_api": "Midol",
-    "brand_display": "Midol",
-    "category": "Wellness",
-    "event_type": "Fitness Studios",
     "supplier": "Zoo Gym",
     "venue": "Zoo Gym Omnichannel",
     "campaign": "Midol",
@@ -484,12 +388,12 @@
     "brand_display": "Midol",
     "category": "Wellness",
     "event_type": "Fitness Studios",
-    "supplier": "Crunch Fitness",
-    "venue": "Crunch Fitness Omnichannel",
+    "supplier": "Sweat Studio Miami",
+    "venue": "Sweat Studio Miami Omnichannel",
     "campaign": "Midol",
     "platform": "instagram",
-    "url": "https://www.instagram.com/p/DWsMIbLmso8/?img_index=1",
-    "recap_id": "69a1b8a89bfdbf968f4ca7b7"
+    "url": "https://www.instagram.com/p/DXfKjZMppTj/?hl=en",
+    "recap_id": "699dd37aa1d8210d47b40838"
   },
   {
     "brand_api": "Velveeta",
@@ -513,18 +417,6 @@
     "campaign": "Velveeta",
     "platform": "facebook",
     "url": "https://www.facebook.com/photo?fbid=754253287671030&set=a.159944020435296",
-    "recap_id": "68b0728f674e6e4e7d4fd827"
-  },
-  {
-    "brand_api": "Velveeta",
-    "brand_display": "Velveeta",
-    "category": "Food",
-    "event_type": "Student Housing",
-    "supplier": "Tailwind Management, Inc.",
-    "venue": "Altitude Baton Rouge",
-    "campaign": "Velveeta",
-    "platform": "instagram",
-    "url": "https://www.instagram.com/p/DQVG3omDr8u/",
     "recap_id": "68b0728f674e6e4e7d4fd827"
   },
   {
@@ -581,23 +473,11 @@
     "category": "Beverages",
     "event_type": "Student Housing",
     "supplier": "Cardinal Group Management & Advisory LLC-1",
-    "venue": "Alpine Allendale",
-    "campaign": "stokcoldbrew",
-    "platform": "instagram",
-    "url": "https://www.instagram.com/p/DQJ-4wED7M5/",
-    "recap_id": "68c14011b47c97751ce1c4ba"
-  },
-  {
-    "brand_api": "stokcoldbrew",
-    "brand_display": "St\u014dk Cold Brew",
-    "category": "Beverages",
-    "event_type": "Other",
-    "supplier": "Tailgreeter",
-    "venue": "Tailgreeter Venue 25",
+    "venue": "The Helm",
     "campaign": "stokcoldbrew",
     "platform": "facebook",
-    "url": "https://www.facebook.com/Tailgreeter/posts/pfbid02PdG64cnVmN9LUYcS5i33GB2m8wmbZjUjtN9fz1mtTFsPwmuccrX9urQxxroRpZfdl",
-    "recap_id": "68c06f284ee77d2a670207aa"
+    "url": "https://www.facebook.com/photo/?fbid=1470263607865377&set=a.707569057468173",
+    "recap_id": "68c14003b47c97751ce1bd3b"
   },
   {
     "brand_api": "stokcoldbrew",
@@ -612,30 +492,6 @@
     "recap_id": "68c06f284ee77d2a670207aa"
   },
   {
-    "brand_api": "stokcoldbrew",
-    "brand_display": "St\u014dk Cold Brew",
-    "category": "Beverages",
-    "event_type": "Student Housing",
-    "supplier": "Tailwind Management, Inc.",
-    "venue": "The Landing Lawrence",
-    "campaign": "stokcoldbrew",
-    "platform": "instagram",
-    "url": "https://www.instagram.com/p/DP1qZLzDRgh/",
-    "recap_id": "68c474c73b51d67b9c7e563e"
-  },
-  {
-    "brand_api": "stokcoldbrew",
-    "brand_display": "St\u014dk Cold Brew",
-    "category": "Beverages",
-    "event_type": "Student Housing",
-    "supplier": "Cardinal Group Management & Advisory LLC-1",
-    "venue": "The Helm",
-    "campaign": "stokcoldbrew",
-    "platform": "facebook",
-    "url": "https://www.facebook.com/photo/?fbid=1470263607865377&set=a.707569057468173",
-    "recap_id": "68c14003b47c97751ce1bd3b"
-  },
-  {
     "brand_api": "La Colombe Coffee Roasters",
     "brand_display": "La Colombe",
     "category": "Beverages",
@@ -646,18 +502,6 @@
     "platform": "instagram",
     "url": "https://www.instagram.com/p/DSIttsPkRar/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     "recap_id": "691d0269f65b47ed13b6f821"
-  },
-  {
-    "brand_api": "La Colombe Coffee Roasters",
-    "brand_display": "La Colombe",
-    "category": "Beverages",
-    "event_type": "Student Housing",
-    "supplier": "Cardinal Group Management & Advisory LLC-1",
-    "venue": "Paloma University City",
-    "campaign": "La Colombe Coffee Roasters",
-    "platform": "instagram",
-    "url": "https://www.instagram.com/p/DRP6lvOEV6P/?hl=en&img_index=1",
-    "recap_id": "68f0262206b14ad5b8119ac6"
   },
   {
     "brand_api": "La Colombe Coffee Roasters",
@@ -711,18 +555,6 @@
     "brand_api": "Amazing Grass",
     "brand_display": "Amazing Grass",
     "category": "Wellness",
-    "event_type": "Student Housing",
-    "supplier": "Campus Apartments",
-    "venue": "Axis Student Living",
-    "campaign": "Amazing Grass",
-    "platform": "facebook",
-    "url": "https://www.facebook.com/AxisStatesboro/posts/pfbid0KRGyuSFj52xoate6Pw5wUmP92GE9mAY6SaCrJiKVnyEWsb9p2WG74B39zckTVY6yl",
-    "recap_id": "68b1c1e5e2aafa2533cac65d"
-  },
-  {
-    "brand_api": "Amazing Grass",
-    "brand_display": "Amazing Grass",
-    "category": "Wellness",
     "event_type": "Other",
     "supplier": "Easy Day Sports",
     "venue": "Margaritaville Resort Orlando",
@@ -768,16 +600,16 @@
     "recap_id": "68b1bf21e2aafa2533cac656"
   },
   {
-    "brand_api": "Dove",
-    "brand_display": "Dove",
-    "category": "Beauty",
+    "brand_api": "Amazing Grass",
+    "brand_display": "Amazing Grass",
+    "category": "Wellness",
     "event_type": "Fitness Studios",
-    "supplier": "Zoo Gym",
-    "venue": "Zoo Gym Omnichannel",
-    "campaign": "Dove",
-    "platform": "facebook",
-    "url": "https://www.facebook.com/photo/?fbid=1427092039422391&set=a.407925248005747",
-    "recap_id": "68fb78b886f73f48475b9191"
+    "supplier": "barre3",
+    "venue": "barre3 Circle C",
+    "campaign": "Amazing Grass",
+    "platform": "instagram",
+    "url": "https://www.instagram.com/p/DPDHyI2DWIw/?igsh=MWx2eTZxcjJrdTBlZQ==",
+    "recap_id": "68b1bf1ce2aafa2533cac655"
   },
   {
     "brand_api": "Dove",
@@ -790,6 +622,18 @@
     "platform": "instagram",
     "url": "https://www.instagram.com/p/DRDRCEIgTkM/?igsh=enNzaDViOG54czl6",
     "recap_id": "68e7a8b19e777c60ef57aec8"
+  },
+  {
+    "brand_api": "Dove",
+    "brand_display": "Dove",
+    "category": "Beauty",
+    "event_type": "Fitness Studios",
+    "supplier": "Zoo Gym",
+    "venue": "Zoo Gym Omnichannel",
+    "campaign": "Dove",
+    "platform": "facebook",
+    "url": "https://www.facebook.com/photo/?fbid=1427092039422391&set=a.407925248005747",
+    "recap_id": "68fb78b886f73f48475b9191"
   },
   {
     "brand_api": "Dove",
@@ -809,11 +653,11 @@
     "category": "Beauty",
     "event_type": "Fitness Studios",
     "supplier": "F45",
-    "venue": "Memphis Fitness Co. -- Wolfchase",
+    "venue": "F45 Staunton",
     "campaign": "Dove",
-    "platform": "instagram",
-    "url": "https://www.instagram.com/p/DQhvAVEEdD4/?igsh=dW1mc2twN2o0Zm1m",
-    "recap_id": "68d7ada45e30e42cf821d614"
+    "platform": "facebook",
+    "url": "https://www.facebook.com/100062145889700/posts/pfbid0XvnWrfUaVDGemmgSP499pym7N8tzKdXWz1eda7aCYaooxTFCXygCWLgxVXuVky4Ml/",
+    "recap_id": "68d70f5a5e30e42cf821d5f7"
   },
   {
     "brand_api": "Dove",
@@ -864,42 +708,6 @@
     "recap_id": "687fd73ab06061c50a60cb65"
   },
   {
-    "brand_api": "Hawaiian Tropic",
-    "brand_display": "Hawaiian Tropic",
-    "category": "Beauty",
-    "event_type": "Student Housing",
-    "supplier": "Campus Apartments",
-    "venue": "Campus Crossings on Alafaya",
-    "campaign": "Hawaiian Tropic",
-    "platform": "instagram",
-    "url": "https://www.instagram.com/p/DNyEG9LZhLs/?fbclid=IwY2xjawMi4cRleHRuA2FlbQIxMABicmlkETFVaXhBS3ZKMWpjVzZqTVBQAR5SZAWhinLo-fHI9MyN21ip3zAe7k9-kD2X8pVcO-7m9oq6_WMesuSsQ5lHsw_aem_XzfaAH9HXRxsr0t5QavOhg",
-    "recap_id": "687fd73ab06061c50a60cb65"
-  },
-  {
-    "brand_api": "Hawaiian Tropic",
-    "brand_display": "Hawaiian Tropic",
-    "category": "Beauty",
-    "event_type": "Student Housing",
-    "supplier": "Campus Apartments",
-    "venue": "114 Earle",
-    "campaign": "Hawaiian Tropic",
-    "platform": "instagram",
-    "url": "https://www.instagram.com/p/DN3rSpUYgz0/?fbclid=IwY2xjawMlIAxleHRuA2FlbQIxMABicmlkETFsNXZEeXptd21hbG9McDlPAR7s-pJFdIV6QTZeygzXBcwyAqAPTMgoYnUOrgmfvMam14vU1QUUmPy0OFbyjQ_aem_1vDl9YOvLh-faRWvHQghyw",
-    "recap_id": "687fd738b06061c50a60cb64"
-  },
-  {
-    "brand_api": "Hawaiian Tropic",
-    "brand_display": "Hawaiian Tropic",
-    "category": "Beauty",
-    "event_type": "Student Housing",
-    "supplier": "Campus Apartments",
-    "venue": "114 Earle",
-    "campaign": "Hawaiian Tropic",
-    "platform": "facebook",
-    "url": "https://www.facebook.com/photo?fbid=1196196059190910&set=a.493068756170314",
-    "recap_id": "687fd738b06061c50a60cb64"
-  },
-  {
     "brand_api": "Alka-Seltzer",
     "brand_display": "Alka-Seltzer",
     "category": "Wellness",
@@ -936,42 +744,6 @@
     "recap_id": "68813d973ca8851479c702a9"
   },
   {
-    "brand_api": "Alka-Seltzer",
-    "brand_display": "Alka-Seltzer",
-    "category": "Wellness",
-    "event_type": "Student Housing",
-    "supplier": "Cardinal Group Management & Advisory LLC-1",
-    "venue": "Copper Beech at Harrisonburg",
-    "campaign": "Alka-Seltzer",
-    "platform": "instagram",
-    "url": "https://www.instagram.com/p/DP6ptnkDrhd/?utm_source=ig_web_copy_link",
-    "recap_id": "68a8594fe828a7a8d601c56d"
-  },
-  {
-    "brand_api": "Alka-Seltzer",
-    "brand_display": "Alka-Seltzer",
-    "category": "Wellness",
-    "event_type": "Student Housing",
-    "supplier": "Cardinal Group Management & Advisory LLC-1",
-    "venue": "Lapis",
-    "campaign": "Alka-Seltzer",
-    "platform": "instagram",
-    "url": "https://www.instagram.com/p/DPW1QGKkY-X/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-    "recap_id": "68a8593ee828a7a8d601c564"
-  },
-  {
-    "brand_api": "Alka-Seltzer",
-    "brand_display": "Alka-Seltzer",
-    "category": "Wellness",
-    "event_type": "Student Housing",
-    "supplier": "Cardinal Group Management & Advisory LLC-1",
-    "venue": "Stadium View Jonesboro",
-    "campaign": "Alka-Seltzer",
-    "platform": "instagram",
-    "url": "https://www.instagram.com/p/DPhJ06zCfXp/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-    "recap_id": "688c2b81bb7db69e0f9244f2"
-  },
-  {
     "brand_api": "Heineken",
     "brand_display": "Heineken",
     "category": "Beverages",
@@ -999,30 +771,6 @@
     "brand_api": "Heineken",
     "brand_display": "Heineken",
     "category": "Beverages",
-    "event_type": "Festivals",
-    "supplier": "Tucson Film Festival",
-    "venue": "The Screening Room",
-    "campaign": "Heineken",
-    "platform": "instagram",
-    "url": "https://www.instagram.com/p/DPtxKCBgbI8/",
-    "recap_id": "68cab916506392c70f65921c"
-  },
-  {
-    "brand_api": "Heineken",
-    "brand_display": "Heineken",
-    "category": "Beverages",
-    "event_type": "Other",
-    "supplier": "Shendo Cat Racing",
-    "venue": "Chino Valley Aquatic Center",
-    "campaign": "Heineken",
-    "platform": "facebook",
-    "url": "https://www.facebook.com/photo.php?fbid=1290323423060801&set=pb.100062494674794.-2207520000&type=3",
-    "recap_id": "68cab916506392c70f659217"
-  },
-  {
-    "brand_api": "Heineken",
-    "brand_display": "Heineken",
-    "category": "Beverages",
     "event_type": "Other",
     "supplier": "Shendo Cat Racing",
     "venue": "Chino Valley Aquatic Center",
@@ -1030,6 +778,18 @@
     "platform": "instagram",
     "url": "https://www.instagram.com/p/DOXWmndEVbq/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
     "recap_id": "68cab916506392c70f659217"
+  },
+  {
+    "brand_api": "Mountain Dew",
+    "brand_display": "Mountain Dew",
+    "category": "Beverages",
+    "event_type": "Student Housing",
+    "supplier": "Tailwind Management, Inc.",
+    "venue": "Tailwind Group Omnichannel",
+    "campaign": "Mountain Dew",
+    "platform": "instagram",
+    "url": "https://www.instagram.com/p/DRSMpnJDSGD/",
+    "recap_id": "69013cc12a5cbe7225b7adac"
   },
   {
     "brand_api": "Arm & Hammer",
@@ -1044,18 +804,6 @@
     "recap_id": "68c466733b51d67b9c7e55c8"
   },
   {
-    "brand_api": "Arm & Hammer",
-    "brand_display": "Arm & Hammer",
-    "category": "Household",
-    "event_type": "Other",
-    "supplier": "Andretti Indoor Karting & Games",
-    "venue": "Andretti Indoor Karting & Games- San Antonio, TX",
-    "campaign": "Arm & Hammer",
-    "platform": "instagram",
-    "url": "https://www.instagram.com/p/DQmwG8EDpx_/?img_index=2",
-    "recap_id": "68c4652f3b51d67b9c7e55c7"
-  },
-  {
     "brand_api": "Goodles",
     "brand_display": "Goodles",
     "category": "Food",
@@ -1065,18 +813,6 @@
     "campaign": "Goodles",
     "platform": "instagram",
     "url": "https://www.instagram.com/p/DSVSMhkEhS1/",
-    "recap_id": "690b6f99f61ec608de32041a"
-  },
-  {
-    "brand_api": "Goodles",
-    "brand_display": "Goodles",
-    "category": "Food",
-    "event_type": "Fitness Studios",
-    "supplier": "Zoo Gym",
-    "venue": "Zoo Gym Omnichannel",
-    "campaign": "Goodles",
-    "platform": "facebook",
-    "url": "https://www.facebook.com/photo?fbid=1450345013763760&set=a.407925248005747",
     "recap_id": "690b6f99f61ec608de32041a"
   },
   {
