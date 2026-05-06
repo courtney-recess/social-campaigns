@@ -304,6 +304,28 @@
       letter-spacing: 0.12em; text-transform: uppercase;
       color: var(--white-60); margin-top: 4px;
     }
+    .spotlight-secondary {
+      margin: 0 0 24px;
+      max-width: 360px;
+    }
+    .spotlight-secondary__label {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--white-60); margin-bottom: 8px;
+    }
+    .spotlight-secondary__frame {
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .spotlight-secondary__frame iframe {
+      display: block;
+      width: 100%;
+      max-width: 350px;
+      height: 540px;
+      border: 0;
+      background: #fff;
+    }
     .spotlight-info {
       display: flex; flex-direction: column;
     }
@@ -467,10 +489,23 @@
           <div class="section__label">Spotlight</div>
           <h2 class="spotlight-info__title">Back to College</h2>
           <p class="spotlight__blurb">Multi-brand sample drop reaching students during move-in.</p>
+          
+          <div class="spotlight-secondary">
+            <div class="spotlight-secondary__label">Also shared on Facebook</div>
+            <div class="spotlight-secondary__frame">
+              <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FOneOn4th%2Fposts%2F949062673899165&amp;show_text=true&amp;width=350"
+                      loading="lazy"
+                      frameborder="0"
+                      scrolling="no"
+                      allowtransparency="true"
+                      allow="encrypted-media"
+                      title="Facebook post by partner"></iframe>
+            </div>
+          </div>
           <div class="spotlight-stats"><div class="spotlight-stat"><div class="spotlight-stat__value">5</div><div class="spotlight-stat__label">Brands activated</div></div><div class="spotlight-stat"><div class="spotlight-stat__value">Move-in</div><div class="spotlight-stat__label">Timing</div></div><div class="spotlight-stat"><div class="spotlight-stat__value">Multi-brand</div><div class="spotlight-stat__label">Sample drop</div></div></div>
           <div class="spotlight-info__partner">
-            <span class="spotlight-info__partner-label">Partner</span>
-            <span class="spotlight-info__partner-name">Rockland Apartments</span>
+            <span class="spotlight-info__partner-label">Event type</span>
+            <span class="spotlight-info__partner-name">Student Housing</span>
           </div>
           <div class="spotlight-info__brands-label">Featured brands</div>
           <div class="spotlight__chips"><span class="spotlight__chip">Kraft Heinz</span><span class="spotlight__chip">Emergen-C</span><span class="spotlight__chip">Oreo</span><span class="spotlight__chip">Uber</span><span class="spotlight__chip">Uber Eats</span></div>
