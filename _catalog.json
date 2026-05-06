@@ -350,16 +350,6 @@
     "recap_id": "68cab916506392c70f65921c"
   },
   {
-    "brand_api": "GHOST Energy",
-    "brand_display": "Ghost",
-    "supplier": "Cardinal Group Management & Advisory LLC-1",
-    "venue": "Cardinal Group Management & Advisory LLC Omnichannel",
-    "campaign": "GHOST Energy",
-    "platform": "instagram",
-    "url": "https://www.instagram.com/p/DXhwyLRkhRN/",
-    "recap_id": "69c3fc7b53d069329d2a47b0"
-  },
-  {
     "brand_api": "Goodles",
     "brand_display": "Goodles",
     "supplier": "Zoo Gym",
@@ -388,5 +378,25 @@
     "platform": "instagram",
     "url": "https://www.instagram.com/reel/DPKCZ1rCYpN/?igsh=MW14anRtcjZzZGVyaw==",
     "recap_id": "68af6bae9de8568d159173ee"
+  },
+  {
+    "brand_api": "GHOST Energy",
+    "brand_display": "Ghost",
+    "supplier": "Cardinal Group Management & Advisory LLC-1",
+    "venue": "Cardinal Group Management & Advisory LLC Omnichannel",
+    "campaign": "GHOST Energy",
+    "platform": "instagram",
+    "url": "https://www.instagram.com/p/DXhwyLRkhRN/",
+    "recap_id": "69c3fc7b53d069329d2a47b0"
+  },
+  {
+    "brand_api": "__manual_elf",
+    "brand_display": "e.l.f.",
+    "supplier": "Academy Lincoln",
+    "venue": "",
+    "campaign": "",
+    "platform": "instagram",
+    "url": "https://www.instagram.com/academylincoln/p/DYAM2POFox5/",
+    "recap_id": null
   }
 ]

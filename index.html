@@ -162,6 +162,25 @@
       gap: 20px;
       align-items: start;
     }
+
+    /* Brand block (used solo or inside .brand-pair) */
+    .brand-block {
+      display: flex; flex-direction: column;
+    }
+    .brand-block .post-grid { margin-top: 8px; }
+
+    /* Pair: two single-post brands side by side, each with own header */
+    .brand-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+    .brand-pair .post-grid {
+      grid-template-columns: 1fr;
+    }
+    @media (max-width: 800px) {
+      .brand-pair { grid-template-columns: 1fr; gap: 32px; }
+    }
     .post-card {
       background: var(--navy-light);
       border: 1px solid var(--white-08);
@@ -267,16 +286,18 @@
   </section>
 
   <nav class="brand-strip" aria-label="Jump to brand">
-    <div class="brand-strip__row"><a class="brand-strip__link" href="#kraft-heinz">Kraft Heinz</a><a class="brand-strip__link" href="#mio">Mio</a><a class="brand-strip__link" href="#peace-tea">Peace Tea</a><a class="brand-strip__link" href="#starburst">Starburst</a><a class="brand-strip__link" href="#hero">Hero</a><a class="brand-strip__link" href="#midol">Midol</a><a class="brand-strip__link" href="#velveeta">Velveeta</a></div>
-    <div class="brand-strip__row"><a class="brand-strip__link" href="#st-k-cold-brew">Stōk Cold Brew</a><a class="brand-strip__link" href="#amazing-grass">Amazing Grass</a><a class="brand-strip__link" href="#dove">Dove</a><a class="brand-strip__link" href="#alka-seltzer">Alka-Seltzer</a><a class="brand-strip__link" href="#heineken">Heineken</a><a class="brand-strip__link" href="#ghost">Ghost</a><a class="brand-strip__link" href="#goodles">Goodles</a></div>
+    <div class="brand-strip__row"><a class="brand-strip__link" href="#kraft-heinz">Kraft Heinz</a><a class="brand-strip__link" href="#mio">Mio</a><a class="brand-strip__link" href="#peace-tea">Peace Tea</a><a class="brand-strip__link" href="#starburst">Starburst</a><a class="brand-strip__link" href="#hero">Hero</a><a class="brand-strip__link" href="#midol">Midol</a><a class="brand-strip__link" href="#velveeta">Velveeta</a><a class="brand-strip__link" href="#st-k-cold-brew">Stōk Cold Brew</a></div>
+    <div class="brand-strip__row"><a class="brand-strip__link" href="#amazing-grass">Amazing Grass</a><a class="brand-strip__link" href="#dove">Dove</a><a class="brand-strip__link" href="#alka-seltzer">Alka-Seltzer</a><a class="brand-strip__link" href="#heineken">Heineken</a><a class="brand-strip__link" href="#goodles">Goodles</a><a class="brand-strip__link" href="#ghost">Ghost</a><a class="brand-strip__link" href="#e-l-f">e.l.f.</a></div>
   </nav>
 
   
-  <section class="section brand-section" id="kraft-heinz">
-    <div class="section__label">Brand</div>
-    <h2 class="section__title">Kraft Heinz</h2>
-    <div class="post-grid">
-      
+  <section class="section brand-section">
+    
+    <div class="brand-block" id="kraft-heinz">
+      <div class="section__label">Brand</div>
+      <h2 class="section__title">Kraft Heinz</h2>
+      <div class="post-grid">
+        
         <article class="post-card">
           <header class="post-card__head">
             <span class="post-card__supplier">Asset Living</span>
@@ -322,13 +343,16 @@
                     title="Instagram post by Campus Apartments"></iframe>
           </div>
         </article>
+      </div>
     </div>
   </section>
-  <section class="section brand-section" id="mio">
-    <div class="section__label">Brand</div>
-    <h2 class="section__title">Mio</h2>
-    <div class="post-grid">
-      
+  <section class="section brand-section">
+    
+    <div class="brand-block" id="mio">
+      <div class="section__label">Brand</div>
+      <h2 class="section__title">Mio</h2>
+      <div class="post-grid">
+        
         <article class="post-card">
           <header class="post-card__head">
             <span class="post-card__supplier">GMH Communities</span>
@@ -374,13 +398,16 @@
                     title="Facebook post by Greystar"></iframe>
           </div>
         </article>
+      </div>
     </div>
   </section>
-  <section class="section brand-section" id="peace-tea">
-    <div class="section__label">Brand</div>
-    <h2 class="section__title">Peace Tea</h2>
-    <div class="post-grid">
-      
+  <section class="section brand-section">
+    
+    <div class="brand-block" id="peace-tea">
+      <div class="section__label">Brand</div>
+      <h2 class="section__title">Peace Tea</h2>
+      <div class="post-grid">
+        
         <article class="post-card">
           <header class="post-card__head">
             <span class="post-card__supplier">The Black Sheep</span>
@@ -426,13 +453,16 @@
                     title="Instagram post by Asset Living"></iframe>
           </div>
         </article>
+      </div>
     </div>
   </section>
-  <section class="section brand-section" id="starburst">
-    <div class="section__label">Brand</div>
-    <h2 class="section__title">Starburst</h2>
-    <div class="post-grid">
-      
+  <section class="section brand-section">
+    
+    <div class="brand-block" id="starburst">
+      <div class="section__label">Brand</div>
+      <h2 class="section__title">Starburst</h2>
+      <div class="post-grid">
+        
         <article class="post-card">
           <header class="post-card__head">
             <span class="post-card__supplier">Asset Living</span>
@@ -478,13 +508,16 @@
                     title="Instagram post by Campus Apartments"></iframe>
           </div>
         </article>
+      </div>
     </div>
   </section>
-  <section class="section brand-section" id="hero">
-    <div class="section__label">Brand</div>
-    <h2 class="section__title">Hero</h2>
-    <div class="post-grid">
-      
+  <section class="section brand-section">
+    
+    <div class="brand-block" id="hero">
+      <div class="section__label">Brand</div>
+      <h2 class="section__title">Hero</h2>
+      <div class="post-grid">
+        
         <article class="post-card">
           <header class="post-card__head">
             <span class="post-card__supplier">Student Quarters</span>
@@ -530,13 +563,16 @@
                     title="Facebook post by Tailwind Management, Inc."></iframe>
           </div>
         </article>
+      </div>
     </div>
   </section>
-  <section class="section brand-section" id="midol">
-    <div class="section__label">Brand</div>
-    <h2 class="section__title">Midol</h2>
-    <div class="post-grid">
-      
+  <section class="section brand-section">
+    
+    <div class="brand-block" id="midol">
+      <div class="section__label">Brand</div>
+      <h2 class="section__title">Midol</h2>
+      <div class="post-grid">
+        
         <article class="post-card">
           <header class="post-card__head">
             <span class="post-card__supplier">Crunch Fitness</span>
@@ -567,13 +603,16 @@
                     title="Instagram post by F45"></iframe>
           </div>
         </article>
+      </div>
     </div>
   </section>
-  <section class="section brand-section" id="velveeta">
-    <div class="section__label">Brand</div>
-    <h2 class="section__title">Velveeta</h2>
-    <div class="post-grid">
-      
+  <section class="section brand-section">
+    
+    <div class="brand-block" id="velveeta">
+      <div class="section__label">Brand</div>
+      <h2 class="section__title">Velveeta</h2>
+      <div class="post-grid">
+        
         <article class="post-card">
           <header class="post-card__head">
             <span class="post-card__supplier">Cardinal Group Management &amp; Advisory LLC-1</span>
@@ -619,13 +658,16 @@
                     title="Instagram post by Tailwind Management, Inc."></iframe>
           </div>
         </article>
+      </div>
     </div>
   </section>
-  <section class="section brand-section" id="st-k-cold-brew">
-    <div class="section__label">Brand</div>
-    <h2 class="section__title">Stōk Cold Brew</h2>
-    <div class="post-grid">
-      
+  <section class="section brand-section">
+    
+    <div class="brand-block" id="st-k-cold-brew">
+      <div class="section__label">Brand</div>
+      <h2 class="section__title">Stōk Cold Brew</h2>
+      <div class="post-grid">
+        
         <article class="post-card">
           <header class="post-card__head">
             <span class="post-card__supplier">Tailwind Management, Inc.</span>
@@ -671,13 +713,16 @@
                     title="Instagram post by Cardinal Group Management &amp; Advisory LLC-1"></iframe>
           </div>
         </article>
+      </div>
     </div>
   </section>
-  <section class="section brand-section" id="amazing-grass">
-    <div class="section__label">Brand</div>
-    <h2 class="section__title">Amazing Grass</h2>
-    <div class="post-grid">
-      
+  <section class="section brand-section">
+    
+    <div class="brand-block" id="amazing-grass">
+      <div class="section__label">Brand</div>
+      <h2 class="section__title">Amazing Grass</h2>
+      <div class="post-grid">
+        
         <article class="post-card">
           <header class="post-card__head">
             <span class="post-card__supplier">Campus Apartments</span>
@@ -723,13 +768,16 @@
                     title="Facebook post by Easy Day Sports"></iframe>
           </div>
         </article>
+      </div>
     </div>
   </section>
-  <section class="section brand-section" id="dove">
-    <div class="section__label">Brand</div>
-    <h2 class="section__title">Dove</h2>
-    <div class="post-grid">
-      
+  <section class="section brand-section">
+    
+    <div class="brand-block" id="dove">
+      <div class="section__label">Brand</div>
+      <h2 class="section__title">Dove</h2>
+      <div class="post-grid">
+        
         <article class="post-card">
           <header class="post-card__head">
             <span class="post-card__supplier">Zoo Gym</span>
@@ -775,13 +823,16 @@
                     title="Instagram post by Cardinal Group Management &amp; Advisory LLC-1"></iframe>
           </div>
         </article>
+      </div>
     </div>
   </section>
-  <section class="section brand-section" id="alka-seltzer">
-    <div class="section__label">Brand</div>
-    <h2 class="section__title">Alka-Seltzer</h2>
-    <div class="post-grid">
-      
+  <section class="section brand-section">
+    
+    <div class="brand-block" id="alka-seltzer">
+      <div class="section__label">Brand</div>
+      <h2 class="section__title">Alka-Seltzer</h2>
+      <div class="post-grid">
+        
         <article class="post-card">
           <header class="post-card__head">
             <span class="post-card__supplier">Cardinal Group Management &amp; Advisory LLC-1</span>
@@ -827,13 +878,16 @@
                     title="Instagram post by Asset Living"></iframe>
           </div>
         </article>
+      </div>
     </div>
   </section>
-  <section class="section brand-section" id="heineken">
-    <div class="section__label">Brand</div>
-    <h2 class="section__title">Heineken</h2>
-    <div class="post-grid">
-      
+  <section class="section brand-section">
+    
+    <div class="brand-block" id="heineken">
+      <div class="section__label">Brand</div>
+      <h2 class="section__title">Heineken</h2>
+      <div class="post-grid">
+        
         <article class="post-card">
           <header class="post-card__head">
             <span class="post-card__supplier">Chicago International Film Festival</span>
@@ -879,35 +933,16 @@
                     title="Instagram post by Tucson Film Festival"></iframe>
           </div>
         </article>
+      </div>
     </div>
   </section>
-  <section class="section brand-section" id="ghost">
-    <div class="section__label">Brand</div>
-    <h2 class="section__title">Ghost</h2>
-    <div class="post-grid">
-      
-        <article class="post-card">
-          <header class="post-card__head">
-            <span class="post-card__supplier">Cardinal Group Management &amp; Advisory LLC-1</span>
-            <span class="post-card__platform post-card__platform--ig">Instagram</span>
-          </header>
-          <div class="post-card__embed">
-            <iframe src="https://www.instagram.com/p/DXhwyLRkhRN/embed/captioned/"
-                    loading="lazy"
-                    frameborder="0"
-                    scrolling="no"
-                    allowtransparency="true"
-                    allow="encrypted-media; autoplay"
-                    title="Instagram post by Cardinal Group Management &amp; Advisory LLC-1"></iframe>
-          </div>
-        </article>
-    </div>
-  </section>
-  <section class="section brand-section" id="goodles">
-    <div class="section__label">Brand</div>
-    <h2 class="section__title">Goodles</h2>
-    <div class="post-grid">
-      
+  <section class="section brand-section">
+    
+    <div class="brand-block" id="goodles">
+      <div class="section__label">Brand</div>
+      <h2 class="section__title">Goodles</h2>
+      <div class="post-grid">
+        
         <article class="post-card">
           <header class="post-card__head">
             <span class="post-card__supplier">Zoo Gym</span>
@@ -953,6 +988,55 @@
                     title="Instagram post by Brick City Run Club"></iframe>
           </div>
         </article>
+      </div>
+    </div>
+  </section>
+  <section class="section brand-pair">
+    
+    <div class="brand-block" id="ghost">
+      <div class="section__label">Brand</div>
+      <h2 class="section__title">Ghost</h2>
+      <div class="post-grid">
+        
+        <article class="post-card">
+          <header class="post-card__head">
+            <span class="post-card__supplier">Cardinal Group Management &amp; Advisory LLC-1</span>
+            <span class="post-card__platform post-card__platform--ig">Instagram</span>
+          </header>
+          <div class="post-card__embed">
+            <iframe src="https://www.instagram.com/p/DXhwyLRkhRN/embed/captioned/"
+                    loading="lazy"
+                    frameborder="0"
+                    scrolling="no"
+                    allowtransparency="true"
+                    allow="encrypted-media; autoplay"
+                    title="Instagram post by Cardinal Group Management &amp; Advisory LLC-1"></iframe>
+          </div>
+        </article>
+      </div>
+    </div>
+    
+    <div class="brand-block" id="e-l-f">
+      <div class="section__label">Brand</div>
+      <h2 class="section__title">e.l.f.</h2>
+      <div class="post-grid">
+        
+        <article class="post-card">
+          <header class="post-card__head">
+            <span class="post-card__supplier">Academy Lincoln</span>
+            <span class="post-card__platform post-card__platform--ig">Instagram</span>
+          </header>
+          <div class="post-card__embed">
+            <iframe src="https://www.instagram.com/p/DYAM2POFox5/embed/captioned/"
+                    loading="lazy"
+                    frameborder="0"
+                    scrolling="no"
+                    allowtransparency="true"
+                    allow="encrypted-media; autoplay"
+                    title="Instagram post by Academy Lincoln"></iframe>
+          </div>
+        </article>
+      </div>
     </div>
   </section>
 
