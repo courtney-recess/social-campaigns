@@ -324,13 +324,14 @@
       display: block;
       width: 100%;
       max-width: 350px;
-      height: 880px;
+      height: 720px;
       border: 0;
       background: #fff;
     }
-    /* Spotlight post can run a bit taller than the rest */
+    /* Spotlight iframe auto-resizes to its actual content via postMessage */
     .spotlight-post .post-card__embed iframe {
-      height: 1080px;
+      height: 720px;
+      transition: height 0.2s ease;
     }
 
     /* Footer */
@@ -2398,6 +2399,31 @@
           s.classList.remove("filter-select--active");
         });
         applyFilters();
+      });
+
+      // Auto-resize ONLY the spotlight iframe to its real content height,
+      // so the whole multi-brand post is visible. Regular cards stay at the
+      // uniform 720px so the grid reads cleanly.
+      var spotlightIframes = document.querySelectorAll(".spotlight-post iframe");
+      window.addEventListener("message", function (e) {
+        var data = e.data;
+        if (typeof data === "string") {
+          try { data = JSON.parse(data); } catch (err) { return; }
+        }
+        if (!data || typeof data !== "object") return;
+        var h = null;
+        if (data.type === "MEASURE" && data.details && data.details.height) {
+          h = data.details.height;
+        } else if (typeof data.height === "number") {
+          h = data.height;
+        }
+        if (!h || h < 200) return;
+        for (var i = 0; i < spotlightIframes.length; i++) {
+          if (spotlightIframes[i].contentWindow === e.source) {
+            spotlightIframes[i].style.height = (h + 8) + "px";
+            break;
+          }
+        }
       });
     })();
   </script>
