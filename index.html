@@ -111,6 +111,9 @@
       position: relative;
       max-width: 1280px; margin: 0 auto;
       padding: 28px 48px 8px;
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .brand-strip__row {
       display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;
     }
     .brand-strip__link {
@@ -257,20 +260,8 @@
   </section>
 
   <nav class="brand-strip" aria-label="Jump to brand">
-    <a class="brand-strip__link" href="#kraft-heinz">Kraft Heinz</a>
-    <a class="brand-strip__link" href="#mio">Mio</a>
-    <a class="brand-strip__link" href="#peace-tea">Peace Tea</a>
-    <a class="brand-strip__link" href="#starburst">Starburst</a>
-    <a class="brand-strip__link" href="#hero">Hero</a>
-    <a class="brand-strip__link" href="#midol">Midol</a>
-    <a class="brand-strip__link" href="#velveeta">Velveeta</a>
-    <a class="brand-strip__link" href="#st-k-cold-brew">Stōk Cold Brew</a>
-    <a class="brand-strip__link" href="#amazing-grass">Amazing Grass</a>
-    <a class="brand-strip__link" href="#dove">Dove</a>
-    <a class="brand-strip__link" href="#alka-seltzer">Alka-Seltzer</a>
-    <a class="brand-strip__link" href="#heineken">Heineken</a>
-    <a class="brand-strip__link" href="#ghost">Ghost</a>
-    <a class="brand-strip__link" href="#goodles">Goodles</a>
+    <div class="brand-strip__row"><a class="brand-strip__link" href="#kraft-heinz">Kraft Heinz</a><a class="brand-strip__link" href="#mio">Mio</a><a class="brand-strip__link" href="#peace-tea">Peace Tea</a><a class="brand-strip__link" href="#starburst">Starburst</a><a class="brand-strip__link" href="#hero">Hero</a><a class="brand-strip__link" href="#midol">Midol</a><a class="brand-strip__link" href="#velveeta">Velveeta</a></div>
+    <div class="brand-strip__row"><a class="brand-strip__link" href="#st-k-cold-brew">Stōk Cold Brew</a><a class="brand-strip__link" href="#amazing-grass">Amazing Grass</a><a class="brand-strip__link" href="#dove">Dove</a><a class="brand-strip__link" href="#alka-seltzer">Alka-Seltzer</a><a class="brand-strip__link" href="#heineken">Heineken</a><a class="brand-strip__link" href="#ghost">Ghost</a><a class="brand-strip__link" href="#goodles">Goodles</a></div>
   </nav>
 
   
