@@ -260,29 +260,60 @@
       border-color: rgba(109,169,255,0.30);
     }
 
-    /* Spotlight (multi-brand) cards */
-    .spotlight-section .section__description {
-      font-size: 14px; color: var(--white-60);
-      max-width: 640px; margin: 0 0 24px 0; line-height: 1.5;
+    /* Spotlight — campaign info on left, single post card on right */
+    .spotlight-grid {
+      display: grid;
+      grid-template-columns: 1fr minmax(360px, 400px);
+      gap: 40px;
+      align-items: center;
     }
-    .spotlight-card__chips {
+    .spotlight-info {
+      display: flex; flex-direction: column;
+    }
+    .spotlight-info__title {
+      font-size: clamp(2rem, 3vw + 0.5rem, 3rem);
+      font-weight: 900; letter-spacing: -0.02em; line-height: 1.05;
+      color: var(--white); margin: 8px 0 16px;
+    }
+    .spotlight__blurb {
+      font-size: 16px; color: var(--white-60);
+      line-height: 1.55; margin: 0 0 24px 0; max-width: 480px;
+    }
+    .spotlight-info__partner {
+      display: flex; align-items: baseline; gap: 10px;
+      margin-bottom: 24px;
+    }
+    .spotlight-info__partner-label {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--white-60);
+    }
+    .spotlight-info__partner-name {
+      font-size: 15px; font-weight: 600; color: var(--white-85);
+    }
+    .spotlight-info__brands-label {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--white-60);
+      margin-bottom: 10px;
+    }
+    .spotlight__chips {
       display: flex; flex-wrap: wrap; gap: 6px;
-      margin: 12px 0 8px;
     }
-    .spotlight-card__chip {
+    .spotlight__chip {
       display: inline-flex; align-items: center;
-      padding: 4px 10px;
-      font-size: 11px; font-weight: 700;
-      letter-spacing: 0.04em;
+      padding: 6px 12px;
+      font-size: 12px; font-weight: 600;
       color: var(--aqua);
       background: rgba(20,185,214,0.10);
-      border: 1px solid rgba(20,185,214,0.28);
+      border: 1px solid rgba(20,185,214,0.30);
       border-radius: 100px;
     }
-    .spotlight-card__caption {
-      font-size: 12px; color: var(--white-60);
-      margin: 0 0 12px; line-height: 1.45;
-      font-style: italic;
+    .spotlight-post { width: 100%; max-width: 400px; }
+    @media (max-width: 800px) {
+      .spotlight-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .spotlight-post { justify-self: stretch; max-width: none; }
     }
     .post-card__embed {
       background: #fff; border-radius: 8px; overflow: hidden;
@@ -381,22 +412,29 @@
 
   
   <section class="section brand-section spotlight-section">
-    <div class="brand-block">
-      <div class="section__label">Spotlight</div>
-      <h2 class="section__title">Multi-brand campaigns</h2>
-      <p class="section__description">Real activations where partners sampled multiple Recess brands in one moment.</p>
-      <div class="post-grid">
-        
-        <article class="post-card spotlight-card"
-                 data-brands="Kraft Heinz|Emergen-C|Oreo|Uber|Uber Eats"
-                 data-categories="Food|Other|Wellness"
+    
+    <div class="brand-block spotlight-block"
+         data-brands="Kraft Heinz|Emergen-C|Oreo|Uber|Uber Eats"
+         data-categories="Food|Other|Wellness"
+         data-event-type="Student Housing">
+      <div class="spotlight-grid">
+        <div class="spotlight-info">
+          <div class="section__label">Spotlight</div>
+          <h2 class="spotlight-info__title">Back to College</h2>
+          <p class="spotlight__blurb">Multi-brand sample drop reaching students during move-in.</p>
+          <div class="spotlight-info__partner">
+            <span class="spotlight-info__partner-label">Partner</span>
+            <span class="spotlight-info__partner-name">Rockland Apartments</span>
+          </div>
+          <div class="spotlight-info__brands-label">Featured brands</div>
+          <div class="spotlight__chips"><span class="spotlight__chip">Kraft Heinz</span><span class="spotlight__chip">Emergen-C</span><span class="spotlight__chip">Oreo</span><span class="spotlight__chip">Uber</span><span class="spotlight__chip">Uber Eats</span></div>
+        </div>
+        <article class="post-card spotlight-post"
                  data-event-type="Student Housing">
           <header class="post-card__head">
             <span class="post-card__supplier">Rockland Apartments</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
           </header>
-          <div class="spotlight-card__chips"><span class="spotlight-card__chip">Kraft Heinz</span><span class="spotlight-card__chip">Emergen-C</span><span class="spotlight-card__chip">Oreo</span><span class="spotlight-card__chip">Uber</span><span class="spotlight-card__chip">Uber Eats</span></div>
-          <p class="spotlight-card__caption">Back-to-college multi-brand sample drop</p>
           <div class="post-card__embed">
             <iframe src="https://www.instagram.com/reel/C--p6EKpoS9/embed/captioned/"
                     loading="lazy"
@@ -2321,7 +2359,7 @@
               var brandOk = true, catOk = true;
               if (state.brand) {
                 if (isSpotlight) {
-                  var brands = (card.dataset.brands || "").split("|");
+                  var brands = (block.dataset.brands || "").split("|");
                   brandOk = brands.indexOf(state.brand) !== -1;
                 } else {
                   brandOk = state.brand === blockBrand;
@@ -2329,7 +2367,7 @@
               }
               if (state.category) {
                 if (isSpotlight) {
-                  var cats = (card.dataset.categories || "").split("|");
+                  var cats = (block.dataset.categories || "").split("|");
                   catOk = cats.indexOf(state.category) !== -1;
                 } else {
                   catOk = state.category === blockCategory;
