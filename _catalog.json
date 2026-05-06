@@ -804,6 +804,30 @@
     "recap_id": "68c466733b51d67b9c7e55c8"
   },
   {
+    "brand_api": "Just Made",
+    "brand_display": "Just Made",
+    "category": "Food",
+    "event_type": "Other",
+    "supplier": "West Coast Farmers Market",
+    "venue": "West Coast Farmers Market Omnichannel",
+    "campaign": "Just Made",
+    "platform": "instagram",
+    "url": "https://www.instagram.com/p/DVChQiRkvn3/",
+    "recap_id": "697e9068198f5c27ed00ce0e"
+  },
+  {
+    "brand_api": "Shrimp Chips",
+    "brand_display": "Shrimp Chips",
+    "category": "Food",
+    "event_type": "Student Housing",
+    "supplier": "Campus Apartments",
+    "venue": "Campus Crossings at Riverside",
+    "campaign": "Shrimp Chips",
+    "platform": "instagram",
+    "url": "https://www.instagram.com/p/DPUazJEEitj/?utm_source=ig_web_copy_link&igsh=eDRqOGplbjZ4MmNl",
+    "recap_id": "68ac933433cf76bcdaa6f67c"
+  },
+  {
     "brand_api": "Goodles",
     "brand_display": "Goodles",
     "category": "Food",
