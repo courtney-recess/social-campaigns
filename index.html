@@ -275,21 +275,23 @@
       border: 1px solid rgba(20,185,214,0.25);
       box-shadow: 0 0 40px rgba(20,185,214,0.06);
     }
-    .spotlight-grid {
-      display: grid;
-      grid-template-columns: 1fr minmax(360px, 400px);
-      gap: 48px;
-      align-items: center;
+    .spotlight-info {
+      max-width: 980px;
+      margin-bottom: 36px;
     }
+    .spotlight-info__meta {
+      display: flex; flex-wrap: wrap; gap: 32px 48px;
+      margin: 8px 0 24px;
+    }
+    .spotlight-info__brands-block { flex: 1 1 auto; min-width: 240px; }
     .spotlight-stats {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 14px;
-      max-width: 480px;
-      margin: 8px 0 28px;
+      max-width: 720px;
     }
     .spotlight-stat {
-      padding: 14px 16px;
+      padding: 16px 20px;
       background: rgba(255,255,255,0.04);
       border: 1px solid rgba(20,185,214,0.18);
       border-radius: 12px;
@@ -304,20 +306,37 @@
       letter-spacing: 0.12em; text-transform: uppercase;
       color: var(--white-60); margin-top: 4px;
     }
+    .spotlight-posts {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 24px;
+      align-items: start;
+      max-width: 760px;
+    }
+    .spotlight-posts--single {
+      grid-template-columns: minmax(0, 400px);
+    }
+    .spotlight-posts .spotlight-post {
+      width: 100%; max-width: none;
+    }
+    .spotlight-posts .spotlight-post .post-card__embed iframe {
+      max-width: none;
+      height: 760px;
+    }
     .spotlight-secondary {
-      margin: 28px 0 0;
-      background: #fff;
-      border-radius: 8px;
+      background: var(--navy-light);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 16px;
       overflow: hidden;
-      max-width: 350px;
     }
     .spotlight-secondary iframe {
       display: block;
       width: 100%;
-      max-width: 350px;
-      height: 460px;
+      height: 760px;
       border: 0;
       background: #fff;
+      border-radius: 8px;
     }
     .spotlight-info {
       display: flex; flex-direction: column;
@@ -362,13 +381,10 @@
     .spotlight-post { width: 100%; max-width: 400px; }
     @media (max-width: 800px) {
       .spotlight-block { padding: 24px; border-radius: 16px; }
-      .spotlight-grid {
-        grid-template-columns: 1fr;
-        gap: 24px;
-      }
-      .spotlight-post { justify-self: stretch; max-width: none; }
+      .spotlight-info__meta { gap: 20px; }
       .spotlight-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
       .spotlight-stat { padding: 10px 12px; }
+      .spotlight-posts { grid-template-columns: 1fr; gap: 16px; }
     }
     .post-card__embed {
       background: #fff; border-radius: 8px; overflow: hidden;
@@ -382,11 +398,6 @@
       height: 720px;
       border: 0;
       background: #fff;
-    }
-    /* Spotlight iframe auto-resizes to its actual content via postMessage */
-    .spotlight-post .post-card__embed iframe {
-      height: 720px;
-      transition: height 0.2s ease;
     }
 
     /* Footer */
@@ -477,19 +488,23 @@
          data-brands="Kraft Heinz|Emergen-C|Oreo|Uber|Uber Eats"
          data-categories="Food|Other|Wellness"
          data-event-type="Student Housing">
-      <div class="spotlight-grid">
-        <div class="spotlight-info">
-          <div class="section__label">Spotlight</div>
-          <h2 class="spotlight-info__title">Back to College</h2>
-          <p class="spotlight__blurb">Multi-brand sample drop reaching students during move-in.</p>
-          <div class="spotlight-stats"><div class="spotlight-stat"><div class="spotlight-stat__value">5</div><div class="spotlight-stat__label">Brands activated</div></div><div class="spotlight-stat"><div class="spotlight-stat__value">Move-in</div><div class="spotlight-stat__label">Timing</div></div><div class="spotlight-stat"><div class="spotlight-stat__value">Multi-brand</div><div class="spotlight-stat__label">Sample drop</div></div></div>
+      <div class="spotlight-info">
+        <div class="section__label">Spotlight</div>
+        <h2 class="spotlight-info__title">Back to College</h2>
+        <p class="spotlight__blurb">Multi-brand sample drop reaching students during move-in.</p>
+        <div class="spotlight-info__meta">
           <div class="spotlight-info__partner">
             <span class="spotlight-info__partner-label">Event type</span>
             <span class="spotlight-info__partner-name">Student Housing</span>
           </div>
-          <div class="spotlight-info__brands-label">Featured brands</div>
-          <div class="spotlight__chips"><span class="spotlight__chip">Kraft Heinz</span><span class="spotlight__chip">Emergen-C</span><span class="spotlight__chip">Oreo</span><span class="spotlight__chip">Uber</span><span class="spotlight__chip">Uber Eats</span></div>
-          
+          <div class="spotlight-info__brands-block">
+            <div class="spotlight-info__brands-label">Featured brands</div>
+            <div class="spotlight__chips"><span class="spotlight__chip">Kraft Heinz</span><span class="spotlight__chip">Emergen-C</span><span class="spotlight__chip">Oreo</span><span class="spotlight__chip">Uber</span><span class="spotlight__chip">Uber Eats</span></div>
+          </div>
+        </div>
+        <div class="spotlight-stats"><div class="spotlight-stat"><div class="spotlight-stat__value">5</div><div class="spotlight-stat__label">Brands activated</div></div><div class="spotlight-stat"><div class="spotlight-stat__value">Move-in</div><div class="spotlight-stat__label">Timing</div></div><div class="spotlight-stat"><div class="spotlight-stat__value">Multi-brand</div><div class="spotlight-stat__label">Sample drop</div></div></div>
+      </div>
+      <div class="spotlight-posts">
           <div class="spotlight-secondary">
             <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FOneOn4th%2Fposts%2F949062673899165&amp;show_text=true&amp;width=350"
                     loading="lazy"
@@ -499,7 +514,6 @@
                     allow="encrypted-media"
                     title="Facebook post by partner"></iframe>
           </div>
-        </div>
         <article class="post-card spotlight-post"
                  data-event-type="Student Housing">
           <header class="post-card__head">
@@ -515,8 +529,7 @@
                     allow="encrypted-media; autoplay"
                     title="Multi-brand post by Rockland Apartments"></iframe>
           </div>
-        </article>
-      </div>
+        </article></div>
     </div>
   </section>
   <section class="section brand-section">
@@ -2467,30 +2480,6 @@
         applyFilters();
       });
 
-      // Auto-resize ONLY the spotlight iframe to its real content height,
-      // so the whole multi-brand post is visible. Regular cards stay at the
-      // uniform 720px so the grid reads cleanly.
-      var spotlightIframes = document.querySelectorAll(".spotlight-post iframe");
-      window.addEventListener("message", function (e) {
-        var data = e.data;
-        if (typeof data === "string") {
-          try { data = JSON.parse(data); } catch (err) { return; }
-        }
-        if (!data || typeof data !== "object") return;
-        var h = null;
-        if (data.type === "MEASURE" && data.details && data.details.height) {
-          h = data.details.height;
-        } else if (typeof data.height === "number") {
-          h = data.height;
-        }
-        if (!h || h < 200) return;
-        for (var i = 0; i < spotlightIframes.length; i++) {
-          if (spotlightIframes[i].contentWindow === e.source) {
-            spotlightIframes[i].style.height = (h + 8) + "px";
-            break;
-          }
-        }
-      });
     })();
   </script>
 
