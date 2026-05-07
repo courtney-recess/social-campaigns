@@ -276,51 +276,57 @@
       box-shadow: 0 0 40px rgba(20,185,214,0.06);
     }
     .spotlight-info {
-      max-width: 980px;
       margin-bottom: 36px;
     }
-    .spotlight-info__meta {
-      display: flex; flex-wrap: wrap; gap: 32px 48px;
-      margin: 8px 0 24px;
+    .spotlight__blurb {
+      max-width: none;
     }
-    .spotlight-info__brands-block { flex: 1 1 auto; min-width: 240px; }
+    .spotlight-info__meta {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 24px 48px;
+      margin: 8px 0 28px;
+      align-items: start;
+    }
+    .spotlight-info__partner { display: flex; flex-direction: column; gap: 6px; margin: 0; }
+    .spotlight-info__brands-block { min-width: 0; }
     .spotlight-stats {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-      max-width: 720px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
     }
     .spotlight-stat {
-      padding: 16px 20px;
+      padding: 18px 22px;
       background: rgba(255,255,255,0.04);
       border: 1px solid rgba(20,185,214,0.18);
       border-radius: 12px;
     }
     .spotlight-stat__value {
-      font-size: clamp(1.25rem, 1.5vw + 0.5rem, 1.75rem);
+      font-size: clamp(1.4rem, 1.6vw + 0.5rem, 2rem);
       font-weight: 900; line-height: 1.05;
       color: var(--aqua);
     }
     .spotlight-stat__label {
       font-size: 10px; font-weight: 700;
       letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--white-60); margin-top: 4px;
+      color: var(--white-60); margin-top: 6px;
     }
     .spotlight-posts {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      grid-template-columns: 1fr 1fr;
       gap: 24px;
       align-items: start;
-      max-width: 760px;
     }
     .spotlight-posts--single {
-      grid-template-columns: minmax(0, 400px);
+      grid-template-columns: minmax(0, 480px);
+      justify-content: center;
     }
     .spotlight-posts .spotlight-post {
       width: 100%; max-width: none;
     }
     .spotlight-posts .spotlight-post .post-card__embed iframe {
       max-width: none;
+      width: 100%;
       height: 760px;
     }
     .spotlight-secondary {
@@ -328,12 +334,12 @@
       border: 1px solid rgba(255,255,255,0.08);
       border-radius: 16px;
       padding: 16px;
-      overflow: hidden;
     }
     .spotlight-secondary iframe {
       display: block;
       width: 100%;
-      height: 760px;
+      max-width: none;
+      height: 728px;
       border: 0;
       background: #fff;
       border-radius: 8px;
@@ -506,7 +512,7 @@
       </div>
       <div class="spotlight-posts">
           <div class="spotlight-secondary">
-            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FOneOn4th%2Fposts%2F949062673899165&amp;show_text=true&amp;width=350"
+            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FOneOn4th%2Fposts%2F949062673899165&amp;show_text=true&amp;width=500"
                     loading="lazy"
                     frameborder="0"
                     scrolling="no"
