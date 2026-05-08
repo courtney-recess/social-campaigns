@@ -2759,5 +2759,96 @@
     })();
   </script>
 
+  <script>
+    /* Staged iframe loader.
+     *
+     * Native loading="lazy" lets the browser load every visible iframe at once.
+     * With 100 FB/IG embeds, that bursts past Meta's plugin endpoint throttles
+     * and some embeds silently fail. Hard-refreshing rerolls the dice.
+     *
+     * This loader:
+     *   - Holds back iframe src until the iframe is near the viewport
+     *   - Caps concurrent loads at 4
+     *   - Staggers activations by 200ms
+     *   - Retries any iframe that hasn't fired onload within 12s
+     */
+    (function () {
+      var MAX_CONCURRENT = 4;
+      var STAGGER_MS = 200;
+      var LOAD_TIMEOUT_MS = 12000;
+      var ROOT_MARGIN = '600px 0px';
+
+      var iframes = Array.prototype.slice.call(
+        document.querySelectorAll('iframe[loading="lazy"][src]')
+      );
+      if (!iframes.length || !('IntersectionObserver' in window)) return;
+
+      iframes.forEach(function (f) {
+        f.dataset.deferredSrc = f.getAttribute('src');
+        f.removeAttribute('src');
+        f.dataset.loadState = 'deferred';
+        f.removeAttribute('loading');
+      });
+
+      var queue = [];
+      var active = 0;
+
+      function activate(iframe) {
+        if (iframe.dataset.loadState !== 'queued') return;
+        active++;
+        iframe.dataset.loadState = 'loading';
+        var src = iframe.dataset.deferredSrc;
+
+        var timeoutId = setTimeout(function () {
+          if (iframe.dataset.loadState !== 'loading') return;
+          iframe.dataset.loadState = 'retrying';
+          iframe.removeAttribute('src');
+          setTimeout(function () { iframe.src = src; }, 400);
+        }, LOAD_TIMEOUT_MS);
+
+        function settle() {
+          clearTimeout(timeoutId);
+          iframe.removeEventListener('load', onLoad);
+          iframe.removeEventListener('error', onError);
+          active--;
+          setTimeout(pump, STAGGER_MS);
+        }
+        function onLoad() {
+          iframe.dataset.loadState = 'loaded';
+          settle();
+        }
+        function onError() {
+          iframe.dataset.loadState = 'error';
+          settle();
+        }
+        iframe.addEventListener('load', onLoad);
+        iframe.addEventListener('error', onError);
+
+        iframe.src = src;
+      }
+
+      function pump() {
+        while (active < MAX_CONCURRENT && queue.length) {
+          var next = queue.shift();
+          activate(next);
+        }
+      }
+
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          var f = entry.target;
+          if (!entry.isIntersecting) return;
+          if (f.dataset.loadState !== 'deferred') return;
+          f.dataset.loadState = 'queued';
+          queue.push(f);
+          io.unobserve(f);
+        });
+        pump();
+      }, { rootMargin: ROOT_MARGIN, threshold: 0 });
+
+      iframes.forEach(function (f) { io.observe(f); });
+    })();
+  </script>
+
 </body>
 </html>
