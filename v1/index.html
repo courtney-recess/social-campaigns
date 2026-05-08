@@ -3,13 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Recess — Live from the Field (V2)</title>
-  <meta name="robots" content="noindex">
+  <title>Recess — Live from the Field</title>
   <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/6699636.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://www.facebook.com">
-  <link rel="preconnect" href="https://www.instagram.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -24,8 +21,6 @@
       --white-25: rgba(255,255,255,0.25);
       --white-15: rgba(255,255,255,0.15);
       --white-08: rgba(255,255,255,0.08);
-      --aqua-band: rgba(20,185,214,0.04);
-      --aqua-border: rgba(20,185,214,0.18);
     }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
@@ -37,21 +32,26 @@
       -webkit-font-smoothing: antialiased;
     }
 
+    /* Nav */
     .nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
       display: flex; align-items: center; justify-content: space-between;
       padding: 16px 48px;
       background: rgba(10,15,26,0.78);
-      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--white-08);
     }
-    .nav__brand { display: flex; align-items: center; text-decoration: none; }
+    .nav__brand {
+      display: flex; align-items: center; text-decoration: none;
+    }
     .nav__brand img { height: 24px; }
     .nav__tagline {
       font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
       text-transform: uppercase; color: var(--white-60);
     }
 
+    /* Hero — full-bleed image with text overlaid */
     .hero {
       position: relative;
       display: flex; align-items: flex-end;
@@ -68,7 +68,9 @@
     .hero__image::after {
       content: ''; position: absolute; inset: 0;
       background: linear-gradient(to bottom,
-        rgba(10,15,26,0.55) 0%, rgba(10,15,26,0.75) 55%, var(--navy) 100%);
+        rgba(10,15,26,0.55) 0%,
+        rgba(10,15,26,0.75) 55%,
+        var(--navy) 100%);
     }
     .hero__image::before {
       content: ''; position: absolute; inset: 0; z-index: 1;
@@ -105,50 +107,20 @@
       text-shadow: 0 2px 16px rgba(0,0,0,0.5);
     }
 
-    /* Stats strip — sits under the hero */
-    .stats-strip {
-      max-width: 1280px; margin: -32px auto 0;
-      padding: 24px 48px;
-      position: relative; z-index: 3;
-    }
-    .stats-strip__inner {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-      padding: 28px 36px;
-      border-radius: 20px;
-      background: linear-gradient(135deg, rgba(20,185,214,0.08), rgba(20,185,214,0.02));
-      border: 1px solid var(--aqua-border);
-      backdrop-filter: blur(8px);
-    }
-    .stat { text-align: center; }
-    .stat__value {
-      font-size: clamp(1.6rem, 2vw + 1rem, 3rem);
-      font-weight: 900; color: var(--aqua); line-height: 1;
-      letter-spacing: -0.01em;
-    }
-    .stat__label {
-      font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
-      text-transform: uppercase; color: var(--white-60);
-      margin-top: 8px;
-    }
-    @media (max-width: 700px) {
-      .stats-strip__inner { grid-template-columns: repeat(2, 1fr); padding: 20px; gap: 16px; }
-      .stats-strip { padding: 20px; margin-top: -20px; }
-    }
-
-    /* Filter bar */
+    /* Filter bar — three dropdowns in one row */
     .filters {
       position: relative;
       padding: 28px 48px 4px;
     }
     .filters__inner {
       max-width: 1280px; margin: 0 auto;
-      display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+      display: flex; align-items: center; gap: 14px;
+      flex-wrap: wrap;
     }
     .filter-select-wrap {
       display: inline-flex; flex-direction: column; gap: 6px;
-      flex: 1 1 200px; min-width: 180px; max-width: 320px;
+      flex: 1 1 200px;
+      min-width: 180px; max-width: 320px;
     }
     .filter-select-wrap__label {
       font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
@@ -156,13 +128,18 @@
     }
     .filter-select {
       appearance: none; -webkit-appearance: none; -moz-appearance: none;
-      width: 100%; padding: 11px 38px 11px 16px;
-      font-family: inherit; font-size: 14px; font-weight: 600;
+      width: 100%;
+      padding: 11px 38px 11px 16px;
+      font-family: inherit;
+      font-size: 14px; font-weight: 600;
       color: var(--white);
       background-color: var(--white-08);
       background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path fill='none' stroke='%2314B9D6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' d='M1 1l5 5 5-5'/></svg>");
-      background-repeat: no-repeat; background-position: right 14px center;
-      border: 1px solid var(--white-15); border-radius: 12px; cursor: pointer;
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      border: 1px solid var(--white-15);
+      border-radius: 12px;
+      cursor: pointer;
       transition: background-color 0.15s ease, border-color 0.15s ease;
     }
     .filter-select:hover {
@@ -170,38 +147,48 @@
       border-color: rgba(20,185,214,0.45);
     }
     .filter-select:focus {
-      outline: none; border-color: rgba(20,185,214,0.70);
+      outline: none;
+      border-color: rgba(20,185,214,0.70);
       background-color: rgba(20,185,214,0.14);
     }
     .filter-select--active {
       border-color: rgba(20,185,214,0.65);
       background-color: rgba(20,185,214,0.18);
     }
-    .filter-select option { background: var(--navy-light); color: var(--white); }
+    .filter-select option {
+      background: var(--navy-light);
+      color: var(--white);
+    }
     .empty-state {
       max-width: 1280px; margin: 24px auto;
-      padding: 24px 48px; text-align: center;
-      color: var(--white-60); font-size: 14px;
+      padding: 24px 48px;
+      text-align: center;
+      color: var(--white-60);
+      font-size: 14px;
     }
     .empty-state__reset {
-      margin-left: 8px; padding: 6px 14px;
+      margin-left: 8px;
+      padding: 6px 14px;
       font-family: inherit; font-size: 12px; font-weight: 600;
       color: var(--white);
       background: rgba(20,185,214,0.22);
       border: 1px solid rgba(20,185,214,0.55);
-      border-radius: 100px; cursor: pointer;
+      border-radius: 100px;
+      cursor: pointer;
     }
     @media (max-width: 700px) {
       .filters { padding: 20px 20px 0; }
       .filter-select-wrap { flex: 1 1 100%; max-width: none; }
     }
 
-    /* Section common */
+    /* Brand section */
     .section {
-      padding: 56px 48px;
+      padding: 64px 48px;
       max-width: 1280px; margin: 0 auto;
     }
-    .section:first-of-type { padding-top: 24px; }
+    .section:first-of-type {
+      padding-top: 24px;
+    }
     .section__label {
       font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
       color: var(--aqua); margin-bottom: 6px;
@@ -211,7 +198,10 @@
       font-weight: 800; line-height: 1.15; color: var(--white);
       margin: 0 0 12px 0; letter-spacing: -0.01em;
     }
-    .section__title--big { font-size: clamp(2.25rem, 3.5vw + 0.5rem, 3.25rem); }
+    .section__description {
+      font-size: 16px; color: var(--white-60); line-height: 1.6;
+      max-width: 640px; margin: 0 0 36px 0;
+    }
 
     /* Post grid */
     .post-grid {
@@ -220,17 +210,25 @@
       gap: 20px;
       align-items: start;
     }
-    .post-grid--small {
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 16px;
+
+    /* Brand block (used solo or inside .brand-pair) */
+    .brand-block {
+      display: flex; flex-direction: column;
     }
-
-    /* Brand block */
-    .brand-block { display: flex; flex-direction: column; }
     .brand-block .post-grid { margin-top: 8px; }
-    .brand-block--small .section__title { font-size: 1.4rem; margin-bottom: 8px; }
-    .brand-block--small .section__label { font-size: 10px; }
 
+    /* Pair: two single-post brands side by side, each with own header */
+    .brand-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+    .brand-pair .post-grid {
+      grid-template-columns: 1fr;
+    }
+    @media (max-width: 800px) {
+      .brand-pair { grid-template-columns: 1fr; gap: 32px; }
+    }
     .post-card {
       background: var(--navy-light);
       border: 1px solid var(--white-08);
@@ -262,129 +260,12 @@
       background: rgba(109,169,255,0.12);
       border-color: rgba(109,169,255,0.30);
     }
-    .post-card__embed {
-      background: #fff; border-radius: 8px; overflow: hidden;
-      position: relative;
-      display: flex; justify-content: center;
-    }
-    .post-card__embed iframe {
-      display: block; width: 100%; max-width: 350px;
-      height: 720px; border: 0; background: #fff;
-    }
-    .post-card--small {
-      padding: 14px;
-    }
-    .post-card--small .post-card__embed iframe {
-      height: 560px;
-    }
 
-    /* Spotlight (single brand, deep content) */
-    .spotlight-brand-section {
-      padding-top: 40px;
-      padding-bottom: 40px;
+    /* Spotlight — campaign info on left, single post card on right */
+    .spotlight-section {
+      padding-top: 32px;
+      padding-bottom: 32px;
     }
-
-    /* Portfolio band — multi-product wrapper */
-    .portfolio-band {
-      max-width: 1320px;
-      padding: 56px 48px;
-      margin: 32px auto;
-      border-radius: 28px;
-      background:
-        radial-gradient(ellipse at top right, rgba(20,185,214,0.06), transparent 60%),
-        var(--aqua-band);
-      border: 1px solid var(--aqua-border);
-    }
-    .portfolio-band__header {
-      max-width: 720px; margin-bottom: 36px;
-    }
-    .portfolio-band__title {
-      font-size: clamp(1.8rem, 3vw + 0.5rem, 2.6rem);
-      font-weight: 900; letter-spacing: -0.02em; line-height: 1.1;
-      color: var(--white); margin: 6px 0 8px 0;
-    }
-    .portfolio-band__tagline {
-      font-size: 16px; color: var(--white-60); line-height: 1.5;
-      margin: 0; max-width: 600px;
-    }
-    .portfolio-band__brands {
-      display: flex; flex-direction: column; gap: 56px;
-    }
-    .portfolio-band__brands .brand-block .section__title {
-      font-size: clamp(1.4rem, 2vw + 0.3rem, 2rem);
-    }
-    .portfolio-band__brands .brand-block .section__label {
-      color: var(--aqua);
-    }
-
-    /* Featured (standalone single-brand cards) */
-    .featured-section { padding-top: 32px; padding-bottom: 32px; }
-
-    /* Brand-pair: two single-post brands side-by-side, brand name on top */
-    .brand-pair-section {
-      padding-top: 32px; padding-bottom: 32px;
-    }
-    .brand-pair-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: start;
-    }
-    .brand-pair-grid .brand-block .post-grid {
-      grid-template-columns: 1fr;
-    }
-    .brand-pair-grid .brand-block .post-card__embed iframe {
-      max-width: 380px;
-    }
-    @media (max-width: 800px) {
-      .brand-pair-grid { grid-template-columns: 1fr; gap: 32px; }
-    }
-
-    /* Showcase (flat 3×3 card grid — one card per post, brand label on each) */
-    .showcase-section {
-      max-width: 1320px;
-      padding: 64px 48px 80px;
-    }
-    .showcase-section__header { max-width: 720px; margin-bottom: 32px; }
-    .showcase-section__title {
-      font-size: clamp(1.6rem, 2.5vw + 0.4rem, 2.25rem);
-      font-weight: 800; letter-spacing: -0.01em;
-      color: var(--white); margin: 6px 0 8px 0;
-    }
-    .showcase-section__tagline {
-      font-size: 15px; color: var(--white-60); line-height: 1.5;
-      margin: 0; max-width: 540px;
-    }
-    .showcase-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      align-items: stretch;
-    }
-    .showcase-grid .post-card { height: 100%; display: flex; flex-direction: column; }
-    .showcase-grid .post-card__embed { flex: 1; }
-    @media (max-width: 1000px) {
-      .showcase-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 640px) {
-      .showcase-grid { grid-template-columns: 1fr; }
-    }
-
-    /* Brand badge on showcase cards */
-    .post-card__brand {
-      display: inline-block;
-      align-self: flex-start;
-      padding: 4px 12px;
-      font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
-      text-transform: uppercase; color: var(--white);
-      background: rgba(20,185,214,0.18);
-      border: 1px solid rgba(20,185,214,0.35);
-      border-radius: 100px;
-      margin-bottom: 12px;
-    }
-
-    /* Cross-brand spotlight (existing) */
-    .spotlight-section { padding-top: 32px; padding-bottom: 32px; }
     .spotlight-block {
       position: relative;
       padding: 48px;
@@ -395,7 +276,78 @@
       border: 1px solid rgba(20,185,214,0.25);
       box-shadow: 0 0 40px rgba(20,185,214,0.06);
     }
-    .spotlight-info { margin-bottom: 36px; display: flex; flex-direction: column; }
+    .spotlight-info {
+      margin-bottom: 36px;
+    }
+    .spotlight__blurb {
+      max-width: none;
+    }
+    .spotlight-info__meta {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 24px 48px;
+      margin: 8px 0 28px;
+      align-items: start;
+    }
+    .spotlight-info__partner { display: flex; flex-direction: column; gap: 6px; margin: 0; }
+    .spotlight-info__brands-block { min-width: 0; }
+    .spotlight-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .spotlight-stat {
+      padding: 18px 22px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(20,185,214,0.18);
+      border-radius: 12px;
+    }
+    .spotlight-stat__value {
+      font-size: clamp(1.4rem, 1.6vw + 0.5rem, 2rem);
+      font-weight: 900; line-height: 1.05;
+      color: var(--aqua);
+    }
+    .spotlight-stat__label {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--white-60); margin-top: 6px;
+    }
+    .spotlight-posts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+    .spotlight-posts--single {
+      grid-template-columns: minmax(0, 480px);
+      justify-content: center;
+    }
+    .spotlight-posts .spotlight-post {
+      width: 100%; max-width: none;
+    }
+    .spotlight-posts .spotlight-post .post-card__embed iframe {
+      max-width: none;
+      width: 100%;
+      height: 760px;
+    }
+    .spotlight-secondary {
+      background: var(--navy-light);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 16px;
+    }
+    .spotlight-secondary iframe {
+      display: block;
+      width: 100%;
+      max-width: none;
+      height: 728px;
+      border: 0;
+      background: #fff;
+      border-radius: 8px;
+    }
+    .spotlight-info {
+      display: flex; flex-direction: column;
+    }
     .spotlight-info__title {
       font-size: clamp(2rem, 3vw + 0.5rem, 3rem);
       font-weight: 900; letter-spacing: -0.02em; line-height: 1.05;
@@ -403,16 +355,12 @@
     }
     .spotlight__blurb {
       font-size: 16px; color: var(--white-60);
-      line-height: 1.55; margin: 0 0 24px 0; max-width: 560px;
+      line-height: 1.55; margin: 0 0 24px 0; max-width: 480px;
     }
-    .spotlight-info__meta {
-      display: grid;
-      grid-template-columns: 200px 1fr;
-      gap: 24px 48px;
-      margin: 8px 0 0;
-      align-items: start;
+    .spotlight-info__partner {
+      display: flex; align-items: baseline; gap: 10px;
+      margin-bottom: 24px;
     }
-    .spotlight-info__partner { display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px; }
     .spotlight-info__partner-label {
       font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
       text-transform: uppercase; color: var(--white-60);
@@ -420,13 +368,14 @@
     .spotlight-info__partner-name {
       font-size: 15px; font-weight: 600; color: var(--white-85);
     }
-    .spotlight-info__brands-block { min-width: 0; }
     .spotlight-info__brands-label {
       font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
       text-transform: uppercase; color: var(--white-60);
       margin-bottom: 10px;
     }
-    .spotlight__chips { display: flex; flex-wrap: wrap; gap: 6px; }
+    .spotlight__chips {
+      display: flex; flex-wrap: wrap; gap: 6px;
+    }
     .spotlight__chip {
       display: inline-flex; align-items: center;
       padding: 6px 12px;
@@ -436,48 +385,66 @@
       border: 1px solid rgba(20,185,214,0.30);
       border-radius: 100px;
     }
-    .spotlight-posts {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 24px; align-items: start;
+    .spotlight-post { width: 100%; max-width: 400px; }
+    @media (max-width: 800px) {
+      .spotlight-block { padding: 24px; border-radius: 16px; }
+      .spotlight-info__meta { gap: 20px; }
+      .spotlight-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+      .spotlight-stat { padding: 10px 12px; }
+      .spotlight-posts { grid-template-columns: 1fr; gap: 16px; }
     }
-    .spotlight-posts--single {
-      grid-template-columns: minmax(0, 480px);
-      justify-content: center;
+    .post-card__embed {
+      background: #fff; border-radius: 8px; overflow: hidden;
+      position: relative;
+      display: flex; justify-content: center;
     }
-    .spotlight-post { width: 100%; max-width: none; }
-    .spotlight-posts .spotlight-post .post-card__embed iframe {
-      max-width: none; width: 100%; height: 760px;
-    }
-    .spotlight-secondary {
-      background: var(--navy-light);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 16px; padding: 16px;
-    }
-    .spotlight-secondary iframe {
-      display: block; width: 100%; max-width: none;
-      height: 728px; border: 0; background: #fff;
-      border-radius: 8px;
+    .post-card__embed iframe {
+      display: block;
+      width: 100%;
+      max-width: 350px;
+      height: 720px;
+      border: 0;
+      background: #fff;
     }
 
     /* Footer */
     .footer {
       padding: 48px 48px 64px;
       border-top: 1px solid var(--white-08);
-      text-align: center; margin-top: 40px;
+      text-align: center;
+      margin-top: 40px;
     }
     .footer__brand img { height: 24px; opacity: 0.7; }
-    .footer__text { font-size: 12px; color: var(--white-25); margin-top: 16px; }
+    .footer__text {
+      font-size: 12px; color: var(--white-25); margin-top: 16px;
+    }
 
     @media (max-width: 900px) {
       .nav { padding: 12px 20px; }
       .nav__tagline { display: none; }
-      .hero { min-height: auto; padding-top: 70px; }
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding-top: 70px;
+      }
+      .hero__text {
+        padding: 36px 20px 24px;
+        order: 2;
+      }
+      .hero__image {
+        order: 1;
+        min-height: 320px;
+      }
+      .hero__image::before {
+        background: linear-gradient(to top, var(--navy) 0%, rgba(10,15,26,0) 25%);
+      }
+      .hero__image::after {
+        background: linear-gradient(to top, var(--navy) 0%, transparent 30%);
+      }
+      .brand-strip { padding: 16px 20px 4px; gap: 6px; }
+      .brand-strip__link { padding: 6px 12px; font-size: 12px; }
       .section { padding: 48px 20px; }
-      .portfolio-band { padding: 32px 20px; }
-      .showcase-section { padding: 48px 20px 64px; }
-      .spotlight-block { padding: 24px; border-radius: 16px; }
-      .spotlight-info__meta { gap: 20px; grid-template-columns: 1fr; }
-      .spotlight-posts { grid-template-columns: 1fr; gap: 16px; }
+      .section:first-of-type { padding-top: 16px; }
     }
   </style>
 </head>
@@ -487,15 +454,15 @@
     <a href="#top" class="nav__brand">
       <img src="brand/logo-full-white.png" alt="Recess">
     </a>
-    <span class="nav__tagline">Live from the field — V2 preview</span>
+    <span class="nav__tagline">Live from the field</span>
   </nav>
 
   <section class="hero" id="top">
     <div class="hero__image" style="background-image: url('https://res.cloudinary.com/recess-live/image/upload/v1773954305/default/sje6ek07joybl2nijfsh.jpg');"></div>
     <div class="hero__text">
       <div class="hero__badge">Live from the field</div>
-      <h1 class="hero__title">Real venues. Real consumers. <em>Real reach.</em></h1>
-      <p class="hero__subtitle">Every post you'll scroll was published by the venue running the campaign — fitness studios, student housing, coworking, festivals, races, holiday markets, and more.</p>
+      <h1 class="hero__title">Real posts. Real partners. <em>Real reach.</em></h1>
+      <p class="hero__subtitle">A live look at organic social content from venue partners running Recess campaigns.</p>
     </div>
   </section>
 
@@ -504,11 +471,11 @@
 
       <label class="filter-select-wrap">
         <span class="filter-select-wrap__label">Brand</span>
-        <select class="filter-select" data-group="brand"><option value="all">All</option><option value="Peace Tea">Peace Tea</option><option value="Starburst">Starburst</option><option value="Stōk Cold Brew">Stōk Cold Brew</option><option value="Amazing Grass">Amazing Grass</option><option value="Dove">Dove</option><option value="Hero">Hero</option><option value="Kraft Mac &amp; Cheese">Kraft Mac &amp; Cheese</option><option value="Mio">Mio</option><option value="Velveeta">Velveeta</option><option value="Alka-Seltzer">Alka-Seltzer</option><option value="Midol">Midol</option><option value="Ghost">Ghost</option><option value="La Colombe">La Colombe</option><option value="Heineken">Heineken</option><option value="Hawaiian Tropic">Hawaiian Tropic</option><option value="Mountain Dew">Mountain Dew</option><option value="e.l.f.">e.l.f.</option><option value="Just Made">Just Made</option><option value="Goodles">Goodles</option><option value="Shrimp Chips">Shrimp Chips</option><option value="W">W</option><option value="Gooderfoods">Gooderfoods</option></select>
+        <select class="filter-select" data-group="brand"><option value="all">All</option><option value="Kraft Heinz">Kraft Heinz</option><option value="Mio">Mio</option><option value="Ghost">Ghost</option><option value="e.l.f.">e.l.f.</option><option value="Peace Tea">Peace Tea</option><option value="ZOA Energy">ZOA Energy</option><option value="Starburst">Starburst</option><option value="Hero">Hero</option><option value="Pure Protein">Pure Protein</option><option value="Midol">Midol</option><option value="Velveeta">Velveeta</option><option value="Stōk Cold Brew">Stōk Cold Brew</option><option value="La Colombe">La Colombe</option><option value="Talking Rain">Talking Rain</option><option value="Perfect Hydration">Perfect Hydration</option><option value="Ozarka">Ozarka</option><option value="Amazing Grass">Amazing Grass</option><option value="Dove">Dove</option><option value="Hawaiian Tropic">Hawaiian Tropic</option><option value="Alka-Seltzer">Alka-Seltzer</option><option value="Heineken">Heineken</option><option value="Catalina Crunch">Catalina Crunch</option><option value="Welch&#x27;s">Welch&#x27;s</option><option value="PepsiCo">PepsiCo</option><option value="Mountain Dew">Mountain Dew</option><option value="Arm &amp; Hammer">Arm &amp; Hammer</option><option value="Just Made">Just Made</option><option value="Shrimp Chips">Shrimp Chips</option><option value="Goodles">Goodles</option></select>
       </label>
       <label class="filter-select-wrap">
         <span class="filter-select-wrap__label">Category</span>
-        <select class="filter-select" data-group="category"><option value="all">All</option><option value="Food">Food</option><option value="Beverages">Beverages</option><option value="Beauty">Beauty</option><option value="Wellness">Wellness</option></select>
+        <select class="filter-select" data-group="category"><option value="all">All</option><option value="Food">Food</option><option value="Beverages">Beverages</option><option value="Beauty">Beauty</option><option value="Wellness">Wellness</option><option value="Household">Household</option></select>
       </label>
       <label class="filter-select-wrap">
         <span class="filter-select-wrap__label">Event type</span>
@@ -529,7 +496,7 @@
          data-categories="Food|Other|Wellness"
          data-event-type="Student Housing">
       <div class="spotlight-info">
-        <div class="section__label">Cross-brand spotlight</div>
+        <div class="section__label">Spotlight</div>
         <h2 class="spotlight-info__title">Back to College</h2>
         <p class="spotlight__blurb">Multi-brand sample drop reaching students during move-in.</p>
         <div class="spotlight-info__meta">
@@ -542,55 +509,48 @@
             <div class="spotlight__chips"><span class="spotlight__chip">Kraft Heinz</span><span class="spotlight__chip">Emergen-C</span><span class="spotlight__chip">Oreo</span><span class="spotlight__chip">Uber</span><span class="spotlight__chip">Uber Eats</span></div>
           </div>
         </div>
+        
       </div>
       <div class="spotlight-posts">
-        <article class="post-card spotlight-post" data-event-type="Student Housing">
-          <header class="post-card__head">
-            <span class="post-card__supplier">Rockland Apartments</span>
-            <span class="post-card__platform post-card__platform--fb">Facebook</span>
-          </header>
-          <div class="post-card__embed">
+          <div class="spotlight-secondary">
             <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FOneOn4th%2Fposts%2F949062673899165&amp;show_text=true&amp;width=500"
-                    loading="lazy" frameborder="0" scrolling="no"
-                    allowtransparency="true" allow="encrypted-media; autoplay"
-                    title="Facebook post by Rockland Apartments"></iframe>
+                    loading="lazy"
+                    frameborder="0"
+                    scrolling="no"
+                    allowtransparency="true"
+                    allow="encrypted-media"
+                    title="Facebook post by partner"></iframe>
           </div>
-        </article>
-        <article class="post-card spotlight-post" data-event-type="Student Housing">
+        <article class="post-card spotlight-post"
+                 data-event-type="Student Housing">
           <header class="post-card__head">
             <span class="post-card__supplier">Rockland Apartments</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
           </header>
           <div class="post-card__embed">
             <iframe src="https://www.instagram.com/reel/C--p6EKpoS9/embed/captioned/"
-                    loading="lazy" frameborder="0" scrolling="no"
-                    allowtransparency="true" allow="encrypted-media; autoplay"
+                    loading="lazy"
+                    frameborder="0"
+                    scrolling="no"
+                    allowtransparency="true"
+                    allow="encrypted-media; autoplay"
                     title="Multi-brand post by Rockland Apartments"></iframe>
           </div>
         </article></div>
     </div>
   </section>
-  <section class="section portfolio-band" data-parent="Kraft Heinz">
-    <header class="portfolio-band__header">
-      <div class="section__label">Portfolio</div>
-      <h2 class="portfolio-band__title">Kraft Heinz</h2>
-      <p class="portfolio-band__tagline">Three brands. Pantry, snack, and beverage. One platform.</p>
-    </header>
-    <div class="portfolio-band__brands">
-      
+  <section class="section brand-section">
+    
     <div class="brand-block"
-         id="kraft-mac-cheese"
-         data-brand="Kraft Mac &amp; Cheese"
+         id="kraft-heinz"
+         data-brand="Kraft Heinz"
          data-category="Food">
       <div class="section__label">Brand</div>
-      <h2 class="section__title">Kraft Mac &amp; Cheese</h2>
+      <h2 class="section__title">Kraft Heinz</h2>
       <div class="post-grid">
         
         <article class="post-card"
-                 data-brand="Kraft Mac &amp; Cheese"
-                 data-category="Food"
                  data-event-type="Student Housing">
-          
           <header class="post-card__head">
             <span class="post-card__supplier">Asset Living</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
@@ -606,10 +566,7 @@
           </div>
         </article>
         <article class="post-card"
-                 data-brand="Kraft Mac &amp; Cheese"
-                 data-category="Food"
                  data-event-type="Student Housing">
-          
           <header class="post-card__head">
             <span class="post-card__supplier">Tailwind Management, Inc.</span>
             <span class="post-card__platform post-card__platform--fb">Facebook</span>
@@ -625,48 +582,39 @@
           </div>
         </article>
         <article class="post-card"
-                 data-brand="Kraft Mac &amp; Cheese"
-                 data-category="Food"
                  data-event-type="Student Housing">
-          
           <header class="post-card__head">
-            <span class="post-card__supplier">Campus Apartments</span>
+            <span class="post-card__supplier">Hudson Lofts</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
           </header>
           <div class="post-card__embed">
-            <iframe src="https://www.instagram.com/p/DQfGcJNkn17/embed/captioned/"
+            <iframe src="https://www.instagram.com/p/DQcTOGuERGG/embed/captioned/"
                     loading="lazy"
                     frameborder="0"
                     scrolling="no"
                     allowtransparency="true"
                     allow="encrypted-media; autoplay"
-                    title="Instagram post by Campus Apartments"></iframe>
+                    title="Instagram post by Hudson Lofts"></iframe>
           </div>
         </article>
         <article class="post-card"
-                 data-brand="Kraft Mac &amp; Cheese"
-                 data-category="Food"
                  data-event-type="Student Housing">
-          
           <header class="post-card__head">
-            <span class="post-card__supplier">Student Quarters</span>
+            <span class="post-card__supplier">Campus Apartments</span>
             <span class="post-card__platform post-card__platform--fb">Facebook</span>
           </header>
           <div class="post-card__embed">
-            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fphoto%2F%3Ffbid%3D734260899634201%26set%3Decnf.100091508935077&amp;show_text=true&amp;width=350"
+            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FLiveAlafaya%2Fposts%2Fpfbid031MHiMNLsVqybeTWasroHU2kr8ri3EVC5ji5PYpfw5mGgXc69MmASPcbNWwVL2mvpl&amp;show_text=true&amp;width=350"
                     loading="lazy"
                     frameborder="0"
                     scrolling="no"
                     allowtransparency="true"
                     allow="encrypted-media; autoplay"
-                    title="Facebook post by Student Quarters"></iframe>
+                    title="Facebook post by Campus Apartments"></iframe>
           </div>
         </article>
         <article class="post-card"
-                 data-brand="Kraft Mac &amp; Cheese"
-                 data-category="Food"
                  data-event-type="Student Housing">
-          
           <header class="post-card__head">
             <span class="post-card__supplier">Preiss</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
@@ -682,29 +630,7 @@
           </div>
         </article>
         <article class="post-card"
-                 data-brand="Kraft Mac &amp; Cheese"
-                 data-category="Food"
-                 data-event-type="Student Housing">
-          
-          <header class="post-card__head">
-            <span class="post-card__supplier">Greystar</span>
-            <span class="post-card__platform post-card__platform--fb">Facebook</span>
-          </header>
-          <div class="post-card__embed">
-            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2F100052847516888%2Fposts%2Fpfbid0FcZGbnctvLVdWrbxMvEn1CNL5scncYSGyEBqdVJY2rybBRBpaoyaDHLpM6tu6AfWl%2F&amp;show_text=true&amp;width=350"
-                    loading="lazy"
-                    frameborder="0"
-                    scrolling="no"
-                    allowtransparency="true"
-                    allow="encrypted-media; autoplay"
-                    title="Facebook post by Greystar"></iframe>
-          </div>
-        </article>
-        <article class="post-card"
-                 data-brand="Kraft Mac &amp; Cheese"
-                 data-category="Food"
                  data-event-type="Other">
-          
           <header class="post-card__head">
             <span class="post-card__supplier">Pierce Education Properties</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
@@ -719,46 +645,11 @@
                     title="Instagram post by Pierce Education Properties"></iframe>
           </div>
         </article>
-        <article class="post-card"
-                 data-brand="Kraft Mac &amp; Cheese"
-                 data-category="Food"
-                 data-event-type="Student Housing">
-          
-          <header class="post-card__head">
-            <span class="post-card__supplier">Cardinal Group Management &amp; Advisory LLC-1</span>
-            <span class="post-card__platform post-card__platform--fb">Facebook</span>
-          </header>
-          <div class="post-card__embed">
-            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fphoto%3Ffbid%3D1387459040052035%26set%3Dpcb.1387459110052028&amp;show_text=true&amp;width=350"
-                    loading="lazy"
-                    frameborder="0"
-                    scrolling="no"
-                    allowtransparency="true"
-                    allow="encrypted-media; autoplay"
-                    title="Facebook post by Cardinal Group Management &amp; Advisory LLC-1"></iframe>
-          </div>
-        </article>
-        <article class="post-card"
-                 data-brand="Kraft Mac &amp; Cheese"
-                 data-category="Food"
-                 data-event-type="Other">
-          
-          <header class="post-card__head">
-            <span class="post-card__supplier">Coastal Ridge</span>
-            <span class="post-card__platform post-card__platform--ig">Instagram</span>
-          </header>
-          <div class="post-card__embed">
-            <iframe src="https://www.instagram.com/p/DQr9N5VD7bY/embed/captioned/"
-                    loading="lazy"
-                    frameborder="0"
-                    scrolling="no"
-                    allowtransparency="true"
-                    allow="encrypted-media; autoplay"
-                    title="Instagram post by Coastal Ridge"></iframe>
-          </div>
-        </article>
       </div>
     </div>
+  </section>
+  <section class="section brand-section">
+    
     <div class="brand-block"
          id="mio"
          data-brand="Mio"
@@ -768,16 +659,13 @@
       <div class="post-grid">
         
         <article class="post-card"
-                 data-brand="Mio"
-                 data-category="Beverages"
                  data-event-type="Student Housing">
-          
           <header class="post-card__head">
             <span class="post-card__supplier">GMH Communities</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
           </header>
           <div class="post-card__embed">
-            <iframe src="https://www.instagram.com/p/DQM9nixEVHM/embed/captioned/"
+            <iframe src="https://www.instagram.com/p/DQIRQoLDzve/embed/captioned/"
                     loading="lazy"
                     frameborder="0"
                     scrolling="no"
@@ -787,10 +675,7 @@
           </div>
         </article>
         <article class="post-card"
-                 data-brand="Mio"
-                 data-category="Beverages"
                  data-event-type="Student Housing">
-          
           <header class="post-card__head">
             <span class="post-card__supplier">Greystar</span>
             <span class="post-card__platform post-card__platform--fb">Facebook</span>
@@ -806,10 +691,7 @@
           </div>
         </article>
         <article class="post-card"
-                 data-brand="Mio"
-                 data-category="Beverages"
                  data-event-type="Fitness Studios">
-          
           <header class="post-card__head">
             <span class="post-card__supplier">F45</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
@@ -825,10 +707,7 @@
           </div>
         </article>
         <article class="post-card"
-                 data-brand="Mio"
-                 data-category="Beverages"
                  data-event-type="Student Housing">
-          
           <header class="post-card__head">
             <span class="post-card__supplier">Campus Apartments</span>
             <span class="post-card__platform post-card__platform--fb">Facebook</span>
@@ -844,16 +723,13 @@
           </div>
         </article>
         <article class="post-card"
-                 data-brand="Mio"
-                 data-category="Beverages"
                  data-event-type="Student Housing">
-          
           <header class="post-card__head">
             <span class="post-card__supplier">American Campus Communities</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
           </header>
           <div class="post-card__embed">
-            <iframe src="https://www.instagram.com/reel/DPKpy2fjdm9/embed/captioned/"
+            <iframe src="https://www.instagram.com/p/DObMacgAFVV/embed/captioned/"
                     loading="lazy"
                     frameborder="0"
                     scrolling="no"
@@ -863,10 +739,7 @@
           </div>
         </article>
         <article class="post-card"
-                 data-brand="Mio"
-                 data-category="Beverages"
                  data-event-type="Student Housing">
-          
           <header class="post-card__head">
             <span class="post-card__supplier">Redstone</span>
             <span class="post-card__platform post-card__platform--fb">Facebook</span>
@@ -881,275 +754,27 @@
                     title="Facebook post by Redstone"></iframe>
           </div>
         </article>
-        <article class="post-card"
-                 data-brand="Mio"
-                 data-category="Beverages"
-                 data-event-type="Student Housing">
-          
-          <header class="post-card__head">
-            <span class="post-card__supplier">Perimeter Property Management</span>
-            <span class="post-card__platform post-card__platform--ig">Instagram</span>
-          </header>
-          <div class="post-card__embed">
-            <iframe src="https://www.instagram.com/p/DOpCUNyib9Q/embed/captioned/"
-                    loading="lazy"
-                    frameborder="0"
-                    scrolling="no"
-                    allowtransparency="true"
-                    allow="encrypted-media; autoplay"
-                    title="Instagram post by Perimeter Property Management"></iframe>
-          </div>
-        </article>
-        <article class="post-card"
-                 data-brand="Mio"
-                 data-category="Beverages"
-                 data-event-type="Student Housing">
-          
-          <header class="post-card__head">
-            <span class="post-card__supplier">Tailwind Management, Inc.</span>
-            <span class="post-card__platform post-card__platform--fb">Facebook</span>
-          </header>
-          <div class="post-card__embed">
-            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FTheQuartersStarkville%2Fposts%2Fpfbid0fRr5kN9Un551A4uUg1ZrVEXVXBJYMJobNdQxhwmMwviHYVewbwMzRnyzZSwwGHXZl&amp;show_text=true&amp;width=350"
-                    loading="lazy"
-                    frameborder="0"
-                    scrolling="no"
-                    allowtransparency="true"
-                    allow="encrypted-media; autoplay"
-                    title="Facebook post by Tailwind Management, Inc."></iframe>
-          </div>
-        </article>
-        <article class="post-card"
-                 data-brand="Mio"
-                 data-category="Beverages"
-                 data-event-type="Student Housing">
-          
-          <header class="post-card__head">
-            <span class="post-card__supplier">Cardinal Group Management &amp; Advisory LLC-1</span>
-            <span class="post-card__platform post-card__platform--ig">Instagram</span>
-          </header>
-          <div class="post-card__embed">
-            <iframe src="https://www.instagram.com/p/DPMm7DKCTS8/embed/captioned/"
-                    loading="lazy"
-                    frameborder="0"
-                    scrolling="no"
-                    allowtransparency="true"
-                    allow="encrypted-media; autoplay"
-                    title="Instagram post by Cardinal Group Management &amp; Advisory LLC-1"></iframe>
-          </div>
-        </article>
-        <article class="post-card"
-                 data-brand="Mio"
-                 data-category="Beverages"
-                 data-event-type="Student Housing">
-          
-          <header class="post-card__head">
-            <span class="post-card__supplier">Asset Living</span>
-            <span class="post-card__platform post-card__platform--ig">Instagram</span>
-          </header>
-          <div class="post-card__embed">
-            <iframe src="https://www.instagram.com/p/DOtr-0gjpsc/embed/captioned/"
-                    loading="lazy"
-                    frameborder="0"
-                    scrolling="no"
-                    allowtransparency="true"
-                    allow="encrypted-media; autoplay"
-                    title="Instagram post by Asset Living"></iframe>
-          </div>
-        </article>
-        <article class="post-card"
-                 data-brand="Mio"
-                 data-category="Beverages"
-                 data-event-type="Student Housing">
-          
-          <header class="post-card__head">
-            <span class="post-card__supplier">Preiss</span>
-            <span class="post-card__platform post-card__platform--ig">Instagram</span>
-          </header>
-          <div class="post-card__embed">
-            <iframe src="https://www.instagram.com/p/DObVp-bkU5C/embed/captioned/"
-                    loading="lazy"
-                    frameborder="0"
-                    scrolling="no"
-                    allowtransparency="true"
-                    allow="encrypted-media; autoplay"
-                    title="Instagram post by Preiss"></iframe>
-          </div>
-        </article>
-        <article class="post-card"
-                 data-brand="Mio"
-                 data-category="Beverages"
-                 data-event-type="Student Housing">
-          
-          <header class="post-card__head">
-            <span class="post-card__supplier">B.HOM Student Living</span>
-            <span class="post-card__platform post-card__platform--ig">Instagram</span>
-          </header>
-          <div class="post-card__embed">
-            <iframe src="https://www.instagram.com/p/DOWPoWdjjDd/embed/captioned/"
-                    loading="lazy"
-                    frameborder="0"
-                    scrolling="no"
-                    allowtransparency="true"
-                    allow="encrypted-media; autoplay"
-                    title="Instagram post by B.HOM Student Living"></iframe>
-          </div>
-        </article>
       </div>
-    </div>
-    <div class="brand-block"
-         id="velveeta"
-         data-brand="Velveeta"
-         data-category="Food">
-      <div class="section__label">Brand</div>
-      <h2 class="section__title">Velveeta</h2>
-      <div class="post-grid">
-        
-        <article class="post-card"
-                 data-brand="Velveeta"
-                 data-category="Food"
-                 data-event-type="Student Housing">
-          
-          <header class="post-card__head">
-            <span class="post-card__supplier">Tailwind Management, Inc.</span>
-            <span class="post-card__platform post-card__platform--ig">Instagram</span>
-          </header>
-          <div class="post-card__embed">
-            <iframe src="https://www.instagram.com/p/DQVG3omDr8u/embed/captioned/"
-                    loading="lazy"
-                    frameborder="0"
-                    scrolling="no"
-                    allowtransparency="true"
-                    allow="encrypted-media; autoplay"
-                    title="Instagram post by Tailwind Management, Inc."></iframe>
-          </div>
-        </article>
-        <article class="post-card"
-                 data-brand="Velveeta"
-                 data-category="Food"
-                 data-event-type="Student Housing">
-          
-          <header class="post-card__head">
-            <span class="post-card__supplier">Campus Apartments</span>
-            <span class="post-card__platform post-card__platform--fb">Facebook</span>
-          </header>
-          <div class="post-card__embed">
-            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fphoto%2F%3Ffbid%3D1389628753165602%26set%3Dpb.100063554712780.-2207520000&amp;show_text=true&amp;width=350"
-                    loading="lazy"
-                    frameborder="0"
-                    scrolling="no"
-                    allowtransparency="true"
-                    allow="encrypted-media; autoplay"
-                    title="Facebook post by Campus Apartments"></iframe>
-          </div>
-        </article>
-        <article class="post-card"
-                 data-brand="Velveeta"
-                 data-category="Food"
-                 data-event-type="Fitness Studios">
-          
-          <header class="post-card__head">
-            <span class="post-card__supplier">Booknladder</span>
-            <span class="post-card__platform post-card__platform--ig">Instagram</span>
-          </header>
-          <div class="post-card__embed">
-            <iframe src="https://www.instagram.com/p/DOhMS9vjUDb/embed/captioned/"
-                    loading="lazy"
-                    frameborder="0"
-                    scrolling="no"
-                    allowtransparency="true"
-                    allow="encrypted-media; autoplay"
-                    title="Instagram post by Booknladder"></iframe>
-          </div>
-        </article>
-        <article class="post-card"
-                 data-brand="Velveeta"
-                 data-category="Food"
-                 data-event-type="Student Housing">
-          
-          <header class="post-card__head">
-            <span class="post-card__supplier">Cardinal Group Management &amp; Advisory LLC-1</span>
-            <span class="post-card__platform post-card__platform--ig">Instagram</span>
-          </header>
-          <div class="post-card__embed">
-            <iframe src="https://www.instagram.com/p/DOwlNmokci-/embed/captioned/"
-                    loading="lazy"
-                    frameborder="0"
-                    scrolling="no"
-                    allowtransparency="true"
-                    allow="encrypted-media; autoplay"
-                    title="Instagram post by Cardinal Group Management &amp; Advisory LLC-1"></iframe>
-          </div>
-        </article>
-        <article class="post-card"
-                 data-brand="Velveeta"
-                 data-category="Food"
-                 data-event-type="Student Housing">
-          
-          <header class="post-card__head">
-            <span class="post-card__supplier">Asset Living</span>
-            <span class="post-card__platform post-card__platform--ig">Instagram</span>
-          </header>
-          <div class="post-card__embed">
-            <iframe src="https://www.instagram.com/p/DOZRdKHCm_J/embed/captioned/"
-                    loading="lazy"
-                    frameborder="0"
-                    scrolling="no"
-                    allowtransparency="true"
-                    allow="encrypted-media; autoplay"
-                    title="Instagram post by Asset Living"></iframe>
-          </div>
-        </article>
-        <article class="post-card"
-                 data-brand="Velveeta"
-                 data-category="Food"
-                 data-event-type="Student Housing">
-          
-          <header class="post-card__head">
-            <span class="post-card__supplier">Campus Apartments</span>
-            <span class="post-card__platform post-card__platform--ig">Instagram</span>
-          </header>
-          <div class="post-card__embed">
-            <iframe src="https://www.instagram.com/p/DPHjGW7krkg/embed/captioned/"
-                    loading="lazy"
-                    frameborder="0"
-                    scrolling="no"
-                    allowtransparency="true"
-                    allow="encrypted-media; autoplay"
-                    title="Instagram post by Campus Apartments"></iframe>
-          </div>
-        </article>
-      </div>
-    </div>
     </div>
   </section>
-  <section class="section portfolio-band" data-parent="Bayer HealthCare">
-    <header class="portfolio-band__header">
-      <div class="section__label">Portfolio</div>
-      <h2 class="portfolio-band__title">Bayer HealthCare</h2>
-      <p class="portfolio-band__tagline">Wellness portfolio reaching consumers in their daily routines.</p>
-    </header>
-    <div class="portfolio-band__brands">
-      
+  <section class="section brand-pair">
+    
     <div class="brand-block"
-         id="alka-seltzer"
-         data-brand="Alka-Seltzer"
-         data-category="Wellness">
+         id="ghost"
+         data-brand="Ghost"
+         data-category="Beverages">
       <div class="section__label">Brand</div>
-      <h2 class="section__title">Alka-Seltzer</h2>
+      <h2 class="section__title">Ghost</h2>
       <div class="post-grid">
         
         <article class="post-card"
-                 data-brand="Alka-Seltzer"
-                 data-category="Wellness"
                  data-event-type="Student Housing">
-          
           <header class="post-card__head">
             <span class="post-card__supplier">Cardinal Group Management &amp; Advisory LLC-1</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
           </header>
           <div class="post-card__embed">
-            <iframe src="https://www.instagram.com/p/DP6ptnkDrhd/embed/captioned/"
+            <iframe src="https://www.instagram.com/p/DXhwyLRkhRN/embed/captioned/"
                     loading="lazy"
                     frameborder="0"
                     scrolling="no"
@@ -1158,243 +783,48 @@
                     title="Instagram post by Cardinal Group Management &amp; Advisory LLC-1"></iframe>
           </div>
         </article>
-        <article class="post-card"
-                 data-brand="Alka-Seltzer"
-                 data-category="Wellness"
-                 data-event-type="Student Housing">
-          
-          <header class="post-card__head">
-            <span class="post-card__supplier">Tailwind Management, Inc.</span>
-            <span class="post-card__platform post-card__platform--ig">Instagram</span>
-          </header>
-          <div class="post-card__embed">
-            <iframe src="https://www.instagram.com/p/DPmGKoNkaA5/embed/captioned/"
-                    loading="lazy"
-                    frameborder="0"
-                    scrolling="no"
-                    allowtransparency="true"
-                    allow="encrypted-media; autoplay"
-                    title="Instagram post by Tailwind Management, Inc."></iframe>
-          </div>
-        </article>
-        <article class="post-card"
-                 data-brand="Alka-Seltzer"
-                 data-category="Wellness"
-                 data-event-type="Student Housing">
-          
-          <header class="post-card__head">
-            <span class="post-card__supplier">Asset Living</span>
-            <span class="post-card__platform post-card__platform--ig">Instagram</span>
-          </header>
-          <div class="post-card__embed">
-            <iframe src="https://www.instagram.com/p/DPWX6JPjZ3A/embed/captioned/"
-                    loading="lazy"
-                    frameborder="0"
-                    scrolling="no"
-                    allowtransparency="true"
-                    allow="encrypted-media; autoplay"
-                    title="Instagram post by Asset Living"></iframe>
-          </div>
-        </article>
-        <article class="post-card"
-                 data-brand="Alka-Seltzer"
-                 data-category="Wellness"
-                 data-event-type="Student Housing">
-          
-          <header class="post-card__head">
-            <span class="post-card__supplier">Cardinal Group Management &amp; Advisory LLC-1</span>
-            <span class="post-card__platform post-card__platform--ig">Instagram</span>
-          </header>
-          <div class="post-card__embed">
-            <iframe src="https://www.instagram.com/p/DPhJ06zCfXp/embed/captioned/"
-                    loading="lazy"
-                    frameborder="0"
-                    scrolling="no"
-                    allowtransparency="true"
-                    allow="encrypted-media; autoplay"
-                    title="Instagram post by Cardinal Group Management &amp; Advisory LLC-1"></iframe>
-          </div>
-        </article>
-        <article class="post-card"
-                 data-brand="Alka-Seltzer"
-                 data-category="Wellness"
-                 data-event-type="Student Housing">
-          
-          <header class="post-card__head">
-            <span class="post-card__supplier">Tailwind Management, Inc.</span>
-            <span class="post-card__platform post-card__platform--ig">Instagram</span>
-          </header>
-          <div class="post-card__embed">
-            <iframe src="https://www.instagram.com/p/DPhJfZOkSjO/embed/captioned/"
-                    loading="lazy"
-                    frameborder="0"
-                    scrolling="no"
-                    allowtransparency="true"
-                    allow="encrypted-media; autoplay"
-                    title="Instagram post by Tailwind Management, Inc."></iframe>
-          </div>
-        </article>
-        <article class="post-card"
-                 data-brand="Alka-Seltzer"
-                 data-category="Wellness"
-                 data-event-type="Student Housing">
-          
-          <header class="post-card__head">
-            <span class="post-card__supplier">Tailwind Management, Inc.</span>
-            <span class="post-card__platform post-card__platform--ig">Instagram</span>
-          </header>
-          <div class="post-card__embed">
-            <iframe src="https://www.instagram.com/p/DPhlzUcDvrI/embed/captioned/"
-                    loading="lazy"
-                    frameborder="0"
-                    scrolling="no"
-                    allowtransparency="true"
-                    allow="encrypted-media; autoplay"
-                    title="Instagram post by Tailwind Management, Inc."></iframe>
-          </div>
-        </article>
       </div>
     </div>
+    
     <div class="brand-block"
-         id="midol"
-         data-brand="Midol"
-         data-category="Wellness">
+         id="e-l-f"
+         data-brand="e.l.f."
+         data-category="Beauty">
       <div class="section__label">Brand</div>
-      <h2 class="section__title">Midol</h2>
+      <h2 class="section__title">e.l.f.</h2>
       <div class="post-grid">
         
         <article class="post-card"
-                 data-brand="Midol"
-                 data-category="Wellness"
-                 data-event-type="Fitness Studios">
-          
+                 data-event-type="Student Housing">
           <header class="post-card__head">
-            <span class="post-card__supplier">Crunch Fitness</span>
+            <span class="post-card__supplier">Academy Lincoln</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
           </header>
           <div class="post-card__embed">
-            <iframe src="https://www.instagram.com/p/DWPT9ZDE2sF/embed/captioned/"
+            <iframe src="https://www.instagram.com/p/DYAM2POFox5/embed/captioned/"
                     loading="lazy"
                     frameborder="0"
                     scrolling="no"
                     allowtransparency="true"
                     allow="encrypted-media; autoplay"
-                    title="Instagram post by Crunch Fitness"></iframe>
-          </div>
-        </article>
-        <article class="post-card"
-                 data-brand="Midol"
-                 data-category="Wellness"
-                 data-event-type="Fitness Studios">
-          
-          <header class="post-card__head">
-            <span class="post-card__supplier">Zoo Gym</span>
-            <span class="post-card__platform post-card__platform--fb">Facebook</span>
-          </header>
-          <div class="post-card__embed">
-            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fthezoohealthclubs%2Fposts%2Fpfbid02orEXd2vK4S3oP6v3Z1ffGm7E9JWXcQhaFXMUBAv591znp2xdipsVh1rCwcQs7Pytl&amp;show_text=true&amp;width=350"
-                    loading="lazy"
-                    frameborder="0"
-                    scrolling="no"
-                    allowtransparency="true"
-                    allow="encrypted-media; autoplay"
-                    title="Facebook post by Zoo Gym"></iframe>
-          </div>
-        </article>
-        <article class="post-card"
-                 data-brand="Midol"
-                 data-category="Wellness"
-                 data-event-type="Fitness Studios">
-          
-          <header class="post-card__head">
-            <span class="post-card__supplier">F45</span>
-            <span class="post-card__platform post-card__platform--ig">Instagram</span>
-          </header>
-          <div class="post-card__embed">
-            <iframe src="https://www.instagram.com/p/DWkDpotifPo/embed/captioned/"
-                    loading="lazy"
-                    frameborder="0"
-                    scrolling="no"
-                    allowtransparency="true"
-                    allow="encrypted-media; autoplay"
-                    title="Instagram post by F45"></iframe>
-          </div>
-        </article>
-        <article class="post-card"
-                 data-brand="Midol"
-                 data-category="Wellness"
-                 data-event-type="Fitness Studios">
-          
-          <header class="post-card__head">
-            <span class="post-card__supplier">Crunch Fitness</span>
-            <span class="post-card__platform post-card__platform--ig">Instagram</span>
-          </header>
-          <div class="post-card__embed">
-            <iframe src="https://www.instagram.com/p/DWsMIbLmso8/embed/captioned/"
-                    loading="lazy"
-                    frameborder="0"
-                    scrolling="no"
-                    allowtransparency="true"
-                    allow="encrypted-media; autoplay"
-                    title="Instagram post by Crunch Fitness"></iframe>
-          </div>
-        </article>
-        <article class="post-card"
-                 data-brand="Midol"
-                 data-category="Wellness"
-                 data-event-type="Fitness Studios">
-          
-          <header class="post-card__head">
-            <span class="post-card__supplier">Crunch Fitness</span>
-            <span class="post-card__platform post-card__platform--fb">Facebook</span>
-          </header>
-          <div class="post-card__embed">
-            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fphoto%2F%3Ffbid%3D1319592343534318%26set%3Dpb.100064506947494.-2207520000&amp;show_text=true&amp;width=350"
-                    loading="lazy"
-                    frameborder="0"
-                    scrolling="no"
-                    allowtransparency="true"
-                    allow="encrypted-media; autoplay"
-                    title="Facebook post by Crunch Fitness"></iframe>
-          </div>
-        </article>
-        <article class="post-card"
-                 data-brand="Midol"
-                 data-category="Wellness"
-                 data-event-type="Fitness Studios">
-          
-          <header class="post-card__head">
-            <span class="post-card__supplier">Crunch Fitness</span>
-            <span class="post-card__platform post-card__platform--ig">Instagram</span>
-          </header>
-          <div class="post-card__embed">
-            <iframe src="https://www.instagram.com/p/DWpe4s-DtUd/embed/captioned/"
-                    loading="lazy"
-                    frameborder="0"
-                    scrolling="no"
-                    allowtransparency="true"
-                    allow="encrypted-media; autoplay"
-                    title="Instagram post by Crunch Fitness"></iframe>
+                    title="Instagram post by Academy Lincoln"></iframe>
           </div>
         </article>
       </div>
-    </div>
     </div>
   </section>
-  <section class="section spotlight-brand-section">
+  <section class="section brand-section">
+    
     <div class="brand-block"
          id="peace-tea"
          data-brand="Peace Tea"
          data-category="Beverages">
-      <div class="section__label">Spotlight</div>
-      <h2 class="section__title section__title--big">Peace Tea</h2>
+      <div class="section__label">Brand</div>
+      <h2 class="section__title">Peace Tea</h2>
       <div class="post-grid">
         
         <article class="post-card"
-                 data-brand="Peace Tea"
-                 data-category="Beverages"
                  data-event-type="Other">
-          
           <header class="post-card__head">
             <span class="post-card__supplier">The Black Sheep</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
@@ -1410,10 +840,7 @@
           </div>
         </article>
         <article class="post-card"
-                 data-brand="Peace Tea"
-                 data-category="Beverages"
                  data-event-type="Student Housing">
-          
           <header class="post-card__head">
             <span class="post-card__supplier">Tailwind Management, Inc.</span>
             <span class="post-card__platform post-card__platform--fb">Facebook</span>
@@ -1429,16 +856,13 @@
           </div>
         </article>
         <article class="post-card"
-                 data-brand="Peace Tea"
-                 data-category="Beverages"
                  data-event-type="Student Housing">
-          
           <header class="post-card__head">
             <span class="post-card__supplier">Asset Living</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
           </header>
           <div class="post-card__embed">
-            <iframe src="https://www.instagram.com/p/DQH7UmNkWJt/embed/captioned/"
+            <iframe src="https://www.instagram.com/p/DQCbcyBjhxe/embed/captioned/"
                     loading="lazy"
                     frameborder="0"
                     scrolling="no"
@@ -1448,10 +872,7 @@
           </div>
         </article>
         <article class="post-card"
-                 data-brand="Peace Tea"
-                 data-category="Beverages"
                  data-event-type="Student Housing">
-          
           <header class="post-card__head">
             <span class="post-card__supplier">Cardinal Group Management &amp; Advisory LLC-1</span>
             <span class="post-card__platform post-card__platform--fb">Facebook</span>
@@ -1467,16 +888,13 @@
           </div>
         </article>
         <article class="post-card"
-                 data-brand="Peace Tea"
-                 data-category="Beverages"
                  data-event-type="Student Housing">
-          
           <header class="post-card__head">
             <span class="post-card__supplier">Campus Apartments</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
           </header>
           <div class="post-card__embed">
-            <iframe src="https://www.instagram.com/p/DQUU4_tDZnK/embed/captioned/"
+            <iframe src="https://www.instagram.com/p/DPMk-XHEVrf/embed/captioned/"
                     loading="lazy"
                     frameborder="0"
                     scrolling="no"
@@ -1486,10 +904,7 @@
           </div>
         </article>
         <article class="post-card"
-                 data-brand="Peace Tea"
-                 data-category="Beverages"
                  data-event-type="Student Housing">
-          
           <header class="post-card__head">
             <span class="post-card__supplier">Redstone</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
@@ -1504,17 +919,27 @@
                     title="Instagram post by Redstone"></iframe>
           </div>
         </article>
+      </div>
+    </div>
+  </section>
+  <section class="section brand-section">
+    
+    <div class="brand-block"
+         id="zoa-energy"
+         data-brand="ZOA Energy"
+         data-category="Beverages">
+      <div class="section__label">Brand</div>
+      <h2 class="section__title">ZOA Energy</h2>
+      <div class="post-grid">
+        
         <article class="post-card"
-                 data-brand="Peace Tea"
-                 data-category="Beverages"
                  data-event-type="Student Housing">
-          
           <header class="post-card__head">
             <span class="post-card__supplier">Perimeter Property Management</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
           </header>
           <div class="post-card__embed">
-            <iframe src="https://www.instagram.com/p/DOgKVYkDcZu/embed/captioned/"
+            <iframe src="https://www.instagram.com/p/DObq12QgR3J/embed/captioned/"
                     loading="lazy"
                     frameborder="0"
                     scrolling="no"
@@ -1524,136 +949,116 @@
           </div>
         </article>
         <article class="post-card"
-                 data-brand="Peace Tea"
-                 data-category="Beverages"
-                 data-event-type="Student Housing">
-          
+                 data-event-type="Fitness Studios">
           <header class="post-card__head">
-            <span class="post-card__supplier">College Town Communities</span>
-            <span class="post-card__platform post-card__platform--ig">Instagram</span>
+            <span class="post-card__supplier">Orangetheory Fitness</span>
+            <span class="post-card__platform post-card__platform--fb">Facebook</span>
           </header>
           <div class="post-card__embed">
-            <iframe src="https://www.instagram.com/p/DPE6mHmjqNO/embed/captioned/"
+            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fphoto%2F%3Ffbid%3D997134439086818%26set%3Dpcb.997134649086797&amp;show_text=true&amp;width=350"
                     loading="lazy"
                     frameborder="0"
                     scrolling="no"
                     allowtransparency="true"
                     allow="encrypted-media; autoplay"
-                    title="Instagram post by College Town Communities"></iframe>
+                    title="Facebook post by Orangetheory Fitness"></iframe>
           </div>
         </article>
         <article class="post-card"
-                 data-brand="Peace Tea"
-                 data-category="Beverages"
-                 data-event-type="Other">
-          
+                 data-event-type="Fitness Studios">
           <header class="post-card__head">
-            <span class="post-card__supplier">Campus Realty Advisors</span>
+            <span class="post-card__supplier">F45 Jollyville</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
           </header>
           <div class="post-card__embed">
-            <iframe src="https://www.instagram.com/p/DOtJrBKDvAJ/embed/captioned/"
+            <iframe src="https://www.instagram.com/p/DAbNkBuOVql/embed/captioned/"
                     loading="lazy"
                     frameborder="0"
                     scrolling="no"
                     allowtransparency="true"
                     allow="encrypted-media; autoplay"
-                    title="Instagram post by Campus Realty Advisors"></iframe>
+                    title="Instagram post by F45 Jollyville"></iframe>
+          </div>
+        </article>
+        <article class="post-card"
+                 data-event-type="Student Housing">
+          <header class="post-card__head">
+            <span class="post-card__supplier">Cardinal Group Management &amp; Advisory LLC-1</span>
+            <span class="post-card__platform post-card__platform--ig">Instagram</span>
+          </header>
+          <div class="post-card__embed">
+            <iframe src="https://www.instagram.com/p/DBPXfrnSQsK/embed/captioned/"
+                    loading="lazy"
+                    frameborder="0"
+                    scrolling="no"
+                    allowtransparency="true"
+                    allow="encrypted-media; autoplay"
+                    title="Instagram post by Cardinal Group Management &amp; Advisory LLC-1"></iframe>
+          </div>
+        </article>
+        <article class="post-card"
+                 data-event-type="Fitness Studios">
+          <header class="post-card__head">
+            <span class="post-card__supplier">Booknladder</span>
+            <span class="post-card__platform post-card__platform--ig">Instagram</span>
+          </header>
+          <div class="post-card__embed">
+            <iframe src="https://www.instagram.com/p/DAEUyhIJGJ5/embed/captioned/"
+                    loading="lazy"
+                    frameborder="0"
+                    scrolling="no"
+                    allowtransparency="true"
+                    allow="encrypted-media; autoplay"
+                    title="Instagram post by Booknladder"></iframe>
+          </div>
+        </article>
+        <article class="post-card"
+                 data-event-type="Fitness Studios">
+          <header class="post-card__head">
+            <span class="post-card__supplier">F45</span>
+            <span class="post-card__platform post-card__platform--ig">Instagram</span>
+          </header>
+          <div class="post-card__embed">
+            <iframe src="https://www.instagram.com/p/C_rEnyTy8tc/embed/captioned/"
+                    loading="lazy"
+                    frameborder="0"
+                    scrolling="no"
+                    allowtransparency="true"
+                    allow="encrypted-media; autoplay"
+                    title="Instagram post by F45"></iframe>
           </div>
         </article>
       </div>
     </div>
   </section>
-  <section class="section spotlight-brand-section">
+  <section class="section brand-section">
+    
     <div class="brand-block"
          id="starburst"
          data-brand="Starburst"
          data-category="Food">
-      <div class="section__label">Spotlight</div>
-      <h2 class="section__title section__title--big">Starburst</h2>
+      <div class="section__label">Brand</div>
+      <h2 class="section__title">Starburst</h2>
       <div class="post-grid">
         
         <article class="post-card"
-                 data-brand="Starburst"
-                 data-category="Food"
                  data-event-type="Student Housing">
-          
           <header class="post-card__head">
-            <span class="post-card__supplier">Cardinal Group Management &amp; Advisory LLC-1</span>
+            <span class="post-card__supplier">Asset Living</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
           </header>
           <div class="post-card__embed">
-            <iframe src="https://www.instagram.com/p/DWZmDrMjUK0/embed/captioned/"
+            <iframe src="https://www.instagram.com/p/DV1M0wUEe1E/embed/captioned/"
                     loading="lazy"
                     frameborder="0"
                     scrolling="no"
                     allowtransparency="true"
                     allow="encrypted-media; autoplay"
-                    title="Instagram post by Cardinal Group Management &amp; Advisory LLC-1"></iframe>
+                    title="Instagram post by Asset Living"></iframe>
           </div>
         </article>
         <article class="post-card"
-                 data-brand="Starburst"
-                 data-category="Food"
                  data-event-type="Student Housing">
-          
-          <header class="post-card__head">
-            <span class="post-card__supplier">Campus Apartments</span>
-            <span class="post-card__platform post-card__platform--ig">Instagram</span>
-          </header>
-          <div class="post-card__embed">
-            <iframe src="https://www.instagram.com/p/DVt5LNtEqrI/embed/captioned/"
-                    loading="lazy"
-                    frameborder="0"
-                    scrolling="no"
-                    allowtransparency="true"
-                    allow="encrypted-media; autoplay"
-                    title="Instagram post by Campus Apartments"></iframe>
-          </div>
-        </article>
-        <article class="post-card"
-                 data-brand="Starburst"
-                 data-category="Food"
-                 data-event-type="Student Housing">
-          
-          <header class="post-card__head">
-            <span class="post-card__supplier">Greystar</span>
-            <span class="post-card__platform post-card__platform--ig">Instagram</span>
-          </header>
-          <div class="post-card__embed">
-            <iframe src="https://www.instagram.com/p/DWCM6uzkVj5/embed/captioned/"
-                    loading="lazy"
-                    frameborder="0"
-                    scrolling="no"
-                    allowtransparency="true"
-                    allow="encrypted-media; autoplay"
-                    title="Instagram post by Greystar"></iframe>
-          </div>
-        </article>
-        <article class="post-card"
-                 data-brand="Starburst"
-                 data-category="Food"
-                 data-event-type="Student Housing">
-          
-          <header class="post-card__head">
-            <span class="post-card__supplier">Cardinal Group Management &amp; Advisory LLC-1</span>
-            <span class="post-card__platform post-card__platform--ig">Instagram</span>
-          </header>
-          <div class="post-card__embed">
-            <iframe src="https://www.instagram.com/p/DWUXzcYkdJc/embed/captioned/"
-                    loading="lazy"
-                    frameborder="0"
-                    scrolling="no"
-                    allowtransparency="true"
-                    allow="encrypted-media; autoplay"
-                    title="Instagram post by Cardinal Group Management &amp; Advisory LLC-1"></iframe>
-          </div>
-        </article>
-        <article class="post-card"
-                 data-brand="Starburst"
-                 data-category="Food"
-                 data-event-type="Student Housing">
-          
           <header class="post-card__head">
             <span class="post-card__supplier">Cardinal Group Management &amp; Advisory LLC-1</span>
             <span class="post-card__platform post-card__platform--fb">Facebook</span>
@@ -1669,173 +1074,13 @@
           </div>
         </article>
         <article class="post-card"
-                 data-brand="Starburst"
-                 data-category="Food"
                  data-event-type="Student Housing">
-          
-          <header class="post-card__head">
-            <span class="post-card__supplier">Cardinal Group Management &amp; Advisory LLC-1</span>
-            <span class="post-card__platform post-card__platform--ig">Instagram</span>
-          </header>
-          <div class="post-card__embed">
-            <iframe src="https://www.instagram.com/p/DWAEmjrkhvt/embed/captioned/"
-                    loading="lazy"
-                    frameborder="0"
-                    scrolling="no"
-                    allowtransparency="true"
-                    allow="encrypted-media; autoplay"
-                    title="Instagram post by Cardinal Group Management &amp; Advisory LLC-1"></iframe>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-  <section class="section spotlight-brand-section">
-    <div class="brand-block"
-         id="st-k-cold-brew"
-         data-brand="Stōk Cold Brew"
-         data-category="Beverages">
-      <div class="section__label">Spotlight</div>
-      <h2 class="section__title section__title--big">Stōk Cold Brew</h2>
-      <div class="post-grid">
-        
-        <article class="post-card"
-                 data-brand="Stōk Cold Brew"
-                 data-category="Beverages"
-                 data-event-type="Student Housing">
-          
-          <header class="post-card__head">
-            <span class="post-card__supplier">Tailwind Management, Inc.</span>
-            <span class="post-card__platform post-card__platform--ig">Instagram</span>
-          </header>
-          <div class="post-card__embed">
-            <iframe src="https://www.instagram.com/reel/DOzTG-NCUfL/embed/captioned/"
-                    loading="lazy"
-                    frameborder="0"
-                    scrolling="no"
-                    allowtransparency="true"
-                    allow="encrypted-media; autoplay"
-                    title="Instagram post by Tailwind Management, Inc."></iframe>
-          </div>
-        </article>
-        <article class="post-card"
-                 data-brand="Stōk Cold Brew"
-                 data-category="Beverages"
-                 data-event-type="Student Housing">
-          
-          <header class="post-card__head">
-            <span class="post-card__supplier">Cardinal Group Management &amp; Advisory LLC-1</span>
-            <span class="post-card__platform post-card__platform--fb">Facebook</span>
-          </header>
-          <div class="post-card__embed">
-            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fphoto%2F%3Ffbid%3D1470263607865377%26set%3Da.707569057468173&amp;show_text=true&amp;width=350"
-                    loading="lazy"
-                    frameborder="0"
-                    scrolling="no"
-                    allowtransparency="true"
-                    allow="encrypted-media; autoplay"
-                    title="Facebook post by Cardinal Group Management &amp; Advisory LLC-1"></iframe>
-          </div>
-        </article>
-        <article class="post-card"
-                 data-brand="Stōk Cold Brew"
-                 data-category="Beverages"
-                 data-event-type="Social Sports">
-          
-          <header class="post-card__head">
-            <span class="post-card__supplier">Tailgreeter</span>
-            <span class="post-card__platform post-card__platform--fb">Facebook</span>
-          </header>
-          <div class="post-card__embed">
-            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FTailgreeter%2Fposts%2Fpfbid02PdG64cnVmN9LUYcS5i33GB2m8wmbZjUjtN9fz1mtTFsPwmuccrX9urQxxroRpZfdl&amp;show_text=true&amp;width=350"
-                    loading="lazy"
-                    frameborder="0"
-                    scrolling="no"
-                    allowtransparency="true"
-                    allow="encrypted-media; autoplay"
-                    title="Facebook post by Tailgreeter"></iframe>
-          </div>
-        </article>
-        <article class="post-card"
-                 data-brand="Stōk Cold Brew"
-                 data-category="Beverages"
-                 data-event-type="Student Housing">
-          
-          <header class="post-card__head">
-            <span class="post-card__supplier">Tailwind Management, Inc.</span>
-            <span class="post-card__platform post-card__platform--ig">Instagram</span>
-          </header>
-          <div class="post-card__embed">
-            <iframe src="https://www.instagram.com/p/DP1qZLzDRgh/embed/captioned/"
-                    loading="lazy"
-                    frameborder="0"
-                    scrolling="no"
-                    allowtransparency="true"
-                    allow="encrypted-media; autoplay"
-                    title="Instagram post by Tailwind Management, Inc."></iframe>
-          </div>
-        </article>
-        <article class="post-card"
-                 data-brand="Stōk Cold Brew"
-                 data-category="Beverages"
-                 data-event-type="Student Housing">
-          
-          <header class="post-card__head">
-            <span class="post-card__supplier">Cardinal Group Management &amp; Advisory LLC-1</span>
-            <span class="post-card__platform post-card__platform--fb">Facebook</span>
-          </header>
-          <div class="post-card__embed">
-            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Flodgeallendale%2Fposts%2Fpfbid02yvCjYAPaYoR894GzAz5dGwyn4BMq5BhBpycd3oY8quv4r3BXjMU1TWDeQbkxTxFYl&amp;show_text=true&amp;width=350"
-                    loading="lazy"
-                    frameborder="0"
-                    scrolling="no"
-                    allowtransparency="true"
-                    allow="encrypted-media; autoplay"
-                    title="Facebook post by Cardinal Group Management &amp; Advisory LLC-1"></iframe>
-          </div>
-        </article>
-        <article class="post-card"
-                 data-brand="Stōk Cold Brew"
-                 data-category="Beverages"
-                 data-event-type="Student Housing">
-          
-          <header class="post-card__head">
-            <span class="post-card__supplier">Cardinal Group Management &amp; Advisory LLC-1</span>
-            <span class="post-card__platform post-card__platform--ig">Instagram</span>
-          </header>
-          <div class="post-card__embed">
-            <iframe src="https://www.instagram.com/p/DQJ-4wED7M5/embed/captioned/"
-                    loading="lazy"
-                    frameborder="0"
-                    scrolling="no"
-                    allowtransparency="true"
-                    allow="encrypted-media; autoplay"
-                    title="Instagram post by Cardinal Group Management &amp; Advisory LLC-1"></iframe>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-  <section class="section spotlight-brand-section">
-    <div class="brand-block"
-         id="amazing-grass"
-         data-brand="Amazing Grass"
-         data-category="Wellness">
-      <div class="section__label">Spotlight</div>
-      <h2 class="section__title section__title--big">Amazing Grass</h2>
-      <div class="post-grid">
-        
-        <article class="post-card"
-                 data-brand="Amazing Grass"
-                 data-category="Wellness"
-                 data-event-type="Student Housing">
-          
           <header class="post-card__head">
             <span class="post-card__supplier">Campus Apartments</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
           </header>
           <div class="post-card__embed">
-            <iframe src="https://www.instagram.com/p/DQb4mUykcv_/embed/captioned/"
+            <iframe src="https://www.instagram.com/p/DVt5LNtEqrI/embed/captioned/"
                     loading="lazy"
                     frameborder="0"
                     scrolling="no"
@@ -1845,224 +1090,36 @@
           </div>
         </article>
         <article class="post-card"
-                 data-brand="Amazing Grass"
-                 data-category="Wellness"
-                 data-event-type="Social Sports">
-          
-          <header class="post-card__head">
-            <span class="post-card__supplier">Easy Day Sports</span>
-            <span class="post-card__platform post-card__platform--fb">Facebook</span>
-          </header>
-          <div class="post-card__embed">
-            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fphoto%3Ffbid%3D1293986949406925%26set%3Da.673315934807366&amp;show_text=true&amp;width=350"
-                    loading="lazy"
-                    frameborder="0"
-                    scrolling="no"
-                    allowtransparency="true"
-                    allow="encrypted-media; autoplay"
-                    title="Facebook post by Easy Day Sports"></iframe>
-          </div>
-        </article>
-        <article class="post-card"
-                 data-brand="Amazing Grass"
-                 data-category="Wellness"
-                 data-event-type="Coworking">
-          
-          <header class="post-card__head">
-            <span class="post-card__supplier">Office Evolution</span>
-            <span class="post-card__platform post-card__platform--ig">Instagram</span>
-          </header>
-          <div class="post-card__embed">
-            <iframe src="https://www.instagram.com/p/DP7On4Jkprg/embed/captioned/"
-                    loading="lazy"
-                    frameborder="0"
-                    scrolling="no"
-                    allowtransparency="true"
-                    allow="encrypted-media; autoplay"
-                    title="Instagram post by Office Evolution"></iframe>
-          </div>
-        </article>
-        <article class="post-card"
-                 data-brand="Amazing Grass"
-                 data-category="Wellness"
                  data-event-type="Student Housing">
-          
           <header class="post-card__head">
-            <span class="post-card__supplier">Redstone</span>
+            <span class="post-card__supplier">Greystar</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
           </header>
           <div class="post-card__embed">
-            <iframe src="https://www.instagram.com/p/DPB9K1djyjH/embed/captioned/"
+            <iframe src="https://www.instagram.com/p/DWCM6uzkVj5/embed/captioned/"
                     loading="lazy"
                     frameborder="0"
                     scrolling="no"
                     allowtransparency="true"
                     allow="encrypted-media; autoplay"
-                    title="Instagram post by Redstone"></iframe>
-          </div>
-        </article>
-        <article class="post-card"
-                 data-brand="Amazing Grass"
-                 data-category="Wellness"
-                 data-event-type="Other">
-          
-          <header class="post-card__head">
-            <span class="post-card__supplier">Campus Realty Advisors</span>
-            <span class="post-card__platform post-card__platform--ig">Instagram</span>
-          </header>
-          <div class="post-card__embed">
-            <iframe src="https://www.instagram.com/p/DPCCLabEYTo/embed/captioned/"
-                    loading="lazy"
-                    frameborder="0"
-                    scrolling="no"
-                    allowtransparency="true"
-                    allow="encrypted-media; autoplay"
-                    title="Instagram post by Campus Realty Advisors"></iframe>
-          </div>
-        </article>
-        <article class="post-card"
-                 data-brand="Amazing Grass"
-                 data-category="Wellness"
-                 data-event-type="Fitness Studios">
-          
-          <header class="post-card__head">
-            <span class="post-card__supplier">barre3</span>
-            <span class="post-card__platform post-card__platform--ig">Instagram</span>
-          </header>
-          <div class="post-card__embed">
-            <iframe src="https://www.instagram.com/p/DO8eAY5Dvln/embed/captioned/"
-                    loading="lazy"
-                    frameborder="0"
-                    scrolling="no"
-                    allowtransparency="true"
-                    allow="encrypted-media; autoplay"
-                    title="Instagram post by barre3"></iframe>
+                    title="Instagram post by Greystar"></iframe>
           </div>
         </article>
       </div>
     </div>
   </section>
-  <section class="section spotlight-brand-section">
-    <div class="brand-block"
-         id="dove"
-         data-brand="Dove"
-         data-category="Beauty">
-      <div class="section__label">Spotlight</div>
-      <h2 class="section__title section__title--big">Dove</h2>
-      <div class="post-grid">
-        
-        <article class="post-card"
-                 data-brand="Dove"
-                 data-category="Beauty"
-                 data-event-type="Student Housing">
-          
-          <header class="post-card__head">
-            <span class="post-card__supplier">Perimeter Property Management</span>
-            <span class="post-card__platform post-card__platform--ig">Instagram</span>
-          </header>
-          <div class="post-card__embed">
-            <iframe src="https://www.instagram.com/p/DRDRCEIgTkM/embed/captioned/"
-                    loading="lazy"
-                    frameborder="0"
-                    scrolling="no"
-                    allowtransparency="true"
-                    allow="encrypted-media; autoplay"
-                    title="Instagram post by Perimeter Property Management"></iframe>
-          </div>
-        </article>
-        <article class="post-card"
-                 data-brand="Dove"
-                 data-category="Beauty"
-                 data-event-type="Fitness Studios">
-          
-          <header class="post-card__head">
-            <span class="post-card__supplier">Zoo Gym</span>
-            <span class="post-card__platform post-card__platform--fb">Facebook</span>
-          </header>
-          <div class="post-card__embed">
-            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fphoto%2F%3Ffbid%3D1427092039422391%26set%3Da.407925248005747&amp;show_text=true&amp;width=350"
-                    loading="lazy"
-                    frameborder="0"
-                    scrolling="no"
-                    allowtransparency="true"
-                    allow="encrypted-media; autoplay"
-                    title="Facebook post by Zoo Gym"></iframe>
-          </div>
-        </article>
-        <article class="post-card"
-                 data-brand="Dove"
-                 data-category="Beauty"
-                 data-event-type="Student Housing">
-          
-          <header class="post-card__head">
-            <span class="post-card__supplier">Cardinal Group Management &amp; Advisory LLC-1</span>
-            <span class="post-card__platform post-card__platform--ig">Instagram</span>
-          </header>
-          <div class="post-card__embed">
-            <iframe src="https://www.instagram.com/p/DRdI5VhEoI0/embed/captioned/"
-                    loading="lazy"
-                    frameborder="0"
-                    scrolling="no"
-                    allowtransparency="true"
-                    allow="encrypted-media; autoplay"
-                    title="Instagram post by Cardinal Group Management &amp; Advisory LLC-1"></iframe>
-          </div>
-        </article>
-        <article class="post-card"
-                 data-brand="Dove"
-                 data-category="Beauty"
-                 data-event-type="Fitness Studios">
-          
-          <header class="post-card__head">
-            <span class="post-card__supplier">F45</span>
-            <span class="post-card__platform post-card__platform--fb">Facebook</span>
-          </header>
-          <div class="post-card__embed">
-            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2F100062145889700%2Fposts%2Fpfbid0XvnWrfUaVDGemmgSP499pym7N8tzKdXWz1eda7aCYaooxTFCXygCWLgxVXuVky4Ml%2F&amp;show_text=true&amp;width=350"
-                    loading="lazy"
-                    frameborder="0"
-                    scrolling="no"
-                    allowtransparency="true"
-                    allow="encrypted-media; autoplay"
-                    title="Facebook post by F45"></iframe>
-          </div>
-        </article>
-        <article class="post-card"
-                 data-brand="Dove"
-                 data-category="Beauty"
-                 data-event-type="Fitness Studios">
-          
-          <header class="post-card__head">
-            <span class="post-card__supplier">F45</span>
-            <span class="post-card__platform post-card__platform--ig">Instagram</span>
-          </header>
-          <div class="post-card__embed">
-            <iframe src="https://www.instagram.com/p/DQ18G1QE3D_/embed/captioned/"
-                    loading="lazy"
-                    frameborder="0"
-                    scrolling="no"
-                    allowtransparency="true"
-                    allow="encrypted-media; autoplay"
-                    title="Instagram post by F45"></iframe>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-  <section class="section spotlight-brand-section">
+  <section class="section brand-section">
+    
     <div class="brand-block"
          id="hero"
          data-brand="Hero"
          data-category="Beauty">
-      <div class="section__label">Spotlight</div>
-      <h2 class="section__title section__title--big">Hero</h2>
+      <div class="section__label">Brand</div>
+      <h2 class="section__title">Hero</h2>
       <div class="post-grid">
         
         <article class="post-card"
-                 data-brand="Hero"
-                 data-category="Beauty"
                  data-event-type="Student Housing">
-          
           <header class="post-card__head">
             <span class="post-card__supplier">Student Quarters</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
@@ -2078,10 +1135,7 @@
           </div>
         </article>
         <article class="post-card"
-                 data-brand="Hero"
-                 data-category="Beauty"
                  data-event-type="Student Housing">
-          
           <header class="post-card__head">
             <span class="post-card__supplier">Tailwind Management, Inc.</span>
             <span class="post-card__platform post-card__platform--fb">Facebook</span>
@@ -2097,10 +1151,7 @@
           </div>
         </article>
         <article class="post-card"
-                 data-brand="Hero"
-                 data-category="Beauty"
                  data-event-type="Fitness Studios">
-          
           <header class="post-card__head">
             <span class="post-card__supplier">X3 Sports</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
@@ -2116,29 +1167,7 @@
           </div>
         </article>
         <article class="post-card"
-                 data-brand="Hero"
-                 data-category="Beauty"
-                 data-event-type="Student Housing">
-          
-          <header class="post-card__head">
-            <span class="post-card__supplier">Redstone</span>
-            <span class="post-card__platform post-card__platform--fb">Facebook</span>
-          </header>
-          <div class="post-card__embed">
-            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fphoto%3Ffbid%3D1168679698602164%26set%3Da.498166902320117&amp;show_text=true&amp;width=350"
-                    loading="lazy"
-                    frameborder="0"
-                    scrolling="no"
-                    allowtransparency="true"
-                    allow="encrypted-media; autoplay"
-                    title="Facebook post by Redstone"></iframe>
-          </div>
-        </article>
-        <article class="post-card"
-                 data-brand="Hero"
-                 data-category="Beauty"
                  data-event-type="Fitness Studios">
-          
           <header class="post-card__head">
             <span class="post-card__supplier">F45</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
@@ -2154,48 +1183,196 @@
           </div>
         </article>
         <article class="post-card"
-                 data-brand="Hero"
-                 data-category="Beauty"
-                 data-event-type="Student Housing">
-          
+                 data-event-type="Fitness Studios">
           <header class="post-card__head">
-            <span class="post-card__supplier">Campus Apartments</span>
-            <span class="post-card__platform post-card__platform--fb">Facebook</span>
+            <span class="post-card__supplier">TITLE Boxing Club Jacksonville</span>
+            <span class="post-card__platform post-card__platform--ig">Instagram</span>
           </header>
           <div class="post-card__embed">
-            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fphoto%2F%3Ffbid%3D1236631228468482%26set%3Dpcb.1236631268468478&amp;show_text=true&amp;width=350"
+            <iframe src="https://www.instagram.com/reel/DWrgXfaib8g/embed/captioned/"
                     loading="lazy"
                     frameborder="0"
                     scrolling="no"
                     allowtransparency="true"
                     allow="encrypted-media; autoplay"
-                    title="Facebook post by Campus Apartments"></iframe>
+                    title="Instagram post by TITLE Boxing Club Jacksonville"></iframe>
           </div>
         </article>
       </div>
     </div>
   </section>
-  <section class="section featured-section">
+  <section class="section brand-section">
     
     <div class="brand-block"
-         id="ghost"
-         data-brand="Ghost"
-         data-category="Beverages">
+         id="pure-protein"
+         data-brand="Pure Protein"
+         data-category="Wellness">
       <div class="section__label">Brand</div>
-      <h2 class="section__title">Ghost</h2>
+      <h2 class="section__title">Pure Protein</h2>
       <div class="post-grid">
         
         <article class="post-card"
-                 data-brand="Ghost"
-                 data-category="Beverages"
+                 data-event-type="Social Sports">
+          <header class="post-card__head">
+            <span class="post-card__supplier">Bestdamnrace</span>
+            <span class="post-card__platform post-card__platform--ig">Instagram</span>
+          </header>
+          <div class="post-card__embed">
+            <iframe src="https://www.instagram.com/p/C4DanliuxUk/embed/captioned/"
+                    loading="lazy"
+                    frameborder="0"
+                    scrolling="no"
+                    allowtransparency="true"
+                    allow="encrypted-media; autoplay"
+                    title="Instagram post by Bestdamnrace"></iframe>
+          </div>
+        </article>
+        <article class="post-card"
+                 data-event-type="Social Sports">
+          <header class="post-card__head">
+            <span class="post-card__supplier">Ventures Endurance</span>
+            <span class="post-card__platform post-card__platform--fb">Facebook</span>
+          </header>
+          <div class="post-card__embed">
+            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fphoto%2F%3Ffbid%3D794880582670569%26set%3Dgm.318804360776997%26idorvanity%3D153646653959436%26__cft__%255B0%255D%3DAZXn5dMDQw-xXL69O8ovUkh0aG1CTcIqiNiszDSGe2a0Wx5jlIXmKNEF73GRKLQDqQiVPumGSfi3Evr5mOtUTVMKCM4cf46qIPlqOt5wr9ps0j-VOUHUXEPmSD14n5PZcb7ijZattYMG2LifR70bVHCZ%26__tn__%3DEH-R&amp;show_text=true&amp;width=350"
+                    loading="lazy"
+                    frameborder="0"
+                    scrolling="no"
+                    allowtransparency="true"
+                    allow="encrypted-media; autoplay"
+                    title="Facebook post by Ventures Endurance"></iframe>
+          </div>
+        </article>
+        <article class="post-card"
+                 data-event-type="Fitness Studios">
+          <header class="post-card__head">
+            <span class="post-card__supplier">F45</span>
+            <span class="post-card__platform post-card__platform--ig">Instagram</span>
+          </header>
+          <div class="post-card__embed">
+            <iframe src="https://www.instagram.com/p/C38hpACBXA-/embed/captioned/"
+                    loading="lazy"
+                    frameborder="0"
+                    scrolling="no"
+                    allowtransparency="true"
+                    allow="encrypted-media; autoplay"
+                    title="Instagram post by F45"></iframe>
+          </div>
+        </article>
+        <article class="post-card"
+                 data-event-type="Fitness Studios">
+          <header class="post-card__head">
+            <span class="post-card__supplier">Crunch Fitness</span>
+            <span class="post-card__platform post-card__platform--ig">Instagram</span>
+          </header>
+          <div class="post-card__embed">
+            <iframe src="https://www.instagram.com/p/C4OwaTHRn-3/embed/captioned/"
+                    loading="lazy"
+                    frameborder="0"
+                    scrolling="no"
+                    allowtransparency="true"
+                    allow="encrypted-media; autoplay"
+                    title="Instagram post by Crunch Fitness"></iframe>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+  <section class="section brand-section">
+    
+    <div class="brand-block"
+         id="midol"
+         data-brand="Midol"
+         data-category="Wellness">
+      <div class="section__label">Brand</div>
+      <h2 class="section__title">Midol</h2>
+      <div class="post-grid">
+        
+        <article class="post-card"
+                 data-event-type="Fitness Studios">
+          <header class="post-card__head">
+            <span class="post-card__supplier">Crunch Fitness</span>
+            <span class="post-card__platform post-card__platform--ig">Instagram</span>
+          </header>
+          <div class="post-card__embed">
+            <iframe src="https://www.instagram.com/p/DWPT9ZDE2sF/embed/captioned/"
+                    loading="lazy"
+                    frameborder="0"
+                    scrolling="no"
+                    allowtransparency="true"
+                    allow="encrypted-media; autoplay"
+                    title="Instagram post by Crunch Fitness"></iframe>
+          </div>
+        </article>
+        <article class="post-card"
+                 data-event-type="Fitness Studios">
+          <header class="post-card__head">
+            <span class="post-card__supplier">F45</span>
+            <span class="post-card__platform post-card__platform--ig">Instagram</span>
+          </header>
+          <div class="post-card__embed">
+            <iframe src="https://www.instagram.com/p/DWkDpotifPo/embed/captioned/"
+                    loading="lazy"
+                    frameborder="0"
+                    scrolling="no"
+                    allowtransparency="true"
+                    allow="encrypted-media; autoplay"
+                    title="Instagram post by F45"></iframe>
+          </div>
+        </article>
+        <article class="post-card"
+                 data-event-type="Fitness Studios">
+          <header class="post-card__head">
+            <span class="post-card__supplier">Zoo Gym</span>
+            <span class="post-card__platform post-card__platform--fb">Facebook</span>
+          </header>
+          <div class="post-card__embed">
+            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fthezoohealthclubs%2Fposts%2Fpfbid02orEXd2vK4S3oP6v3Z1ffGm7E9JWXcQhaFXMUBAv591znp2xdipsVh1rCwcQs7Pytl&amp;show_text=true&amp;width=350"
+                    loading="lazy"
+                    frameborder="0"
+                    scrolling="no"
+                    allowtransparency="true"
+                    allow="encrypted-media; autoplay"
+                    title="Facebook post by Zoo Gym"></iframe>
+          </div>
+        </article>
+        <article class="post-card"
+                 data-event-type="Fitness Studios">
+          <header class="post-card__head">
+            <span class="post-card__supplier">Sweat Studio Miami</span>
+            <span class="post-card__platform post-card__platform--ig">Instagram</span>
+          </header>
+          <div class="post-card__embed">
+            <iframe src="https://www.instagram.com/p/DXfKjZMppTj/embed/captioned/"
+                    loading="lazy"
+                    frameborder="0"
+                    scrolling="no"
+                    allowtransparency="true"
+                    allow="encrypted-media; autoplay"
+                    title="Instagram post by Sweat Studio Miami"></iframe>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+  <section class="section brand-section">
+    
+    <div class="brand-block"
+         id="velveeta"
+         data-brand="Velveeta"
+         data-category="Food">
+      <div class="section__label">Brand</div>
+      <h2 class="section__title">Velveeta</h2>
+      <div class="post-grid">
+        
+        <article class="post-card"
                  data-event-type="Student Housing">
-          
           <header class="post-card__head">
             <span class="post-card__supplier">Cardinal Group Management &amp; Advisory LLC-1</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
           </header>
           <div class="post-card__embed">
-            <iframe src="https://www.instagram.com/p/DXhwyLRkhRN/embed/captioned/"
+            <iframe src="https://www.instagram.com/p/DPO3N5YDRDj/embed/captioned/"
                     loading="lazy"
                     frameborder="0"
                     scrolling="no"
@@ -2205,47 +1382,134 @@
           </div>
         </article>
         <article class="post-card"
-                 data-brand="Ghost"
-                 data-category="Beverages"
-                 data-event-type="Fitness Studios">
-          
+                 data-event-type="Student Housing">
           <header class="post-card__head">
-            <span class="post-card__supplier">Crunch Fitness</span>
+            <span class="post-card__supplier">Tailwind Management, Inc.</span>
             <span class="post-card__platform post-card__platform--fb">Facebook</span>
           </header>
           <div class="post-card__embed">
-            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FCrunchAtascocita%2Fposts%2Fpfbid0gzNWDVq8QiN3T6P1YZxukAQkZUrUFaRMos9NuatB51jDjJHkR1EUvZwAYHXfkYmsl&amp;show_text=true&amp;width=350"
+            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fphoto%3Ffbid%3D754253287671030%26set%3Da.159944020435296&amp;show_text=true&amp;width=350"
                     loading="lazy"
                     frameborder="0"
                     scrolling="no"
                     allowtransparency="true"
                     allow="encrypted-media; autoplay"
-                    title="Facebook post by Crunch Fitness"></iframe>
+                    title="Facebook post by Tailwind Management, Inc."></iframe>
           </div>
         </article>
         <article class="post-card"
-                 data-brand="Ghost"
-                 data-category="Beverages"
                  data-event-type="Student Housing">
-          
           <header class="post-card__head">
-            <span class="post-card__supplier">American Campus Communities</span>
+            <span class="post-card__supplier">Campus Apartments</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
           </header>
           <div class="post-card__embed">
-            <iframe src="https://www.instagram.com/reel/DOWKolJEaVp/embed/captioned/"
+            <iframe src="https://www.instagram.com/p/DPHjGW7krkg/embed/captioned/"
                     loading="lazy"
                     frameborder="0"
                     scrolling="no"
                     allowtransparency="true"
                     allow="encrypted-media; autoplay"
-                    title="Instagram post by American Campus Communities"></iframe>
+                    title="Instagram post by Campus Apartments"></iframe>
+          </div>
+        </article>
+        <article class="post-card"
+                 data-event-type="Fitness Studios">
+          <header class="post-card__head">
+            <span class="post-card__supplier">Booknladder</span>
+            <span class="post-card__platform post-card__platform--ig">Instagram</span>
+          </header>
+          <div class="post-card__embed">
+            <iframe src="https://www.instagram.com/p/DOhMS9vjUDb/embed/captioned/"
+                    loading="lazy"
+                    frameborder="0"
+                    scrolling="no"
+                    allowtransparency="true"
+                    allow="encrypted-media; autoplay"
+                    title="Instagram post by Booknladder"></iframe>
+          </div>
+        </article>
+        <article class="post-card"
+                 data-event-type="Student Housing">
+          <header class="post-card__head">
+            <span class="post-card__supplier">Asset Living</span>
+            <span class="post-card__platform post-card__platform--ig">Instagram</span>
+          </header>
+          <div class="post-card__embed">
+            <iframe src="https://www.instagram.com/p/DOZRdKHCm_J/embed/captioned/"
+                    loading="lazy"
+                    frameborder="0"
+                    scrolling="no"
+                    allowtransparency="true"
+                    allow="encrypted-media; autoplay"
+                    title="Instagram post by Asset Living"></iframe>
           </div>
         </article>
       </div>
     </div>
   </section>
-  <section class="section featured-section">
+  <section class="section brand-section">
+    
+    <div class="brand-block"
+         id="st-k-cold-brew"
+         data-brand="Stōk Cold Brew"
+         data-category="Beverages">
+      <div class="section__label">Brand</div>
+      <h2 class="section__title">Stōk Cold Brew</h2>
+      <div class="post-grid">
+        
+        <article class="post-card"
+                 data-event-type="Student Housing">
+          <header class="post-card__head">
+            <span class="post-card__supplier">Tailwind Management, Inc.</span>
+            <span class="post-card__platform post-card__platform--ig">Instagram</span>
+          </header>
+          <div class="post-card__embed">
+            <iframe src="https://www.instagram.com/reel/DOzTG-NCUfL/embed/captioned/"
+                    loading="lazy"
+                    frameborder="0"
+                    scrolling="no"
+                    allowtransparency="true"
+                    allow="encrypted-media; autoplay"
+                    title="Instagram post by Tailwind Management, Inc."></iframe>
+          </div>
+        </article>
+        <article class="post-card"
+                 data-event-type="Student Housing">
+          <header class="post-card__head">
+            <span class="post-card__supplier">Cardinal Group Management &amp; Advisory LLC-1</span>
+            <span class="post-card__platform post-card__platform--fb">Facebook</span>
+          </header>
+          <div class="post-card__embed">
+            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fphoto%2F%3Ffbid%3D1470263607865377%26set%3Da.707569057468173&amp;show_text=true&amp;width=350"
+                    loading="lazy"
+                    frameborder="0"
+                    scrolling="no"
+                    allowtransparency="true"
+                    allow="encrypted-media; autoplay"
+                    title="Facebook post by Cardinal Group Management &amp; Advisory LLC-1"></iframe>
+          </div>
+        </article>
+        <article class="post-card"
+                 data-event-type="Social Sports">
+          <header class="post-card__head">
+            <span class="post-card__supplier">Tailgreeter</span>
+            <span class="post-card__platform post-card__platform--ig">Instagram</span>
+          </header>
+          <div class="post-card__embed">
+            <iframe src="https://www.instagram.com/p/DP0OZtxjQ3E/embed/captioned/"
+                    loading="lazy"
+                    frameborder="0"
+                    scrolling="no"
+                    allowtransparency="true"
+                    allow="encrypted-media; autoplay"
+                    title="Instagram post by Tailgreeter"></iframe>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+  <section class="section brand-section">
     
     <div class="brand-block"
          id="la-colombe"
@@ -2256,10 +1520,7 @@
       <div class="post-grid">
         
         <article class="post-card"
-                 data-brand="La Colombe"
-                 data-category="Beverages"
                  data-event-type="Social Sports">
-          
           <header class="post-card__head">
             <span class="post-card__supplier">Ventures Endurance</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
@@ -2275,10 +1536,7 @@
           </div>
         </article>
         <article class="post-card"
-                 data-brand="La Colombe"
-                 data-category="Beverages"
                  data-event-type="Student Housing">
-          
           <header class="post-card__head">
             <span class="post-card__supplier">Cardinal Group Management &amp; Advisory LLC-1</span>
             <span class="post-card__platform post-card__platform--fb">Facebook</span>
@@ -2294,10 +1552,7 @@
           </div>
         </article>
         <article class="post-card"
-                 data-brand="La Colombe"
-                 data-category="Beverages"
                  data-event-type="Student Housing">
-          
           <header class="post-card__head">
             <span class="post-card__supplier">Campus Apartments</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
@@ -2312,80 +1567,411 @@
                     title="Instagram post by Campus Apartments"></iframe>
           </div>
         </article>
+        <article class="post-card"
+                 data-event-type="Student Housing">
+          <header class="post-card__head">
+            <span class="post-card__supplier">College Town Communities</span>
+            <span class="post-card__platform post-card__platform--ig">Instagram</span>
+          </header>
+          <div class="post-card__embed">
+            <iframe src="https://www.instagram.com/p/DQ7EIOPD7jj/embed/captioned/"
+                    loading="lazy"
+                    frameborder="0"
+                    scrolling="no"
+                    allowtransparency="true"
+                    allow="encrypted-media; autoplay"
+                    title="Instagram post by College Town Communities"></iframe>
+          </div>
+        </article>
       </div>
     </div>
   </section>
-  <section class="section featured-section">
+  <section class="section brand-section">
     
     <div class="brand-block"
-         id="heineken"
-         data-brand="Heineken"
+         id="talking-rain"
+         data-brand="Talking Rain"
          data-category="Beverages">
       <div class="section__label">Brand</div>
-      <h2 class="section__title">Heineken</h2>
+      <h2 class="section__title">Talking Rain</h2>
       <div class="post-grid">
         
         <article class="post-card"
-                 data-brand="Heineken"
-                 data-category="Beverages"
-                 data-event-type="Festivals">
-          
+                 data-event-type="Social Sports">
           <header class="post-card__head">
-            <span class="post-card__supplier">Chicago International Film Festival</span>
+            <span class="post-card__supplier">Easy Day Sports</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
           </header>
           <div class="post-card__embed">
-            <iframe src="https://www.instagram.com/p/DQP8W7LjZFl/embed/captioned/"
+            <iframe src="https://www.instagram.com/p/DCAP2yEIfFz/embed/captioned/"
                     loading="lazy"
                     frameborder="0"
                     scrolling="no"
                     allowtransparency="true"
                     allow="encrypted-media; autoplay"
-                    title="Instagram post by Chicago International Film Festival"></iframe>
+                    title="Instagram post by Easy Day Sports"></iframe>
           </div>
         </article>
         <article class="post-card"
-                 data-brand="Heineken"
-                 data-category="Beverages"
-                 data-event-type="Festivals">
-          
+                 data-event-type="Student Housing">
           <header class="post-card__head">
-            <span class="post-card__supplier">Tucson Film Festival</span>
+            <span class="post-card__supplier">Greystar</span>
             <span class="post-card__platform post-card__platform--fb">Facebook</span>
           </header>
           <div class="post-card__embed">
-            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fphoto%3Ffbid%3D1373821988081700%26set%3Da.485918540205387&amp;show_text=true&amp;width=350"
+            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fphoto%3Ffbid%3D1103312278466918%26set%3Dpcb.1103312301800249&amp;show_text=true&amp;width=350"
                     loading="lazy"
                     frameborder="0"
                     scrolling="no"
                     allowtransparency="true"
                     allow="encrypted-media; autoplay"
-                    title="Facebook post by Tucson Film Festival"></iframe>
+                    title="Facebook post by Greystar"></iframe>
           </div>
         </article>
         <article class="post-card"
-                 data-brand="Heineken"
-                 data-category="Beverages"
-                 data-event-type="Other">
-          
+                 data-event-type="Social Sports">
           <header class="post-card__head">
-            <span class="post-card__supplier">CFFNY</span>
-            <span class="post-card__platform post-card__platform--ig">Instagram</span>
+            <span class="post-card__supplier">The OC Marathon Running Festival</span>
+            <span class="post-card__platform post-card__platform--fb">Facebook</span>
           </header>
           <div class="post-card__embed">
-            <iframe src="https://www.instagram.com/p/DKSVfdOP2Oy/embed/captioned/"
+            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fphoto%3Ffbid%3D955021029970950%26set%3Da.663616449111411&amp;show_text=true&amp;width=350"
                     loading="lazy"
                     frameborder="0"
                     scrolling="no"
                     allowtransparency="true"
                     allow="encrypted-media; autoplay"
-                    title="Instagram post by CFFNY"></iframe>
+                    title="Facebook post by The OC Marathon Running Festival"></iframe>
           </div>
         </article>
       </div>
     </div>
   </section>
-  <section class="section featured-section">
+  <section class="section brand-section">
+    
+    <div class="brand-block"
+         id="perfect-hydration"
+         data-brand="Perfect Hydration"
+         data-category="Beverages">
+      <div class="section__label">Brand</div>
+      <h2 class="section__title">Perfect Hydration</h2>
+      <div class="post-grid">
+        
+        <article class="post-card"
+                 data-event-type="Fitness Studios">
+          <header class="post-card__head">
+            <span class="post-card__supplier">F45</span>
+            <span class="post-card__platform post-card__platform--ig">Instagram</span>
+          </header>
+          <div class="post-card__embed">
+            <iframe src="https://www.instagram.com/p/C8Z17bAOcNd/embed/captioned/"
+                    loading="lazy"
+                    frameborder="0"
+                    scrolling="no"
+                    allowtransparency="true"
+                    allow="encrypted-media; autoplay"
+                    title="Instagram post by F45"></iframe>
+          </div>
+        </article>
+        <article class="post-card"
+                 data-event-type="Social Sports">
+          <header class="post-card__head">
+            <span class="post-card__supplier">K2 Road Sports</span>
+            <span class="post-card__platform post-card__platform--fb">Facebook</span>
+          </header>
+          <div class="post-card__embed">
+            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fphoto%2F%3Ffbid%3D1041268461349224%26set%3Dpcb.1041268594682544&amp;show_text=true&amp;width=350"
+                    loading="lazy"
+                    frameborder="0"
+                    scrolling="no"
+                    allowtransparency="true"
+                    allow="encrypted-media; autoplay"
+                    title="Facebook post by K2 Road Sports"></iframe>
+          </div>
+        </article>
+        <article class="post-card"
+                 data-event-type="Social Sports">
+          <header class="post-card__head">
+            <span class="post-card__supplier">Easy Day Sports</span>
+            <span class="post-card__platform post-card__platform--ig">Instagram</span>
+          </header>
+          <div class="post-card__embed">
+            <iframe src="https://www.instagram.com/p/C9iTtlfuRjo/embed/captioned/"
+                    loading="lazy"
+                    frameborder="0"
+                    scrolling="no"
+                    allowtransparency="true"
+                    allow="encrypted-media; autoplay"
+                    title="Instagram post by Easy Day Sports"></iframe>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+  <section class="section brand-section">
+    
+    <div class="brand-block"
+         id="ozarka"
+         data-brand="Ozarka"
+         data-category="Beverages">
+      <div class="section__label">Brand</div>
+      <h2 class="section__title">Ozarka</h2>
+      <div class="post-grid">
+        
+        <article class="post-card"
+                 data-event-type="Fitness Studios">
+          <header class="post-card__head">
+            <span class="post-card__supplier">barre3</span>
+            <span class="post-card__platform post-card__platform--ig">Instagram</span>
+          </header>
+          <div class="post-card__embed">
+            <iframe src="https://www.instagram.com/p/C2QT_onvJNi/embed/captioned/"
+                    loading="lazy"
+                    frameborder="0"
+                    scrolling="no"
+                    allowtransparency="true"
+                    allow="encrypted-media; autoplay"
+                    title="Instagram post by barre3"></iframe>
+          </div>
+        </article>
+        <article class="post-card"
+                 data-event-type="Fitness Studios">
+          <header class="post-card__head">
+            <span class="post-card__supplier">Crunch Fitness</span>
+            <span class="post-card__platform post-card__platform--fb">Facebook</span>
+          </header>
+          <div class="post-card__embed">
+            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FCrunchKaty%2Fposts%2Fpfbid02umuwVwbubQq5aK3Qgkr3nniXbhPh7wfXANBUzmZFPZnE8U8CNf9HYFjukU9sVdGbl&amp;show_text=true&amp;width=350"
+                    loading="lazy"
+                    frameborder="0"
+                    scrolling="no"
+                    allowtransparency="true"
+                    allow="encrypted-media; autoplay"
+                    title="Facebook post by Crunch Fitness"></iframe>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+  <section class="section brand-section">
+    
+    <div class="brand-block"
+         id="amazing-grass"
+         data-brand="Amazing Grass"
+         data-category="Wellness">
+      <div class="section__label">Brand</div>
+      <h2 class="section__title">Amazing Grass</h2>
+      <div class="post-grid">
+        
+        <article class="post-card"
+                 data-event-type="Student Housing">
+          <header class="post-card__head">
+            <span class="post-card__supplier">Campus Apartments</span>
+            <span class="post-card__platform post-card__platform--ig">Instagram</span>
+          </header>
+          <div class="post-card__embed">
+            <iframe src="https://www.instagram.com/p/DQb4mUykcv_/embed/captioned/"
+                    loading="lazy"
+                    frameborder="0"
+                    scrolling="no"
+                    allowtransparency="true"
+                    allow="encrypted-media; autoplay"
+                    title="Instagram post by Campus Apartments"></iframe>
+          </div>
+        </article>
+        <article class="post-card"
+                 data-event-type="Social Sports">
+          <header class="post-card__head">
+            <span class="post-card__supplier">Easy Day Sports</span>
+            <span class="post-card__platform post-card__platform--fb">Facebook</span>
+          </header>
+          <div class="post-card__embed">
+            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fphoto%3Ffbid%3D1293986949406925%26set%3Da.673315934807366&amp;show_text=true&amp;width=350"
+                    loading="lazy"
+                    frameborder="0"
+                    scrolling="no"
+                    allowtransparency="true"
+                    allow="encrypted-media; autoplay"
+                    title="Facebook post by Easy Day Sports"></iframe>
+          </div>
+        </article>
+        <article class="post-card"
+                 data-event-type="Coworking">
+          <header class="post-card__head">
+            <span class="post-card__supplier">Office Evolution</span>
+            <span class="post-card__platform post-card__platform--ig">Instagram</span>
+          </header>
+          <div class="post-card__embed">
+            <iframe src="https://www.instagram.com/p/DP7On4Jkprg/embed/captioned/"
+                    loading="lazy"
+                    frameborder="0"
+                    scrolling="no"
+                    allowtransparency="true"
+                    allow="encrypted-media; autoplay"
+                    title="Instagram post by Office Evolution"></iframe>
+          </div>
+        </article>
+        <article class="post-card"
+                 data-event-type="Other">
+          <header class="post-card__head">
+            <span class="post-card__supplier">Campus Realty Advisors</span>
+            <span class="post-card__platform post-card__platform--ig">Instagram</span>
+          </header>
+          <div class="post-card__embed">
+            <iframe src="https://www.instagram.com/p/DPCCLabEYTo/embed/captioned/"
+                    loading="lazy"
+                    frameborder="0"
+                    scrolling="no"
+                    allowtransparency="true"
+                    allow="encrypted-media; autoplay"
+                    title="Instagram post by Campus Realty Advisors"></iframe>
+          </div>
+        </article>
+        <article class="post-card"
+                 data-event-type="Fitness Studios">
+          <header class="post-card__head">
+            <span class="post-card__supplier">barre3</span>
+            <span class="post-card__platform post-card__platform--ig">Instagram</span>
+          </header>
+          <div class="post-card__embed">
+            <iframe src="https://www.instagram.com/p/DPDHyI2DWIw/embed/captioned/"
+                    loading="lazy"
+                    frameborder="0"
+                    scrolling="no"
+                    allowtransparency="true"
+                    allow="encrypted-media; autoplay"
+                    title="Instagram post by barre3"></iframe>
+          </div>
+        </article>
+        <article class="post-card"
+                 data-event-type="Student Housing">
+          <header class="post-card__head">
+            <span class="post-card__supplier">B.HOM Student Living</span>
+            <span class="post-card__platform post-card__platform--ig">Instagram</span>
+          </header>
+          <div class="post-card__embed">
+            <iframe src="https://www.instagram.com/p/DNoFdtIOj3v/embed/captioned/"
+                    loading="lazy"
+                    frameborder="0"
+                    scrolling="no"
+                    allowtransparency="true"
+                    allow="encrypted-media; autoplay"
+                    title="Instagram post by B.HOM Student Living"></iframe>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+  <section class="section brand-section">
+    
+    <div class="brand-block"
+         id="dove"
+         data-brand="Dove"
+         data-category="Beauty">
+      <div class="section__label">Brand</div>
+      <h2 class="section__title">Dove</h2>
+      <div class="post-grid">
+        
+        <article class="post-card"
+                 data-event-type="Student Housing">
+          <header class="post-card__head">
+            <span class="post-card__supplier">Perimeter Property Management</span>
+            <span class="post-card__platform post-card__platform--ig">Instagram</span>
+          </header>
+          <div class="post-card__embed">
+            <iframe src="https://www.instagram.com/p/DRDRCEIgTkM/embed/captioned/"
+                    loading="lazy"
+                    frameborder="0"
+                    scrolling="no"
+                    allowtransparency="true"
+                    allow="encrypted-media; autoplay"
+                    title="Instagram post by Perimeter Property Management"></iframe>
+          </div>
+        </article>
+        <article class="post-card"
+                 data-event-type="Fitness Studios">
+          <header class="post-card__head">
+            <span class="post-card__supplier">Zoo Gym</span>
+            <span class="post-card__platform post-card__platform--fb">Facebook</span>
+          </header>
+          <div class="post-card__embed">
+            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fphoto%2F%3Ffbid%3D1427092039422391%26set%3Da.407925248005747&amp;show_text=true&amp;width=350"
+                    loading="lazy"
+                    frameborder="0"
+                    scrolling="no"
+                    allowtransparency="true"
+                    allow="encrypted-media; autoplay"
+                    title="Facebook post by Zoo Gym"></iframe>
+          </div>
+        </article>
+        <article class="post-card"
+                 data-event-type="Student Housing">
+          <header class="post-card__head">
+            <span class="post-card__supplier">Cardinal Group Management &amp; Advisory LLC-1</span>
+            <span class="post-card__platform post-card__platform--ig">Instagram</span>
+          </header>
+          <div class="post-card__embed">
+            <iframe src="https://www.instagram.com/p/DRTBOcPklud/embed/captioned/"
+                    loading="lazy"
+                    frameborder="0"
+                    scrolling="no"
+                    allowtransparency="true"
+                    allow="encrypted-media; autoplay"
+                    title="Instagram post by Cardinal Group Management &amp; Advisory LLC-1"></iframe>
+          </div>
+        </article>
+        <article class="post-card"
+                 data-event-type="Fitness Studios">
+          <header class="post-card__head">
+            <span class="post-card__supplier">F45</span>
+            <span class="post-card__platform post-card__platform--fb">Facebook</span>
+          </header>
+          <div class="post-card__embed">
+            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2F100062145889700%2Fposts%2Fpfbid0XvnWrfUaVDGemmgSP499pym7N8tzKdXWz1eda7aCYaooxTFCXygCWLgxVXuVky4Ml%2F&amp;show_text=true&amp;width=350"
+                    loading="lazy"
+                    frameborder="0"
+                    scrolling="no"
+                    allowtransparency="true"
+                    allow="encrypted-media; autoplay"
+                    title="Facebook post by F45"></iframe>
+          </div>
+        </article>
+        <article class="post-card"
+                 data-event-type="Fitness Studios">
+          <header class="post-card__head">
+            <span class="post-card__supplier">X3 Sports</span>
+            <span class="post-card__platform post-card__platform--ig">Instagram</span>
+          </header>
+          <div class="post-card__embed">
+            <iframe src="https://www.instagram.com/p/DRNXNoUkpoG/embed/captioned/"
+                    loading="lazy"
+                    frameborder="0"
+                    scrolling="no"
+                    allowtransparency="true"
+                    allow="encrypted-media; autoplay"
+                    title="Instagram post by X3 Sports"></iframe>
+          </div>
+        </article>
+        <article class="post-card"
+                 data-event-type="Fitness Studios">
+          <header class="post-card__head">
+            <span class="post-card__supplier">TITLE Boxing Club</span>
+            <span class="post-card__platform post-card__platform--ig">Instagram</span>
+          </header>
+          <div class="post-card__embed">
+            <iframe src="https://www.instagram.com/p/DOvqjyjABbn/embed/captioned/"
+                    loading="lazy"
+                    frameborder="0"
+                    scrolling="no"
+                    allowtransparency="true"
+                    allow="encrypted-media; autoplay"
+                    title="Instagram post by TITLE Boxing Club"></iframe>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+  <section class="section brand-section">
     
     <div class="brand-block"
          id="hawaiian-tropic"
@@ -2396,10 +1982,7 @@
       <div class="post-grid">
         
         <article class="post-card"
-                 data-brand="Hawaiian Tropic"
-                 data-category="Beauty"
                  data-event-type="Student Housing">
-          
           <header class="post-card__head">
             <span class="post-card__supplier">B.HOM Student Living</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
@@ -2415,10 +1998,7 @@
           </div>
         </article>
         <article class="post-card"
-                 data-brand="Hawaiian Tropic"
-                 data-category="Beauty"
                  data-event-type="Student Housing">
-          
           <header class="post-card__head">
             <span class="post-card__supplier">Campus Apartments</span>
             <span class="post-card__platform post-card__platform--fb">Facebook</span>
@@ -2433,17 +2013,221 @@
                     title="Facebook post by Campus Apartments"></iframe>
           </div>
         </article>
+      </div>
+    </div>
+  </section>
+  <section class="section brand-section">
+    
+    <div class="brand-block"
+         id="alka-seltzer"
+         data-brand="Alka-Seltzer"
+         data-category="Wellness">
+      <div class="section__label">Brand</div>
+      <h2 class="section__title">Alka-Seltzer</h2>
+      <div class="post-grid">
+        
         <article class="post-card"
-                 data-brand="Hawaiian Tropic"
-                 data-category="Beauty"
                  data-event-type="Student Housing">
-          
           <header class="post-card__head">
             <span class="post-card__supplier">Cardinal Group Management &amp; Advisory LLC-1</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
           </header>
           <div class="post-card__embed">
-            <iframe src="https://www.instagram.com/p/DPM9M8xjRjT/embed/captioned/"
+            <iframe src="https://www.instagram.com/p/DPwnQLBEbAH/embed/captioned/"
+                    loading="lazy"
+                    frameborder="0"
+                    scrolling="no"
+                    allowtransparency="true"
+                    allow="encrypted-media; autoplay"
+                    title="Instagram post by Cardinal Group Management &amp; Advisory LLC-1"></iframe>
+          </div>
+        </article>
+        <article class="post-card"
+                 data-event-type="Student Housing">
+          <header class="post-card__head">
+            <span class="post-card__supplier">Tailwind Management, Inc.</span>
+            <span class="post-card__platform post-card__platform--ig">Instagram</span>
+          </header>
+          <div class="post-card__embed">
+            <iframe src="https://www.instagram.com/p/DPmGKoNkaA5/embed/captioned/"
+                    loading="lazy"
+                    frameborder="0"
+                    scrolling="no"
+                    allowtransparency="true"
+                    allow="encrypted-media; autoplay"
+                    title="Instagram post by Tailwind Management, Inc."></iframe>
+          </div>
+        </article>
+        <article class="post-card"
+                 data-event-type="Student Housing">
+          <header class="post-card__head">
+            <span class="post-card__supplier">Asset Living</span>
+            <span class="post-card__platform post-card__platform--ig">Instagram</span>
+          </header>
+          <div class="post-card__embed">
+            <iframe src="https://www.instagram.com/p/DPWX6JPjZ3A/embed/captioned/"
+                    loading="lazy"
+                    frameborder="0"
+                    scrolling="no"
+                    allowtransparency="true"
+                    allow="encrypted-media; autoplay"
+                    title="Instagram post by Asset Living"></iframe>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+  <section class="section brand-section">
+    
+    <div class="brand-block"
+         id="heineken"
+         data-brand="Heineken"
+         data-category="Beverages">
+      <div class="section__label">Brand</div>
+      <h2 class="section__title">Heineken</h2>
+      <div class="post-grid">
+        
+        <article class="post-card"
+                 data-event-type="Festivals">
+          <header class="post-card__head">
+            <span class="post-card__supplier">Chicago International Film Festival</span>
+            <span class="post-card__platform post-card__platform--ig">Instagram</span>
+          </header>
+          <div class="post-card__embed">
+            <iframe src="https://www.instagram.com/p/DQP8W7LjZFl/embed/captioned/"
+                    loading="lazy"
+                    frameborder="0"
+                    scrolling="no"
+                    allowtransparency="true"
+                    allow="encrypted-media; autoplay"
+                    title="Instagram post by Chicago International Film Festival"></iframe>
+          </div>
+        </article>
+        <article class="post-card"
+                 data-event-type="Festivals">
+          <header class="post-card__head">
+            <span class="post-card__supplier">Tucson Film Festival</span>
+            <span class="post-card__platform post-card__platform--fb">Facebook</span>
+          </header>
+          <div class="post-card__embed">
+            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fphoto%3Ffbid%3D1373821988081700%26set%3Da.485918540205387&amp;show_text=true&amp;width=350"
+                    loading="lazy"
+                    frameborder="0"
+                    scrolling="no"
+                    allowtransparency="true"
+                    allow="encrypted-media; autoplay"
+                    title="Facebook post by Tucson Film Festival"></iframe>
+          </div>
+        </article>
+        <article class="post-card"
+                 data-event-type="Social Sports">
+          <header class="post-card__head">
+            <span class="post-card__supplier">Shendo Cat Racing</span>
+            <span class="post-card__platform post-card__platform--ig">Instagram</span>
+          </header>
+          <div class="post-card__embed">
+            <iframe src="https://www.instagram.com/p/DOXWmndEVbq/embed/captioned/"
+                    loading="lazy"
+                    frameborder="0"
+                    scrolling="no"
+                    allowtransparency="true"
+                    allow="encrypted-media; autoplay"
+                    title="Instagram post by Shendo Cat Racing"></iframe>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+  <section class="section brand-section">
+    
+    <div class="brand-block"
+         id="catalina-crunch"
+         data-brand="Catalina Crunch"
+         data-category="Food">
+      <div class="section__label">Brand</div>
+      <h2 class="section__title">Catalina Crunch</h2>
+      <div class="post-grid">
+        
+        <article class="post-card"
+                 data-event-type="Other">
+          <header class="post-card__head">
+            <span class="post-card__supplier">West Coast Farmers Market</span>
+            <span class="post-card__platform post-card__platform--ig">Instagram</span>
+          </header>
+          <div class="post-card__embed">
+            <iframe src="https://www.instagram.com/reel/C9fp3ohyDZx/embed/captioned/"
+                    loading="lazy"
+                    frameborder="0"
+                    scrolling="no"
+                    allowtransparency="true"
+                    allow="encrypted-media; autoplay"
+                    title="Instagram post by West Coast Farmers Market"></iframe>
+          </div>
+        </article>
+        <article class="post-card"
+                 data-event-type="Fitness Studios">
+          <header class="post-card__head">
+            <span class="post-card__supplier">X3 Sports</span>
+            <span class="post-card__platform post-card__platform--fb">Facebook</span>
+          </header>
+          <div class="post-card__embed">
+            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fphoto%3Ffbid%3D955159769513414%26set%3Da.825011802528212&amp;show_text=true&amp;width=350"
+                    loading="lazy"
+                    frameborder="0"
+                    scrolling="no"
+                    allowtransparency="true"
+                    allow="encrypted-media; autoplay"
+                    title="Facebook post by X3 Sports"></iframe>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+  <section class="section brand-pair">
+    
+    <div class="brand-block"
+         id="welch-s"
+         data-brand="Welch&#x27;s"
+         data-category="Beverages">
+      <div class="section__label">Brand</div>
+      <h2 class="section__title">Welch&#x27;s</h2>
+      <div class="post-grid">
+        
+        <article class="post-card"
+                 data-event-type="Fitness Studios">
+          <header class="post-card__head">
+            <span class="post-card__supplier">X3 Sports</span>
+            <span class="post-card__platform post-card__platform--ig">Instagram</span>
+          </header>
+          <div class="post-card__embed">
+            <iframe src="https://www.instagram.com/p/C_s8sp_PE4S/embed/captioned/"
+                    loading="lazy"
+                    frameborder="0"
+                    scrolling="no"
+                    allowtransparency="true"
+                    allow="encrypted-media; autoplay"
+                    title="Instagram post by X3 Sports"></iframe>
+          </div>
+        </article>
+      </div>
+    </div>
+    
+    <div class="brand-block"
+         id="pepsico"
+         data-brand="PepsiCo"
+         data-category="Beverages">
+      <div class="section__label">Brand</div>
+      <h2 class="section__title">PepsiCo</h2>
+      <div class="post-grid">
+        
+        <article class="post-card"
+                 data-event-type="Student Housing">
+          <header class="post-card__head">
+            <span class="post-card__supplier">Cardinal Group Management &amp; Advisory LLC-1</span>
+            <span class="post-card__platform post-card__platform--ig">Instagram</span>
+          </header>
+          <div class="post-card__embed">
+            <iframe src="https://www.instagram.com/p/C3n45F2pX9H/embed/captioned/"
                     loading="lazy"
                     frameborder="0"
                     scrolling="no"
@@ -2455,25 +2239,24 @@
       </div>
     </div>
   </section>
-  <section class="section showcase-section">
-    <header class="showcase-section__header">
-      <div class="section__label">Showcase</div>
-      <h2 class="showcase-section__title">More brands on the platform</h2>
-      <p class="showcase-section__tagline">Selected campaign moments from additional partners.</p>
-    </header>
-    <div class="showcase-grid">
-      
-        <article class="post-card post-card--small"
-                 data-brand="e.l.f."
-                 data-category="Beauty"
+  <section class="section brand-pair">
+    
+    <div class="brand-block"
+         id="mountain-dew"
+         data-brand="Mountain Dew"
+         data-category="Beverages">
+      <div class="section__label">Brand</div>
+      <h2 class="section__title">Mountain Dew</h2>
+      <div class="post-grid">
+        
+        <article class="post-card"
                  data-event-type="Student Housing">
-          <span class="post-card__brand">e.l.f.</span>
           <header class="post-card__head">
             <span class="post-card__supplier">Tailwind Management, Inc.</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
           </header>
           <div class="post-card__embed">
-            <iframe src="https://www.instagram.com/p/DYAUt3bjrbu/embed/captioned/"
+            <iframe src="https://www.instagram.com/p/DRSMpnJDSGD/embed/captioned/"
                     loading="lazy"
                     frameborder="0"
                     scrolling="no"
@@ -2482,30 +2265,48 @@
                     title="Instagram post by Tailwind Management, Inc."></iframe>
           </div>
         </article>
-        <article class="post-card post-card--small"
-                 data-brand="e.l.f."
-                 data-category="Beauty"
+      </div>
+    </div>
+    
+    <div class="brand-block"
+         id="arm-hammer"
+         data-brand="Arm &amp; Hammer"
+         data-category="Household">
+      <div class="section__label">Brand</div>
+      <h2 class="section__title">Arm &amp; Hammer</h2>
+      <div class="post-grid">
+        
+        <article class="post-card"
                  data-event-type="Other">
-          <span class="post-card__brand">e.l.f.</span>
           <header class="post-card__head">
-            <span class="post-card__supplier">Campus Realty Advisors</span>
+            <span class="post-card__supplier">Andretti Indoor Karting &amp; Games</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
           </header>
           <div class="post-card__embed">
-            <iframe src="https://www.instagram.com/p/DXxLHxLEV97/embed/captioned/"
+            <iframe src="https://www.instagram.com/p/DQmwSz4jlud/embed/captioned/"
                     loading="lazy"
                     frameborder="0"
                     scrolling="no"
                     allowtransparency="true"
                     allow="encrypted-media; autoplay"
-                    title="Instagram post by Campus Realty Advisors"></iframe>
+                    title="Instagram post by Andretti Indoor Karting &amp; Games"></iframe>
           </div>
         </article>
-        <article class="post-card post-card--small"
-                 data-brand="Just Made"
-                 data-category="Food"
+      </div>
+    </div>
+  </section>
+  <section class="section brand-pair">
+    
+    <div class="brand-block"
+         id="just-made"
+         data-brand="Just Made"
+         data-category="Food">
+      <div class="section__label">Brand</div>
+      <h2 class="section__title">Just Made</h2>
+      <div class="post-grid">
+        
+        <article class="post-card"
                  data-event-type="Other">
-          <span class="post-card__brand">Just Made</span>
           <header class="post-card__head">
             <span class="post-card__supplier">West Coast Farmers Market</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
@@ -2520,30 +2321,19 @@
                     title="Instagram post by West Coast Farmers Market"></iframe>
           </div>
         </article>
-        <article class="post-card post-card--small"
-                 data-brand="Goodles"
-                 data-category="Food"
-                 data-event-type="Fitness Studios">
-          <span class="post-card__brand">Goodles</span>
-          <header class="post-card__head">
-            <span class="post-card__supplier">Pure Barre</span>
-            <span class="post-card__platform post-card__platform--ig">Instagram</span>
-          </header>
-          <div class="post-card__embed">
-            <iframe src="https://www.instagram.com/p/C9NRASCJ_2H/embed/captioned/"
-                    loading="lazy"
-                    frameborder="0"
-                    scrolling="no"
-                    allowtransparency="true"
-                    allow="encrypted-media; autoplay"
-                    title="Instagram post by Pure Barre"></iframe>
-          </div>
-        </article>
-        <article class="post-card post-card--small"
-                 data-brand="Shrimp Chips"
-                 data-category="Food"
+      </div>
+    </div>
+    
+    <div class="brand-block"
+         id="shrimp-chips"
+         data-brand="Shrimp Chips"
+         data-category="Food">
+      <div class="section__label">Brand</div>
+      <h2 class="section__title">Shrimp Chips</h2>
+      <div class="post-grid">
+        
+        <article class="post-card"
                  data-event-type="Student Housing">
-          <span class="post-card__brand">Shrimp Chips</span>
           <header class="post-card__head">
             <span class="post-card__supplier">Campus Apartments</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
@@ -2558,82 +2348,52 @@
                     title="Instagram post by Campus Apartments"></iframe>
           </div>
         </article>
-        <article class="post-card post-card--small"
-                 data-brand="W"
-                 data-category="Beverages"
-                 data-event-type="Student Housing">
-          <span class="post-card__brand">W</span>
+      </div>
+    </div>
+  </section>
+  <section class="section brand-section">
+    
+    <div class="brand-block"
+         id="goodles"
+         data-brand="Goodles"
+         data-category="Food">
+      <div class="section__label">Brand</div>
+      <h2 class="section__title">Goodles</h2>
+      <div class="post-grid">
+        
+        <article class="post-card"
+                 data-event-type="Fitness Studios">
           <header class="post-card__head">
-            <span class="post-card__supplier">Tailwind Management, Inc.</span>
+            <span class="post-card__supplier">Zoo Gym</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
           </header>
           <div class="post-card__embed">
-            <iframe src="https://www.instagram.com/p/DRS9SLnjaV5/embed/captioned/"
+            <iframe src="https://www.instagram.com/p/DSVSMhkEhS1/embed/captioned/"
                     loading="lazy"
                     frameborder="0"
                     scrolling="no"
                     allowtransparency="true"
                     allow="encrypted-media; autoplay"
-                    title="Instagram post by Tailwind Management, Inc."></iframe>
+                    title="Instagram post by Zoo Gym"></iframe>
           </div>
         </article>
-        <article class="post-card post-card--small"
-                 data-brand="W"
-                 data-category="Beverages"
-                 data-event-type="Student Housing">
-          <span class="post-card__brand">W</span>
+        <article class="post-card"
+                 data-event-type="Social Sports">
           <header class="post-card__head">
-            <span class="post-card__supplier">Campus Apartments</span>
-            <span class="post-card__platform post-card__platform--fb">Facebook</span>
-          </header>
-          <div class="post-card__embed">
-            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fphoto%3Ffbid%3D1196196059190910%26set%3Da.493068756170314&amp;show_text=true&amp;width=350"
-                    loading="lazy"
-                    frameborder="0"
-                    scrolling="no"
-                    allowtransparency="true"
-                    allow="encrypted-media; autoplay"
-                    title="Facebook post by Campus Apartments"></iframe>
-          </div>
-        </article>
-        <article class="post-card post-card--small"
-                 data-brand="W"
-                 data-category="Beverages"
-                 data-event-type="Student Housing">
-          <span class="post-card__brand">W</span>
-          <header class="post-card__head">
-            <span class="post-card__supplier">Asset Living</span>
+            <span class="post-card__supplier">Brick City Run Club</span>
             <span class="post-card__platform post-card__platform--ig">Instagram</span>
           </header>
           <div class="post-card__embed">
-            <iframe src="https://www.instagram.com/p/DQZ-aDEj045/embed/captioned/"
+            <iframe src="https://www.instagram.com/reel/DPKCZ1rCYpN/embed/captioned/"
                     loading="lazy"
                     frameborder="0"
                     scrolling="no"
                     allowtransparency="true"
                     allow="encrypted-media; autoplay"
-                    title="Instagram post by Asset Living"></iframe>
+                    title="Instagram post by Brick City Run Club"></iframe>
           </div>
         </article>
-        <article class="post-card post-card--small"
-                 data-brand="Gooderfoods"
-                 data-category="Food"
-                 data-event-type="Other">
-          <span class="post-card__brand">Gooderfoods</span>
-          <header class="post-card__head">
-            <span class="post-card__supplier">University of Maryland</span>
-            <span class="post-card__platform post-card__platform--ig">Instagram</span>
-          </header>
-          <div class="post-card__embed">
-            <iframe src="https://www.instagram.com/p/DXuVCxqEfil/embed/captioned/"
-                    loading="lazy"
-                    frameborder="0"
-                    scrolling="no"
-                    allowtransparency="true"
-                    allow="encrypted-media; autoplay"
-                    title="Instagram post by University of Maryland"></iframe>
-          </div>
-        </article>
+      </div>
     </div>
   </section>
 
@@ -2648,11 +2408,7 @@
     (function () {
       var state = { brand: null, category: null, "event-type": null };
       var selects = document.querySelectorAll(".filter-select");
-      // All filterable container sections (single-brand sections, multi-brand
-      // spotlights, portfolio bands, featured, showcase).
-      var sections = document.querySelectorAll(
-        ".spotlight-brand-section, .featured-section, .brand-pair-section, .spotlight-section, .portfolio-band, .showcase-section"
-      );
+      var sections = document.querySelectorAll(".brand-section, .brand-pair");
       var emptyState = document.getElementById("empty-state");
 
       selects.forEach(function (sel) {
@@ -2665,61 +2421,41 @@
         });
       });
 
-      function cardMatches(card, block) {
-        // Brand check — cards in cross-brand spotlights match if any of the
-        // multiple brands is selected.
-        var brandOk = true, catOk = true;
-        var isCrossSpotlight = block && block.classList.contains("spotlight-block");
-        if (state.brand) {
-          if (isCrossSpotlight) {
-            var brands = (block.dataset.brands || "").split("|");
-            brandOk = brands.indexOf(state.brand) !== -1;
-          } else {
-            // Prefer the card's own brand attribute, fall back to block's.
-            var cardBrand = card.dataset.brand || (block && block.dataset.brand);
-            brandOk = state.brand === cardBrand;
-          }
-        }
-        if (state.category) {
-          if (isCrossSpotlight) {
-            var cats = (block.dataset.categories || "").split("|");
-            catOk = cats.indexOf(state.category) !== -1;
-          } else {
-            var cardCat = card.dataset.category || (block && block.dataset.category);
-            catOk = state.category === cardCat;
-          }
-        }
-        var etOk = !state["event-type"] || state["event-type"] === card.dataset.eventType;
-        return brandOk && catOk && etOk;
-      }
-
       function applyFilters() {
         var anyVisible = false;
         sections.forEach(function (sec) {
           var sectionHasVisible = false;
-
-          // Sections with .brand-block wrappers (spotlights, bands, featured, pair)
-          var blocks = sec.querySelectorAll(".brand-block");
-          blocks.forEach(function (block) {
+          sec.querySelectorAll(".brand-block").forEach(function (block) {
+            var blockBrand = block.dataset.brand;
+            var blockCategory = block.dataset.category;
+            var isSpotlight = block.closest(".spotlight-section") !== null;
             var anyCardVisible = false;
             block.querySelectorAll(".post-card").forEach(function (card) {
-              var visible = cardMatches(card, block);
+              var brandOk = true, catOk = true;
+              if (state.brand) {
+                if (isSpotlight) {
+                  var brands = (block.dataset.brands || "").split("|");
+                  brandOk = brands.indexOf(state.brand) !== -1;
+                } else {
+                  brandOk = state.brand === blockBrand;
+                }
+              }
+              if (state.category) {
+                if (isSpotlight) {
+                  var cats = (block.dataset.categories || "").split("|");
+                  catOk = cats.indexOf(state.category) !== -1;
+                } else {
+                  catOk = state.category === blockCategory;
+                }
+              }
+              var etOk = !state["event-type"] || state["event-type"] === card.dataset.eventType;
+              var visible = brandOk && catOk && etOk;
               card.style.display = visible ? "" : "none";
               if (visible) anyCardVisible = true;
             });
             block.style.display = anyCardVisible ? "" : "none";
             if (anyCardVisible) sectionHasVisible = true;
           });
-
-          // Sections with flat post-cards (showcase)
-          if (blocks.length === 0) {
-            sec.querySelectorAll(".post-card").forEach(function (card) {
-              var visible = cardMatches(card, null);
-              card.style.display = visible ? "" : "none";
-              if (visible) sectionHasVisible = true;
-            });
-          }
-
           sec.style.display = sectionHasVisible ? "" : "none";
           if (sectionHasVisible) anyVisible = true;
         });
@@ -2734,6 +2470,7 @@
         });
         applyFilters();
       });
+
     })();
   </script>
 
