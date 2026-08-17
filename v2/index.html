@@ -478,6 +478,79 @@
       .spotlight-info__meta { gap: 20px; grid-template-columns: 1fr; }
       .spotlight-posts { grid-template-columns: 1fr; gap: 16px; }
     }
+  
+
+    /* Reels row — 8 videos in 2 rows of 4 at the top */
+    .reels-section {
+      max-width: 1280px;
+      padding: 48px 48px 24px;
+      margin: 0 auto;
+    }
+    .reels-header {
+      max-width: 720px;
+      margin-bottom: 28px;
+    }
+    .reels-title {
+      font-size: clamp(1.6rem, 2.5vw + 0.4rem, 2.25rem);
+      font-weight: 800; letter-spacing: -0.01em;
+      color: var(--white); margin: 6px 0 8px 0;
+    }
+    .reels-caption {
+      font-size: 15px; color: var(--white-60); line-height: 1.5;
+      margin: 0; max-width: 540px;
+    }
+    .reels {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+    .reel {
+      position: relative;
+      background: var(--navy-light);
+      border: 1px solid var(--white-08);
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 9 / 16;
+      transition: border-color 0.3s ease, transform 0.3s ease;
+    }
+    .reel:hover {
+      border-color: rgba(20,185,214,0.35);
+      transform: translateY(-2px);
+    }
+    .reel video {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      background: #000;
+    }
+    .reel__caption {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      padding: 12px 14px 14px;
+      background: linear-gradient(to top, rgba(10,15,26,0.92) 0%, rgba(10,15,26,0.7) 60%, rgba(10,15,26,0) 100%);
+      pointer-events: none;
+      display: flex; flex-direction: column; gap: 2px;
+    }
+    .reel__brand {
+      font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--aqua);
+    }
+    .reel__supplier {
+      font-size: 12px; font-weight: 500; color: var(--white-85);
+      overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    }
+    @media (max-width: 1000px) {
+      .reels { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 560px) {
+      .reels { grid-template-columns: 1fr; }
+      .reels-section { padding: 32px 20px 16px; }
+    }
+      @media (max-width: 560px) {
+      .reels { grid-template-columns: 1fr; }
+      .reels-section { padding: 32px 20px 16px; }
+    }
   </style>
 </head>
 <body>
@@ -497,6 +570,88 @@
       <p class="hero__subtitle">Every post you'll scroll was published by the venue running the campaign — fitness studios, student housing, coworking, festivals, races, holiday markets, and more.</p>
     </div>
   </section>
+  <section class="section reels-section" id="reels">
+    <div class="reels-header">
+      <div class="section__label">See the moment in action</div>
+      <h2 class="reels-title">Real activations. Real reach.</h2>
+      <p class="reels-caption">Video clips straight from the venues — the moments their communities actually saw.</p>
+    </div>
+    <div class="reels">
+        <div class="reel">
+          <video controls playsinline preload="metadata" muted>
+            <source src="videos/kraft-mac-velveeta-109tower.mp4" type="video/mp4">
+          </video>
+          <div class="reel__caption">
+            <span class="reel__brand">Kraft Heinz</span>
+            <span class="reel__supplier">109 Tower</span>
+          </div>
+        </div>
+        <div class="reel">
+          <video controls playsinline preload="metadata" muted>
+            <source src="videos/goodles-f45-downtownla.mp4" type="video/mp4">
+          </video>
+          <div class="reel__caption">
+            <span class="reel__brand">Goodles</span>
+            <span class="reel__supplier">F45 Downtown LA</span>
+          </div>
+        </div>
+        <div class="reel">
+          <video controls playsinline preload="metadata" muted>
+            <source src="videos/natures-twist-wilder-raleigh.mp4" type="video/mp4">
+          </video>
+          <div class="reel__caption">
+            <span class="reel__brand">Nature's Twist</span>
+            <span class="reel__supplier">The Wilder Raleigh</span>
+          </div>
+        </div>
+        <div class="reel">
+          <video controls playsinline preload="metadata" muted>
+            <source src="videos/oikos-barrys-bootcamp.mp4" type="video/mp4">
+          </video>
+          <div class="reel__caption">
+            <span class="reel__brand">Oikos</span>
+            <span class="reel__supplier">Barry's Bootcamp</span>
+          </div>
+        </div>
+        <div class="reel">
+          <video controls playsinline preload="metadata" muted>
+            <source src="videos/ghost-science-drive-ucf.mp4" type="video/mp4">
+          </video>
+          <div class="reel__caption">
+            <span class="reel__brand">Ghost Energy</span>
+            <span class="reel__supplier">Science Drive at UCF</span>
+          </div>
+        </div>
+        <div class="reel">
+          <video controls playsinline preload="metadata" muted>
+            <source src="videos/mountain-dew-quarters-bloomington.mp4" type="video/mp4">
+          </video>
+          <div class="reel__caption">
+            <span class="reel__brand">Mountain Dew</span>
+            <span class="reel__supplier">The Quarters Bloomington</span>
+          </div>
+        </div>
+        <div class="reel">
+          <video controls playsinline preload="metadata" muted>
+            <source src="videos/la-colombe-forest-lake.mp4" type="video/mp4">
+          </video>
+          <div class="reel__caption">
+            <span class="reel__brand">La Colombe</span>
+            <span class="reel__supplier">Forest Lake</span>
+          </div>
+        </div>
+        <div class="reel">
+          <video controls playsinline preload="metadata" muted>
+            <source src="videos/kleenex-spenga-danville.mp4" type="video/mp4">
+          </video>
+          <div class="reel__caption">
+            <span class="reel__brand">Kleenex</span>
+            <span class="reel__supplier">SPENGA Danville</span>
+          </div>
+        </div>
+    </div>
+  </section>
+
 
   <section class="filters" aria-label="Filter posts">
     <div class="filters__inner">
