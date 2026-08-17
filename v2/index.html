@@ -570,6 +570,32 @@
       <p class="hero__subtitle">Every post you'll scroll was published by the venue running the campaign — fitness studios, student housing, coworking, festivals, races, holiday markets, and more.</p>
     </div>
   </section>
+
+
+  <section class="filters" aria-label="Filter posts">
+    <div class="filters__inner">
+
+      <label class="filter-select-wrap">
+        <span class="filter-select-wrap__label">Brand</span>
+        <select class="filter-select" data-group="brand"><option value="all">All</option><option value="Peace Tea">Peace Tea</option><option value="Starburst">Starburst</option><option value="Stōk Cold Brew">Stōk Cold Brew</option><option value="Amazing Grass">Amazing Grass</option><option value="Dove">Dove</option><option value="Hero">Hero</option><option value="e.l.f.">e.l.f.</option><option value="Cover Girl">Cover Girl</option><option value="Kraft Mac &amp; Cheese">Kraft Mac &amp; Cheese</option><option value="Mio">Mio</option><option value="Velveeta">Velveeta</option><option value="Alka-Seltzer">Alka-Seltzer</option><option value="Midol">Midol</option><option value="Ghost">Ghost</option><option value="La Colombe">La Colombe</option><option value="Heineken">Heineken</option><option value="Hawaiian Tropic">Hawaiian Tropic</option><option value="Mountain Dew">Mountain Dew</option><option value="Arm &amp; Hammer">Arm &amp; Hammer</option><option value="Kleenex">Kleenex</option><option value="Just Made">Just Made</option><option value="Goodles">Goodles</option><option value="Shrimp Chips">Shrimp Chips</option><option value="W">W</option><option value="Nature's Twist">Nature's Twist</option><option value="Oikos">Oikos</option><option value="Snapple">Snapple</option><option value="Clorox">Clorox</option></select>
+      </label>
+      <label class="filter-select-wrap">
+        <span class="filter-select-wrap__label">Category</span>
+        <select class="filter-select" data-group="category"><option value="all">All</option><option value="Food">Food</option><option value="Beverages">Beverages</option><option value="Beauty">Beauty</option><option value="Wellness">Wellness</option><option value="Household">Household</option></select>
+      </label>
+      <label class="filter-select-wrap">
+        <span class="filter-select-wrap__label">Event type</span>
+        <select class="filter-select" data-group="event-type"><option value="all">All</option><option value="Fitness Studios">Fitness Studios</option><option value="Student Housing">Student Housing</option><option value="Coworking">Coworking</option><option value="Festivals">Festivals</option><option value="Social Sports">Social Sports</option><option value="Other">Other</option></select>
+      </label>
+    </div>
+  </section>
+
+  <div id="empty-state" class="empty-state" hidden>
+    No posts match the selected filters. <button class="empty-state__reset">Reset</button>
+  </div>
+
+  
+
   <section class="section reels-section" id="reels">
     <div class="reels-header">
       <div class="section__label">See the moment in action</div>
@@ -650,33 +676,7 @@
           </div>
         </div>
     </div>
-  </section>
-
-
-  <section class="filters" aria-label="Filter posts">
-    <div class="filters__inner">
-
-      <label class="filter-select-wrap">
-        <span class="filter-select-wrap__label">Brand</span>
-        <select class="filter-select" data-group="brand"><option value="all">All</option><option value="Peace Tea">Peace Tea</option><option value="Starburst">Starburst</option><option value="Stōk Cold Brew">Stōk Cold Brew</option><option value="Amazing Grass">Amazing Grass</option><option value="Dove">Dove</option><option value="Hero">Hero</option><option value="e.l.f.">e.l.f.</option><option value="Cover Girl">Cover Girl</option><option value="Kraft Mac &amp; Cheese">Kraft Mac &amp; Cheese</option><option value="Mio">Mio</option><option value="Velveeta">Velveeta</option><option value="Alka-Seltzer">Alka-Seltzer</option><option value="Midol">Midol</option><option value="Ghost">Ghost</option><option value="La Colombe">La Colombe</option><option value="Heineken">Heineken</option><option value="Hawaiian Tropic">Hawaiian Tropic</option><option value="Mountain Dew">Mountain Dew</option><option value="Arm &amp; Hammer">Arm &amp; Hammer</option><option value="Kleenex">Kleenex</option><option value="Just Made">Just Made</option><option value="Goodles">Goodles</option><option value="Shrimp Chips">Shrimp Chips</option><option value="W">W</option><option value="Nature's Twist">Nature's Twist</option><option value="Oikos">Oikos</option><option value="Snapple">Snapple</option><option value="Clorox">Clorox</option></select>
-      </label>
-      <label class="filter-select-wrap">
-        <span class="filter-select-wrap__label">Category</span>
-        <select class="filter-select" data-group="category"><option value="all">All</option><option value="Food">Food</option><option value="Beverages">Beverages</option><option value="Beauty">Beauty</option><option value="Wellness">Wellness</option><option value="Household">Household</option></select>
-      </label>
-      <label class="filter-select-wrap">
-        <span class="filter-select-wrap__label">Event type</span>
-        <select class="filter-select" data-group="event-type"><option value="all">All</option><option value="Fitness Studios">Fitness Studios</option><option value="Student Housing">Student Housing</option><option value="Coworking">Coworking</option><option value="Festivals">Festivals</option><option value="Social Sports">Social Sports</option><option value="Other">Other</option></select>
-      </label>
-    </div>
-  </section>
-
-  <div id="empty-state" class="empty-state" hidden>
-    No posts match the selected filters. <button class="empty-state__reset">Reset</button>
-  </div>
-
-  
-  <section class="section brand-section spotlight-section">
+  </section>  <section class="section brand-section spotlight-section">
 
     <div class="brand-block spotlight-block"
          data-brands="Mountain Dew|Kraft Mac &amp; Cheese"
