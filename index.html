@@ -576,6 +576,10 @@
     <div class="filters__inner">
 
       <label class="filter-select-wrap">
+        <span class="filter-select-wrap__label">Advertiser</span>
+        <select class="filter-select" data-group="advertiser"><option value="all">All</option></select>
+      </label>
+      <label class="filter-select-wrap">
         <span class="filter-select-wrap__label">Brand</span>
         <select class="filter-select" data-group="brand"><option value="all">All</option><option value="Peace Tea">Peace Tea</option><option value="Starburst">Starburst</option><option value="Stōk Cold Brew">Stōk Cold Brew</option><option value="Amazing Grass">Amazing Grass</option><option value="Dove">Dove</option><option value="Hero">Hero</option><option value="e.l.f.">e.l.f.</option><option value="Cover Girl">Cover Girl</option><option value="Kraft Mac &amp; Cheese">Kraft Mac &amp; Cheese</option><option value="Mio">Mio</option><option value="Velveeta">Velveeta</option><option value="Alka-Seltzer">Alka-Seltzer</option><option value="Midol">Midol</option><option value="Ghost">Ghost</option><option value="La Colombe">La Colombe</option><option value="Heineken">Heineken</option><option value="Hawaiian Tropic">Hawaiian Tropic</option><option value="Mountain Dew">Mountain Dew</option><option value="Arm &amp; Hammer">Arm &amp; Hammer</option><option value="Kleenex">Kleenex</option><option value="Just Made">Just Made</option><option value="Goodles">Goodles</option><option value="Shrimp Chips">Shrimp Chips</option><option value="W">W</option><option value="Nature's Twist">Nature's Twist</option><option value="Oikos">Oikos</option><option value="Snapple">Snapple</option><option value="Clorox">Clorox</option></select>
       </label>
@@ -3236,7 +3240,62 @@
 
   <script>
     (function () {
-      var state = { brand: null, category: null, "event-type": null };
+      var state = { advertiser: null, brand: null, category: null, "event-type": null };
+      // Brand -> parent advertiser (corporate umbrella). New brands need an entry here.
+      var ADVERTISERS = {
+        "Alka-Seltzer": "Bayer",
+        "Midol": "Bayer",
+        "Hero": "Church & Dwight",
+        "Arm & Hammer": "Church & Dwight",
+        "Kraft Mac & Cheese": "Kraft Heinz",
+        "Mio": "Kraft Heinz",
+        "Velveeta": "Kraft Heinz",
+        "Stōk Cold Brew": "Danone",
+        "Oikos": "Danone",
+        "Ghost": "Keurig Dr Pepper",
+        "Snapple": "Keurig Dr Pepper",
+        "Peace Tea": "Coca-Cola",
+        "Starburst": "Mars",
+        "Amazing Grass": "Glanbia",
+        "Dove": "Unilever",
+        "Cover Girl": "Coty",
+        "e.l.f.": "e.l.f. Beauty",
+        "La Colombe": "Chobani",
+        "Heineken": "Heineken",
+        "Hawaiian Tropic": "Edgewell",
+        "Mountain Dew": "PepsiCo",
+        "Kleenex": "Kimberly-Clark",
+        "Clorox": "Clorox",
+        "Just Made": "Just Made",
+        "Goodles": "Gooderfoods",
+        "Shrimp Chips": "Calbee",
+        "W": "Get W",
+        "Nature's Twist": "Nature's Twist"
+      };
+      var advertiserSelect = document.querySelector('.filter-select[data-group="advertiser"]');
+      var brandSelect = document.querySelector('.filter-select[data-group="brand"]');
+      Object.keys(ADVERTISERS)
+        .map(function (b) { return ADVERTISERS[b]; })
+        .filter(function (a, i, arr) { return arr.indexOf(a) === i; })
+        .sort(function (a, b) { return a.localeCompare(b); })
+        .forEach(function (a) {
+          var opt = document.createElement("option");
+          opt.value = a; opt.textContent = a;
+          advertiserSelect.appendChild(opt);
+        });
+
+      // Limit the Brand dropdown to brands under the selected advertiser.
+      function syncBrandOptions() {
+        Array.prototype.forEach.call(brandSelect.options, function (opt) {
+          opt.hidden = opt.value !== "all" && !!state.advertiser && ADVERTISERS[opt.value] !== state.advertiser;
+        });
+        if (state.brand && state.advertiser && ADVERTISERS[state.brand] !== state.advertiser) {
+          state.brand = null;
+          brandSelect.value = "all";
+          brandSelect.classList.remove("filter-select--active");
+        }
+      }
+
       var selects = document.querySelectorAll(".filter-select");
       // All filterable container sections (single-brand sections, multi-brand
       // spotlights, portfolio bands, featured, showcase).
@@ -3251,6 +3310,7 @@
           var value = sel.value;
           state[group] = value === "all" ? null : value;
           sel.classList.toggle("filter-select--active", state[group] !== null);
+          if (group === "advertiser") syncBrandOptions();
           applyFilters();
         });
       });
@@ -3258,8 +3318,17 @@
       function cardMatches(card, block) {
         // Brand check — cards in cross-brand spotlights match if any of the
         // multiple brands is selected.
-        var brandOk = true, catOk = true;
+        var brandOk = true, catOk = true, advOk = true;
         var isCrossSpotlight = block && block.classList.contains("spotlight-block");
+        if (state.advertiser) {
+          // Judge each card by its own brand; only fall back to the block's list.
+          var advBrands = card.dataset.brand
+            ? [card.dataset.brand]
+            : isCrossSpotlight
+              ? (block.dataset.brands || "").split("|")
+              : [block && block.dataset.brand];
+          advOk = advBrands.some(function (b) { return ADVERTISERS[b] === state.advertiser; });
+        }
         if (state.brand) {
           if (isCrossSpotlight) {
             var brands = (block.dataset.brands || "").split("|");
@@ -3280,7 +3349,7 @@
           }
         }
         var etOk = !state["event-type"] || state["event-type"] === card.dataset.eventType;
-        return brandOk && catOk && etOk;
+        return advOk && brandOk && catOk && etOk;
       }
 
       function applyFilters() {
@@ -3317,11 +3386,12 @@
       }
 
       document.querySelector(".empty-state__reset").addEventListener("click", function () {
-        state = { brand: null, category: null, "event-type": null };
+        state = { advertiser: null, brand: null, category: null, "event-type": null };
         selects.forEach(function (s) {
           s.value = "all";
           s.classList.remove("filter-select--active");
         });
+        syncBrandOptions();
         applyFilters();
       });
     })();
