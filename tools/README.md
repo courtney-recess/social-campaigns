@@ -21,7 +21,7 @@ Posts already on the page are left out. So is the rest of a recap that's already
 A local review page opens with every candidate rendered the way the site shows it, grouped by brand. Facebook and Instagram block automated checks, so this is how dead posts get caught: they show as "unavailable" or blank.
 
 - Tick the posts to add. Adjust event type if the guess is off.
-- New brands land in "More brands on the platform". Set their category and advertiser, which feed the filters.
+- Brands with 1 or 2 posts on the page sit in "More brands on the platform". Once a brand reaches 3, Save moves it into its own section automatically. For new brands, set the category and advertiser, which feed the filters.
 - Tags: **Starred in photo tool**, **New venue** (venue not on the page yet), **Rights limited** / **Rights not set** (from the brand's photo licensing in the photo tool; check before adding).
 - **Save** writes approved posts into `index.html` and `_catalog.json`. Unticked posts go into `tools/skipped.json` so they don't come back (`--include-skipped` brings them back).
 

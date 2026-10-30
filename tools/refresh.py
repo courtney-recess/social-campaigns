@@ -108,7 +108,16 @@ VENUE_EVENT_TYPES = {
     "social_sports": "Social Sports",
     "active_recreation": "Social Sports",
 }
-FITNESS_WORDS = re.compile(r"gym|fitness|crunch|f45|yoga|pilates|cycle|spenga|barre|orangetheory|sweat|health ?club", re.I)
+# Many omnichannel recaps have no venue type; fall back to the venue/supplier name.
+NAME_EVENT_TYPES = [
+    ("Fitness Studios", re.compile(r"gym|fitness|crunch|f45|yoga|pilates|cycle|spenga|barre|orangetheory|sweat|"
+                                   r"health ?club|boxing|row ?house|bouldering|climbing", re.I)),
+    ("Student Housing", re.compile(r"cardinal group|b\.?hom|asset living|tailwind|campus|student|"
+                                   r"landmark properties|ACC\b|core spaces|peak campus", re.I)),
+    ("Social Sports", re.compile(r"cornhole|x3 sports|kickball|volleyball|run club|social sport", re.I)),
+    ("Coworking", re.compile(r"cowork|wework|industrious|regus", re.I)),
+    ("Festivals", re.compile(r"festival|fest\b|comic ?con", re.I)),
+]
 
 CATEGORY_TAGS = [
     ("Beverages", re.compile(r"beverage|coffee|tea|water|energy|juice|drink|beer|wine|spirit", re.I)),
@@ -271,8 +280,9 @@ def canonical_brand(name, known):
 def guess_event_type(venue_type, supplier, venue):
     if venue_type in VENUE_EVENT_TYPES:
         return VENUE_EVENT_TYPES[venue_type]
-    if FITNESS_WORDS.search(f"{supplier} {venue}"):
-        return "Fitness Studios"
+    for label, rx in NAME_EVENT_TYPES:
+        if rx.search(f"{supplier} {venue}"):
+            return label
     return "Other"
 
 
@@ -427,6 +437,54 @@ def add_filter_entries(page, c):
     return page
 
 
+OWN_SECTION_MIN = 3  # brands with fewer posts stay in "More brands on the platform"
+
+
+def promote_brands(page):
+    """Move showcase brands that now have OWN_SECTION_MIN+ posts into their own section."""
+    card_rx = re.compile(r'\n\s*<article class="post-card post-card--small"\s+data-brand="([^"]+)".*?</article>', re.S)
+    promoted = []
+    while True:
+        start = page.index('<div class="showcase-grid">')
+        cards = {}
+        for m in card_rx.finditer(page, start, matching_close(page, start)):
+            cards.setdefault(m.group(1), []).append(m)
+        big = [ms for ms in cards.values() if len(ms) >= OWN_SECTION_MIN]
+        if not big:
+            break
+        ms = big[0]
+        brand_attr = ms[0].group(1)
+        category = re.search(r'data-category="([^"]+)"', ms[0].group(0)).group(1)
+        body = "".join(
+            re.sub(r'\n\s*<span class="post-card__brand">.*?</span>', "",
+                   m.group(0).replace("post-card post-card--small", "post-card"), count=1)
+            for m in ms)
+        slug = re.sub(r"[^a-z0-9]+", "-", html.unescape(brand_attr).lower()).strip("-")
+        section = f'''  <section class="section featured-section">
+    <div class="brand-block"
+         id="{slug}"
+         data-brand="{brand_attr}"
+         data-category="{category}">
+      <div class="section__label">Brand</div>
+      <h2 class="section__title">{brand_attr}</h2>
+      <div class="post-grid">{body}
+      </div>
+    </div>
+  </section>
+'''
+        for m in reversed(ms):
+            page = page[:m.start()] + page[m.end():]
+        # New sections go after the existing featured brands, just above the paired/showcase rows.
+        anchor = page.find('  <section class="section brand-pair-section">')
+        if anchor == -1:
+            anchor = page.index('  <section class="section showcase-section">')
+        page = page[:anchor] + section + page[anchor:]
+        promoted.append(html.unescape(brand_attr))
+    if promoted:
+        print("Gave its own section:", ", ".join(promoted))
+    return page
+
+
 def apply_decisions(decisions):
     page = read_page()
     blocks = page_brands(page)
@@ -434,6 +492,7 @@ def apply_decisions(decisions):
     for c in approved:
         page = add_filter_entries(page, c)
         page = insert_card(page, c, blocks)
+    page = promote_brands(page)
     with open(INDEX, "w", encoding="utf-8") as f:
         f.write(page)
 

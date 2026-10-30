@@ -94,7 +94,7 @@
       const list = byBrand[brand];
       const isNew = !list[0].brand_on_page;
       groups.append(el("h2", {}, brand, el("small", {}, `${list.length} post${list.length > 1 ? "s" : ""}` +
-        (isNew ? " · new brand, goes in “More brands on the platform”" : ""))));
+        (isNew ? " · new brand: 3+ posts on the page get their own section, otherwise “More brands on the platform”" : ""))));
       const grid = el("div", { class: "grid" });
       list.forEach(c => {
         const rec = Object.assign({}, c, { approved: false });
