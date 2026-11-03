@@ -93,6 +93,7 @@ SPONSOR_ADVERTISERS = {
     "molson coors beverage company us llc": "Molson Coors",
     "chi forest (north america) inc": "Chi Forest",
     "bonduelle americas": "Bonduelle",
+    "mondelēz international": "Mondelēz",
 }
 
 VENUE_EVENT_TYPES = {

@@ -1474,5 +1474,41 @@
     "platform": "instagram",
     "url": "https://www.instagram.com/p/Deg0K2HxMc3/",
     "recap_id": "6aa316f385fa30543668af3c"
+  },
+  {
+    "brand_api": "Oreo",
+    "brand_display": "Oreo",
+    "category": "Food",
+    "event_type": "Student Housing",
+    "supplier": "Tailwind Management, Inc.",
+    "venue": "The Landing at St Louis",
+    "campaign": "Oreo",
+    "platform": "instagram",
+    "url": "https://www.instagram.com/p/C-5wr1ZRif5/",
+    "recap_id": "6669ada3d9b85200024b506a"
+  },
+  {
+    "brand_api": "Oreo",
+    "brand_display": "Oreo",
+    "category": "Food",
+    "event_type": "Student Housing",
+    "supplier": "Tailwind Management, Inc.",
+    "venue": "The Quarters Manhattan",
+    "campaign": "Oreo",
+    "platform": "instagram",
+    "url": "https://www.instagram.com/p/C-54fo3RIdB/",
+    "recap_id": "666a00120d86770006a564ae"
+  },
+  {
+    "brand_api": "Oreo",
+    "brand_display": "Oreo",
+    "category": "Food",
+    "event_type": "Student Housing",
+    "supplier": "Tailwind Management, Inc.",
+    "venue": "The Landing at College Station",
+    "campaign": "Oreo",
+    "platform": "instagram",
+    "url": "https://www.instagram.com/p/C-25SHDOZ58/",
+    "recap_id": "666a00660d86770006a564d0"
   }
 ]
